@@ -4,7 +4,16 @@ project(autonomos_simulation)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED)
+# find_package(catkin REQUIRED)
+find_package(catkin REQUIRED COMPONENTS 
+	roscpp
+	std_msgs
+	geometry_msgs
+	cmake_modules REQUIRED
+	tf2_ros
+	# Eigen REQUIRED
+	tf2
+	gazebo_msgs)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -89,7 +98,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 # include_directories(include)
-
+include_directories(include ${catkin_INCLUDE_DIRS} ${Eigen_INCLUDE_DIRS})
 ## Declare a cpp library
 # add_library(AutoNOMOS_simulation
 #   src/${PROJECT_NAME}/AutoNOMOS_simulation.cpp
@@ -97,7 +106,11 @@ catkin_package(
 
 ## Declare a cpp executable
 # add_executable(AutoNOMOS_simulation_node src/AutoNOMOS_simulation_node.cpp)
+add_executable(tf2_broadcaster_node tf2_broadcaster_node.cpp)
+# add_executable(robot_trajectory_node robot_trajectory_node.cpp)
 
+target_link_libraries(tf2_broadcaster_node ${catkin_LIBRARIES})
+# target_link_libraries(robot_trajectory_node ${catkin_LIBRARIES})
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
 # add_dependencies(AutoNOMOS_simulation_node AutoNOMOS_simulation_generate_messages_cpp)
