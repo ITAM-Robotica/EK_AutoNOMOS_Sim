@@ -12,6 +12,10 @@
 #include <turtlesim/Pose.h>
 #include <Eigen/Geometry>
 #include "gazebo_msgs/LinkStates.h"
+
+#include <tf2/LinearMath/Quaternion.h>
+#include <tf2_ros/transform_broadcaster.h>
+#include <geometry_msgs/TransformStamped.h>
 // #include <LinkStates.h>
 
 using namespace Eigen;
@@ -22,7 +26,7 @@ using namespace Eigen;
 // 		dummy.angular.z
 geometry_msgs::Pose robot_pose;
 geometry_msgs::Twist target_position;
-
+std::string robot_name;
 //rate_hz assignment
 double rate_hz = 30;
 
@@ -116,7 +120,23 @@ geometry_msgs::Twist boundVelocity(geometry_msgs::Twist velocity) {
 		velocity.angular.z = -min_angular_speed;
 
 }
+void poseCallback(const gazebo_msgs::LinkStates& msg){
+	static tf2_ros::TransformBroadcaster br;
+	geometry_msgs::TransformStamped transformStamped;
+	
+	transformStamped.header.stamp = ros::Time::now();
+	transformStamped.header.frame_id = "world";
+	transformStamped.child_frame_id = robot_name;
 
+	transformStamped.transform.translation.x = msg.pose[1].position.x;
+	transformStamped.transform.translation.y = msg.pose[1].position.y;
+	transformStamped.transform.translation.z = msg.pose[1].position.z;
+	
+    transformStamped.transform.rotation = msg.pose[1].orientation;
+
+    br.sendTransform(transformStamped);
+
+}
 
 int main(int argc, char **argv){
 	ros::init(argc,argv,"intersection_localization_node");
@@ -144,13 +164,16 @@ int main(int argc, char **argv){
     //define the rate
 	ros::Rate rate(rate_hz);
 	tf::Transform transform;
-	tf::quaternion q;
+	double b1=0, b2=0;
 	while (ros::ok())
 	{
-        //ROS_INFO_STREAM use for debugging
-		transform.setOrigin(tf::Vector3(robot_position.linear.x, robot_position.linear.y, 0.0));
-		q.setRPY(0,0,robot_position.angular.z);
-		transform.setRotation(q);
+        
+		transform.setOrigin(robot_pose.position);
+		transform.setRotation(robot_pose.orientation);
+
+		b1 = robot_pose.position.y - tan(54 * PI / 180.0) * robot_pose.position.x;
+		b2 = robot_pose.position.y - tan(124 * PI / 180.0) * robot_pose.position.x;
+
 
 
 		ROS_INFO_STREAM("Point1 Position:"
