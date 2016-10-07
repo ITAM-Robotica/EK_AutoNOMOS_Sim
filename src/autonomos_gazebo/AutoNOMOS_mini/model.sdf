@@ -1,0 +1,404 @@
+<?xml version='1.0'?>
+<sdf version='1.5'>
+  <model name='AutoNOMOS_mini'>
+    <!-- <static>true</static> -->
+    <link name="chassis">
+      <pose>0 0 0.1 0 0 0</pose>
+      <inertial>
+        <mass>2</mass>
+        <inertia>
+          <ixx>0.13628333</ixx>
+          <iyy>0.02683733</iyy>
+          <izz>0.15458733</izz>
+          <ixy>0.04094</ixy>
+          <ixz>0.00736</ixz>
+          <iyz>0.0178</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.130 .445 .080</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>100</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="chassis_visual">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <box>
+            <size>.144 .445 .08</size>
+          </box>
+        </geometry>
+        <!-- <material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>0 0 0 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+ -->      </visual>
+    </link>
+
+    <link name="wheel1">
+      <pose>0.07425 .1035 0.08 0 1.57075 0</pose>
+      <inertial>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>0.00002045</ixx>
+          <iyy>0.00002045</iyy>
+          <izz>0.000024025</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+          	<radius> .031 </radius>
+            <length> .045 </length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>100</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="wheel1_visual">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <cylinder>
+          	<radius> .031 </radius>
+            <length> .045 </length>
+          </cylinder>
+        </geometry>
+        <!-- <material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>0 0 0 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+ -->      </visual>
+    </link>
+
+    <link name="wheel2">
+      <pose>-0.07425 .1035 0.08 0 1.57075 0</pose>
+      <inertial>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>0.00002045</ixx>
+          <iyy>0.00002045</iyy>
+          <izz>0.000024025</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+          	<radius> .031 </radius>
+            <length> .045 </length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>100</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="wheel2_visual">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <cylinder>
+          	<radius> .031 </radius>
+            <length> .045 </length>
+          </cylinder>
+        </geometry>
+        <!-- <material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>0 0 0 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+ -->      </visual>
+    </link>
+
+    <link name="wheel3">
+      <pose>0.07425 -.1625 0.08 0 1.57075 0</pose>
+      <inertial>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>0.00002045</ixx>
+          <iyy>0.00002045</iyy>
+          <izz>0.000024025</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+          	<radius> .031 </radius>
+            <length> .045 </length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>100</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="wheel3_visual">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <cylinder>
+          	<radius> .031 </radius>
+            <length> .045 </length>
+          </cylinder>
+        </geometry>
+        <!-- <material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>0 0 0 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+ -->      </visual>
+    </link>
+
+    <link name="wheel4">
+      <pose>-0.07425 -.1625 0.08 0 1.57075 0</pose>
+      <inertial>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>0.00002045</ixx>
+          <iyy>0.00002045</iyy>
+          <izz>0.000024025</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+          	<radius> .031 </radius>
+            <length> .045 </length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>100</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="wheel4_visual">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <cylinder>
+          	<radius> .031 </radius>
+            <length> .045 </length>
+          </cylinder>
+        </geometry>
+        <!-- <material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>0 0 0 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+ -->      </visual>
+    </link>
+
+    <!-- <joint name='chassis-wheel_JOINT1' type='revolute'>
+      <parent>chassis</parent>
+      <child>wheel1</child>
+      <pose frame=''>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
+        <limit>
+          <lower>-1.79769e+308</lower>
+          <upper>1.79769e+308</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0</damping>
+          <friction>0</friction>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+          <suspension>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </suspension>
+        </ode>
+      </physics>
+    </joint> -->
+
+    <!-- <joint name='chassis-wheel_JOINT2' type='revolute'>
+      <parent>chassis</parent>
+      <child>wheel2</child>
+      <pose frame=''>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
+        <limit>
+          <lower>-1.79769e+308</lower>
+          <upper>1.79769e+308</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0</damping>
+          <friction>0</friction>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+          <suspension>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </suspension>
+        </ode>
+      </physics>
+    </joint> -->
+
+    <joint name='chassis-wheel_JOINT3' type='revolute'>
+      <parent>chassis</parent>
+      <child>wheel3</child>
+      <pose frame=''>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
+        <limit>
+          <lower>-1.79769e+308</lower>
+          <upper>1.79769e+308</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0</damping>
+          <friction>0</friction>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+          <suspension>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </suspension>
+        </ode>
+      </physics>
+    </joint>
+
+    <joint name='chassis-wheel_JOINT4' type='revolute'>
+      <parent>chassis</parent>
+      <child>wheel4</child>
+      <pose frame=''>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
+        <limit>
+          <lower>-1.79769e+308</lower>
+          <upper>1.79769e+308</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0</damping>
+          <friction>0</friction>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+          <suspension>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </suspension>
+        </ode>
+      </physics>
+    </joint>
+
+    <joint name="wheel_right_steer_spin" type="universal">
+      <parent>chassis</parent>
+      <child>wheel1</child>
+      <axis>
+        <xyz>-1 0 0</xyz>
+        <limit>
+          <lower>-0.6108652381980153</lower>
+          <upper>0.6108652381980153</upper>
+        </limit>
+      </axis>
+      <axis2>
+        <xyz>0 0 1</xyz>
+      </axis2>
+    </joint>
+
+    <joint name="wheel_left_steer_spin" type="universal">
+      <parent>chassis</parent>
+      <child>wheel2</child>
+      <axis>
+        <xyz>-1 0 0</xyz>
+        <limit>
+          <lower>-0.6108652381980153</lower>
+          <upper>0.6108652381980153</upper>
+        </limit>
+      </axis>
+      <axis2>
+        <xyz>0 0 1</xyz>
+      </axis2>
+    </joint>
+  </model>
+</sdf>
+
+
+    
+
+

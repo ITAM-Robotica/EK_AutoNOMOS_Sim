@@ -1,0 +1,3342 @@
+<?xml version='1.0'?>
+<sdf version='1.5'>
+  <model name='AutoNOMOS_mini_intersection'>
+    <static>true</static>
+    <link name="field">
+      <pose>0 0 0.01 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>10 10</size>
+          </plane>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>100</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="carpet">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>10 10</size>
+          </plane>
+        </geometry>
+        <material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>0 0 0 1</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+    </link>
+
+    <!-- ######################################################## -->
+    <!-- ####################### NEW LINK ####################### -->
+    <!-- ######################################################## -->
+
+    <link name="line_1">
+      "<visual name='line_1'><pose>-4.5 -3.884 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-4.4 -3.722 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-4.3 -3.566 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-4.2 -3.418 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-4.1 -3.276 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-4 -3.141 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-3.9 -3.013 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-3.8 -2.891 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-3.7 -2.774 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-3.6 -2.664 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-3.5 -2.56 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-3.4 -2.461 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-3.3 -2.367 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-3.2 -2.279 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-3.1 -2.196 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-3 -2.118 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-2.9 -2.045 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-2.8 -1.976 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-2.7 -1.912 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-2.6 -1.852 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-2.5 -1.796 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-2.4 -1.744 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-2.3 -1.696 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-2.2 -1.652 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-2.1 -1.611 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-2 -1.573 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-1.9 -1.538 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-1.8 -1.507 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-1.7 -1.478 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-1.6 -1.452 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-1.5 -1.428 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-1.4 -1.407 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-1.3 -1.387 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-1.2 -1.37 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-1.1 -1.354 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-1 -1.34 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-0.9 -1.327 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-0.8 -1.316 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-0.7 -1.305 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-0.6 -1.296 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-0.5 -1.287 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-0.4 -1.279 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-0.3 -1.272 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-0.2 -1.264 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>-0.1 -1.257 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>0 -1.249 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>0.1 -1.241 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>0.2 -1.233 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>0.3 -1.224 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>0.4 -1.214 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>0.5 -1.203 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>0.6 -1.191 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>0.7 -1.178 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>0.8 -1.163 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>0.9 -1.146 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>1 -1.128 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>1.1 -1.107 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>1.2 -1.085 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>1.3 -1.059 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>1.4 -1.032 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>1.5 -1.001 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>1.6 -0.968 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>1.7 -0.931 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>1.8 -0.891 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>1.9 -0.848 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>2 -0.801 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>2.1 -0.75 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>2.2 -0.695 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>2.3 -0.636 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>2.4 -0.573 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>2.5 -0.505 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>2.6 -0.432 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>2.7 -0.354 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>2.8 -0.272 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>2.9 -0.184 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>3 -0.09 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>3.1 0.009 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>3.2 0.114 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>3.3 0.225 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>3.4 0.342 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>3.5 0.466 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>3.6 0.596 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>3.7 0.733 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>3.8 0.877 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>3.9 1.028 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>4 1.187 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>4.1 1.352 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>4.2 1.526 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>4.3 1.707 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>4.4 1.897 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_1'><pose>4.5 2.094 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.05 .05</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+    </link>
+
+    <!-- ######################################################## -->
+    <!-- ####################### NEW LINK ####################### -->
+    <!-- ######################################################## -->
+
+    <link name="line_2">
+      "<visual name='line_2'><pose>-4.5 -3.384 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-4.4 -3.222 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-4.3 -3.066 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-4.2 -2.918 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-4.1 -2.776 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-4 -2.641 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-3.9 -2.513 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-3.8 -2.391 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-3.7 -2.274 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-3.6 -2.164 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-3.5 -2.06 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-3.4 -1.961 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-3.3 -1.867 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-3.2 -1.779 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-3.1 -1.696 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-3 -1.618 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-2.9 -1.545 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-2.8 -1.476 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-2.7 -1.412 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-2.6 -1.352 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-2.5 -1.296 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-2.4 -1.244 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-2.3 -1.196 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-2.2 -1.152 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-2.1 -1.111 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-2 -1.073 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-1.9 -1.038 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-1.8 -1.007 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-1.7 -0.978 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-1.6 -0.952 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-1.5 -0.928 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-1.4 -0.907 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-1.3 -0.887 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-1.2 -0.87 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-1.1 -0.854 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-1 -0.84 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-0.9 -0.827 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-0.8 -0.816 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-0.7 -0.805 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-0.6 -0.796 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-0.5 -0.787 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-0.4 -0.779 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-0.3 -0.772 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-0.2 -0.764 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>-0.1 -0.757 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>0 -0.749 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>0.1 -0.741 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>0.2 -0.733 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>0.3 -0.724 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>0.4 -0.714 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>0.5 -0.703 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>0.6 -0.691 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>0.7 -0.678 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>0.8 -0.663 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>0.9 -0.646 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>1 -0.628 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>1.1 -0.607 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>1.2 -0.585 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>1.3 -0.559 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>1.4 -0.532 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>1.5 -0.501 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>1.6 -0.468 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>1.7 -0.431 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>1.8 -0.391 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>1.9 -0.348 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>2 -0.301 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>2.1 -0.25 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>2.2 -0.195 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>2.3 -0.136 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>2.4 -0.073 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>2.5 -0.005 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>2.6 0.068 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>2.7 0.146 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>2.8 0.228 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>2.9 0.316 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>3 0.41 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>3.1 0.509 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>3.2 0.614 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>3.3 0.725 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>3.4 0.842 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>3.5 0.966 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>3.6 1.096 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>3.7 1.233 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>3.8 1.377 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>3.9 1.528 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>4 1.687 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>4.1 1.852 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>4.2 2.026 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>4.3 2.207 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>4.4 2.397 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_2'><pose>4.5 2.594 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+    </link>
+
+    <!-- ######################################################## -->
+    <!-- ####################### NEW LINK ####################### -->
+    <!-- ######################################################## -->
+
+    <link name="line_3">
+      "<visual name='line_3'><pose>-4.5 -4.384 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-4.4 -4.222 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-4.3 -4.066 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-4.2 -3.918 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-4.1 -3.776 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-4 -3.641 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-3.9 -3.513 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-3.8 -3.391 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-3.7 -3.274 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-3.6 -3.164 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-3.5 -3.06 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-3.4 -2.961 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-3.3 -2.867 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-3.2 -2.779 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-3.1 -2.696 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-3 -2.618 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-2.9 -2.545 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-2.8 -2.476 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-2.7 -2.412 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-2.6 -2.352 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-2.5 -2.296 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-2.4 -2.244 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-2.3 -2.196 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-2.2 -2.152 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-2.1 -2.111 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-2 -2.073 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-1.9 -2.038 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-1.8 -2.007 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-1.7 -1.978 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-1.6 -1.952 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-1.5 -1.928 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-1.4 -1.907 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-1.3 -1.887 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-1.2 -1.87 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-1.1 -1.854 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-1 -1.84 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-0.9 -1.827 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-0.8 -1.816 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-0.7 -1.805 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-0.6 -1.796 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-0.5 -1.787 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-0.4 -1.779 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-0.3 -1.772 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-0.2 -1.764 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>-0.1 -1.757 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>0 -1.749 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>0.1 -1.741 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>0.2 -1.733 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>0.3 -1.724 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>0.4 -1.714 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>0.5 -1.703 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>0.6 -1.691 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>0.7 -1.678 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>0.8 -1.663 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>0.9 -1.646 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>1 -1.628 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>1.1 -1.607 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>1.2 -1.585 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>1.3 -1.559 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>1.4 -1.532 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>1.5 -1.501 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>1.6 -1.468 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>1.7 -1.431 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>1.8 -1.391 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>1.9 -1.348 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>2 -1.301 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>2.1 -1.25 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>2.2 -1.195 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>2.3 -1.136 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>2.4 -1.073 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>2.5 -1.005 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>2.6 -0.932 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>2.7 -0.854 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>2.8 -0.772 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>2.9 -0.684 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>3 -0.59 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>3.1 -0.491 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>3.2 -0.386 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>3.3 -0.275 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>3.4 -0.158 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>3.5 -0.034 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>3.6 0.096 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>3.7 0.233 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>3.8 0.377 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>3.9 0.528 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>4 0.687 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>4.1 0.852 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>4.2 1.026 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>4.3 1.207 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>4.4 1.397 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+"<visual name='line_3'><pose>4.5 1.594 0.011 0 0 0</pose> <cast_shadows>false</cast_shadows><geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.1 .1</size>
+          </plane>
+        </geometry><material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>1 1 1 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>"
+    </link>
+  </model>
+</sdf>
+
+
+    
+
+

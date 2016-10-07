@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+      <uri>model://AutoNOMOS_mini</uri>
+      <pose>.15 -3 0 0 0 1.57 </pose>
+    </include>
+    <include>
+      <uri>model://AutoNOMOS_mini_Intersection</uri>
+    </include>
+  </world>
+</sdf>
