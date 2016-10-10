@@ -9,7 +9,7 @@
 // #include <Eigen/LU>
 #include <math.h>
 #include <stdio.h>
-#include <turtlesim/Pose.h>
+// #include <turtlesim/Pose.h>
 // #include <Eigen/Geometry>
 #include "gazebo_msgs/LinkStates.h"
 
@@ -26,7 +26,7 @@
 geometry_msgs::Pose robot_pose;
 geometry_msgs::Twist target_position;
 std::string robot_name;
-typedef pcl::PointCloud<pcl::PointXYZ> PointCloud;
+// typedef pcl::PointCloud<pcl::PointXYZ> PointCloud;
 //rate_hz assignment
 double rate_hz = 30;
 

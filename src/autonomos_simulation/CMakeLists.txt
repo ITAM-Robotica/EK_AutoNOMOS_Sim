@@ -5,9 +5,12 @@ project(autonomos_simulation)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 # find_package(catkin REQUIRED)
+find_package(PCL REQUIRED)
 find_package(catkin REQUIRED COMPONENTS 
 	roscpp
 	std_msgs
+	pcl_conversions
+	pcl_msgs
 	geometry_msgs
 	cmake_modules REQUIRED
 	tf2_ros
@@ -85,6 +88,26 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
+	# INCLUDE_DIRS include
+	LIBRARIES
+    	pcl_ros_filters
+    	pcl_ros_io
+		pcl_ros_tf
+	CATKIN_DEPENDS
+    	dynamic_reconfigure
+    	# message_filters
+    	nodelet
+    	pcl_conversions
+    	pcl_msgs
+    	rosbag
+    	roscpp
+    	sensor_msgs
+    	std_msgs
+		tf
+	DEPENDS
+	    Boost
+	    Eigen
+		PCL
 #  INCLUDE_DIRS include
 #  LIBRARIES AutoNOMOS_simulation
 #  CATKIN_DEPENDS other_catkin_pkg
@@ -98,22 +121,28 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 # include_directories(include)
-include_directories(include ${catkin_INCLUDE_DIRS} ${Eigen_INCLUDE_DIRS})
+include_directories(include
+			${catkin_INCLUDE_DIRS} 
+			${Eigen_INCLUDE_DIRS} 
+			${PCL_INCLUDE_DIRS} )
 ## Declare a cpp library
 # add_library(AutoNOMOS_simulation
 #   src/${PROJECT_NAME}/AutoNOMOS_simulation.cpp
 # )
-
+link_directories(
+	${Boost_LIBRARY_DIRS}
+	${PCL_LIBRARY_DIRS})
+add_definitions(${PCL_DEFINITIONS})
 ## Declare a cpp executable
 # add_executable(AutoNOMOS_simulation_node src/AutoNOMOS_simulation_node.cpp)
-add_executable(tf2_broadcaster_node tf2_broadcaster_node.cpp
+add_executable(tf2_broadcaster_node tf2_broadcaster_node.cpp)
 add_executable(perception_node perception_node.cpp)
 add_executable(vision_node vision_node.cpp)
 # add_executable(robot_trajectory_node robot_trajectory_node.cpp)
 
 target_link_libraries(tf2_broadcaster_node ${catkin_LIBRARIES})
-target_link_libraries(perception_node ${catkin_LIBRARIES})
-target_link_libraries(vision_node ${catkin_LIBRARIES})
+target_link_libraries(perception_node ${catkin_LIBRARIES} ${PCL_LIBRARIES})
+target_link_libraries(vision_node ${catkin_LIBRARIES} ${PCL_LIBRARIES})
 # target_link_libraries(robot_trajectory_node ${catkin_LIBRARIES})
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
