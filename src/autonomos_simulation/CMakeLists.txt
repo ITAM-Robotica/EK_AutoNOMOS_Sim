@@ -14,6 +14,8 @@ find_package(catkin REQUIRED COMPONENTS
 	geometry_msgs
 	cmake_modules REQUIRED
 	tf2_ros
+	tf
+	pcl_ros
 	# Eigen REQUIRED
 	tf2
 	gazebo_msgs)
