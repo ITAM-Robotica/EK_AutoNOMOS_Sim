@@ -7,6 +7,7 @@
 #include <boost/foreach.hpp>
 // #include <turtlesim/Spawn.h>
 
+double rate_hz = 10;
 
 typedef pcl::PointCloud<pcl::PointXYZ> PointCloud;
 
@@ -24,7 +25,15 @@ int main(int argc, char** argv){
   ros::NodeHandle nh;
   // ros::init(argc, argv, "sub_pcl");
   // ros::NodeHandle nh;
+
+  ros::Rate loop_rate(rate_hz);
+
   ros::Subscriber sub = nh.subscribe<PointCloud>("points2", 1, callback);
-  ros::spin();
+
+  while(nh.ok())
+  {
+    ros::spinOnce();
+    loop_rate.sleep();
+  }
   return 0;
 };

@@ -28,7 +28,7 @@ geometry_msgs::Twist target_position;
 std::string robot_name;
 // typedef pcl::PointCloud<pcl::PointXYZ> PointCloud;
 //rate_hz assignment
-double rate_hz = 30;
+double rate_hz = 10;
 
 void poseCallback(const gazebo_msgs::LinkStates& msg){
 	static tf2_ros::TransformBroadcaster br;
@@ -71,37 +71,12 @@ int main(int argc, char **argv){
 
  //    //define the max speed
 	// // double cruise_speed = 30;
+	ros::Rate loop_rate(rate_hz);
+	while(nh.ok())
+	{
+		ros::spinOnce();
+		loop_rate.sleep();
 
- //    //define the rate
-	// ros::Rate rate(rate_hz);
-	// tf::Transform transform;
-	// double b1=0, b2=0;
-	// while (ros::ok())
-	// {
-        
-	// 	transform.setOrigin(robot_pose.position);
-	// 	transform.setRotation(robot_pose.orientation);
-
-	// 	b1 = robot_pose.position.y - tan(54 * PI / 180.0) * robot_pose.position.x;
-	// 	b2 = robot_pose.position.y - tan(124 * PI / 180.0) * robot_pose.position.x;
-
-
-
-	// 	ROS_INFO_STREAM("Point1 Position:"
-	// 		<<" X="<<robot_position.linear.x
-	// 		<<",Y="<<robot_position.linear.y);
-	// 	ROS_INFO_STREAM("Target position:"
-	// 		<<" X="<<target_position.linear.x
-	// 		<<",Y="<<target_position.linear.y
-	// 		<<",W="<<target_position.angular.z);
-
-		
-	// 	//publish the new velocity
-	// 	pub_cloud_points.publish(desired_velocity);
-		
-	// 	ros::spinOnce();
-	// 	rate.sleep();
- //        // tiempo+=(1/rate_hz); 
- //    }
+	}
     return 0;
 }

@@ -32,6 +32,7 @@
 // #include <tf2_sensor_msgs/tf_sensor_msgs.h>
 #include <sensor_msgs/PointCloud2.h>
 #include <pcl_conversions/pcl_conversions.h>
+#include <math.h>
 // #include "/opt/ros/indigo/ros_catkin_ws/install_isolated/include/pcl_ros/impl/transforms.hpp"
 // #include <pcl_ros/impl/transfoms.hpp>
 // #include <pcl/pcl_conversions.h>
@@ -40,12 +41,16 @@
 // std::string robot_name;
 
 //rate_hz assignment
-double rate_hz = 30;
+double rate_hz = 10;
 typedef pcl::PointCloud<pcl::PointXYZ> PointCloud;
 
 PointCloud::Ptr pc_original (new PointCloud);
 PointCloud::Ptr pc_car (new PointCloud);
+PointCloud::Ptr pc_seen (new PointCloud);
 std::string robot_name;
+
+const double m1 = tan ( 54 * PI / 180.0 );
+const double m2 = tan (124 * PI / 180.0 );
 // sensor_msgs::PointCloud2 pc_original;
 // sensor_msgs::PointCloud2 pc_car;
 sensor_msgs::PointCloud2 sens_pc_original;
@@ -72,7 +77,7 @@ void gen_point_cloud(const gazebo_msgs::LinkStates& gazebo_msg){
     	// output.points[i-7].z = gazebo_msg.[i].position.z;
     }
     // pc_original->header.stamp = ros::Time::now().toNSec();
-    pc_original -> header.stamp = ros::Time::now()/1000 - 1;
+    pc_original -> header.stamp = floor(ros::Time::now().toNSec()/1000 );
   // pcl::toROSMsg( pc_original, sens_pc_original );
 }
 
@@ -99,6 +104,23 @@ void transform_pointCloud(const tf::TransformListener& tfListener){
 
 	// 	// tfListener.lookupTransform(robot_name, "world", ros::Time(0), transformStamped);
 		pcl_ros::transformPointCloud(robot_name, *pc_original, *pc_car, tfListener);
+
+		BOOST_FOREACH (const pcl::PointXYZ& pt, pc_car -> points){
+
+    		// printf ("\t(%f, %f, %f)\n", pt.x, pt.y, pt.z);
+			if(0.2225 < pt.y && pt.y < 1)
+			{
+				if(-pt.y/m2 <= pt.x && pt.x <= pt.y/m1){
+					pc_seen ->points.push_back (pcl::PointXYZ(
+    	 				pt.x, 
+    	 				pt.y, 
+    	 				pt.z));
+				}
+			}
+			
+
+
+  		}
 	// 	// void 	tf2::doTransform (const sensor_msgs::PointCloud2 &p_in, 
 	// 				// sensor_msgs::PointCloud2 &p_out, const geometry_msgs::TransformStamped &t_in)
 		
@@ -141,13 +163,13 @@ int main(int argc, char **argv){
 	{
 	 // pcl_conversions::toPCL(ros::Time::now(), pc_car->header.stamp);
 
-	  pc_car->header.stamp = pcl_conversions::toPCL(ros::Time::now());//ros::Time::now().toNSec()* 0.0001; // 1000ull);
-
-	  transform_pointCloud(tfListener);
-	  // pub.publish (pc_car);
-	  pub.publish (pc_car);
-	  ros::spinOnce ();
-	  loop_rate.sleep ();
+		pc_car->header.stamp  = floor(ros::Time::now().toNSec()/1000 );//ros::Time::now().toNSec()* 0.0001; // 1000ull);
+		pc_seen->header.stamp = floor(ros::Time::now().toNSec()/1000 );
+		transform_pointCloud(tfListener);
+		// pub.publish (pc_car);
+		pub.publish (pc_seen);
+		ros::spinOnce();
+		loop_rate.sleep ();
 	}
     //Twist variable to publish velocity (trajectories)
 
