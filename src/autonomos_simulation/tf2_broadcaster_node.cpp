@@ -28,7 +28,7 @@ geometry_msgs::Twist target_position;
 std::string robot_name;
 // typedef pcl::PointCloud<pcl::PointXYZ> PointCloud;
 //rate_hz assignment
-double rate_hz = 10;
+double rate_hz = 5;
 
 void poseCallback(const gazebo_msgs::LinkStates& msg){
 	static tf2_ros::TransformBroadcaster br;
@@ -60,7 +60,7 @@ int main(int argc, char **argv){
 	// ros::Publisher pub_cloud_points = nh.advertise<sensor_msgs::PointCloud>("/autonomos_mini/points", rate_hz);
 
 	//Topics to acquire robot and target position (from the vision node) 
-	ros::Subscriber sub_robot_pos = nh.subscribe("/gazebo/model_states", 10, &poseCallback); 
+	ros::Subscriber sub_robot_pos = nh.subscribe("/gazebo/model_states", 1, &poseCallback); 
 	// ros::Subscriber sub_points_pos = nh.subscribe("/gazebo/link_states", 10, &gen_point_cloud); 
 	// ros::Subscriber sub_ball_pos = nh.subscribe("/target_position_topic", 1, &getTargetPose);
 	ros::spin();
