@@ -1,0 +1,10 @@
+/msg_gen/
+/build/
+/_gtest_from_src/
+/*.cproject
+/*.project
+/*.pydevproject
+/*.cmake
+/*.txt~
+/*.xml~
+/bin/
