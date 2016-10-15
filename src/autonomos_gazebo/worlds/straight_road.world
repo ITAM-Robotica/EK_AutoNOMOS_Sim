@@ -8,11 +8,14 @@
       <uri>model://sun</uri>
     </include>
     <include>
-      <uri>model://AutoNOMOS_mini</uri>
+      <!--<uri>model://AutoNOMOS_mini</uri> -->
+      <uri>model://car_like</uri>
       <pose>-4.5 -4 0 0 0 -.785 </pose>
+      <plugin name="velocity_control" filename="/home/egranadoo/EK_AutoNOMOS/devel/lib/libvelocity_plugin.so"/>
     </include>
     <include>
       <uri>model://AutoNOMOS_straight_road</uri>
     </include>
   </world>
 </sdf>
+
