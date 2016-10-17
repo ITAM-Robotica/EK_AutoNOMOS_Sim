@@ -11,6 +11,7 @@ find_package(gazebo REQUIRED)
 
 find_package(roscpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(gazebo_ros REQUIRED)
 
 
 include_directories(${roscpp_INCLUDE_DIRS})
@@ -101,7 +102,9 @@ catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES AutoNOMOS_gazebo
 #  CATKIN_DEPENDS other_catkin_pkg
-#  DEPENDS system_lib
+ DEPENDS 
+ 	roscpp
+ 	gazebo_ros
 )
 
 ###########
