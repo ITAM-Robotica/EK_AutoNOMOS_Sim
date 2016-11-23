@@ -118,7 +118,7 @@ void transform_pointCloud(const tf::TransformListener& tfListener){
 		
 		// use frame called robot_name to transform points in pc_original into pc_car using tfListener
 		pcl_ros::transformPointCloud(robot_name, ros::Time(0),  *pc_original, world, *pc_car, tfListener);
-
+		
 		int i = 0;
 
 		//initialize pc_seen
@@ -153,27 +153,47 @@ int main(int argc, char **argv)
 	ROS_INFO_STREAM("vision_node initialized");																																							
 	ROS_INFO_STREAM(ros::this_node::getName());
 
+	// ROS_INFO_STREAM
+	ROS_ASSERT_MSG(argc > 1, "A name for the robot is needed (as argument)...");
 	ros::Subscriber sub_points_pos = nh.subscribe("/gazebo/link_states", 1, &gen_point_cloud); 
 	ros::Publisher pub = nh.advertise<PointCloud> ("pointCloud_vision", 1);
-	
-	world = "world";
-	robot_name = "autoNOMOS_1";
 
+	ros::Rate loop_rate(rate_hz);
+	
+	robot_name = argv[1];
+
+	
+	world = argc>2 ? argv[2] : "world";
+	
+	ros::spinOnce();
+	loop_rate.sleep ();
+
+	ROS_INFO_STREAM("World frame name is \"" << world << "\". Robot frame name is \"" << robot_name << "\".");
+	ROS_INFO_STREAM("Ready...");
 	tf::TransformListener tfListener;
 	tfListener.waitForTransform(world, robot_name, ros::Time::now(), ros::Duration(3.0) );
-	ros::Rate loop_rate(rate_hz);
+
 	while (nh.ok())
 	{
+		ros::spinOnce();
+		
 		//update cloudpoints time
 		pc_car->header.stamp  = floor(ros::Time::now().toNSec()/1000 );
 		pc_seen->header.stamp = floor(ros::Time::now().toNSec()/1000 );
 
 		// call function to transform and limit point: pc_original into pc_seen
-		transform_pointCloud(tfListener);
+		// ROS_INFO_STREAM("before transform_pointCloud");
+		// try
+		// {
+			transform_pointCloud(tfListener);
+		// } catch (tf::TransformException ex) {
+		// 	ROS_WARN("%s... Maybe Sync issue? waiting 1 second.",ex.what());
+  // 	        ros::Duration(1.0).sleep();
+		// }
+		// ROS_INFO_STREAM("after transform_pointCloud");
 		
 		// publish the transformed and limited points
 		pub.publish (pc_seen);
-		ros::spinOnce();
 		loop_rate.sleep ();
 	}
 
