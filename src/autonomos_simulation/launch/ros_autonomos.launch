@@ -1,13 +1,8 @@
 <launch>
      <!-- Turtlesim Node-->
-<!--     <node pkg="turtlesim" type="turtlesim_node" name="sim"/>
 
-    <node pkg="turtlesim" type="turtle_teleop_key" name="teleop" output="screen"/> -->
-    <!-- Axes -->
-    <!-- <param name="scale_linear" value="2" type="double"/>
-    <param name="scale_angular" value="2" type="double"/> -->
-
-    <node pkg="autonomos_simulation" type="tf2_broadcaster_node" name="turtle1_tf2_broadcaster" />
-    <!-- <node pkg="learning_tf2" type="turtle_tf2_broadcaster" args="/turtle2" name="turtle2_tf2_broadcaster" /> -->
+    <node pkg="autonomos_simulation" type="tf2_broadcaster_node" name="tf2_broadcaster_node"/>
+    <node pkg="autonomos_simulation" type="vision_node" name="vision_node" /> -->
+    <node pkg="autonomos_simulation" type="perception_node" name="perception_node" output="screen"/>
 
 </launch>

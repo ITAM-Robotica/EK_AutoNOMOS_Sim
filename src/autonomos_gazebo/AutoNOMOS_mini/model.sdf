@@ -1,404 +1,897 @@
-<?xml version='1.0'?>
-<sdf version='1.5'>
-  <model name='AutoNOMOS_mini'>
-    <!-- <static>true</static> -->
-    <link name="chassis">
-      <pose>0 0 0.1 0 0 0</pose>
+<sdf version='1.3'>
+  <model name='ackermann'>
+    <link name='base_link'>
+      <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
       <inertial>
-        <mass>2</mass>
+        <pose>0.002623 0.000000 0.022951 0.000000 0.000000 0.000000</pose>
+        <mass>0.610000</mass>
         <inertia>
-          <ixx>0.13628333</ixx>
-          <iyy>0.02683733</iyy>
-          <izz>0.15458733</izz>
-          <ixy>0.04094</ixy>
-          <ixz>0.00736</ixz>
-          <iyz>0.0178</iyz>
+          <ixx>0.611350</ixx>
+          <ixy>0.000000</ixy>
+          <ixz>0.000160</ixz>
+          <iyy>0.611606</iyy>
+          <iyz>0.000000</iyz>
+          <izz>0.610256</izz>
         </inertia>
       </inertial>
-      <collision name="collision">
+      <collision name='base_link_geom'>
+        <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
         <geometry>
           <box>
-            <size>.130 .445 .080</size>
+            <size>0.400000 0.150000 0.09500000</size>
           </box>
         </geometry>
         <surface>
+          <contact>
+            <ode/>
+          </contact>
           <friction>
-            <ode>
-              <mu>100</mu>
-              <mu2>50</mu2>
-            </ode>
+            <ode/>
           </friction>
         </surface>
       </collision>
-      <visual name="chassis_visual">
-        <cast_shadows>false</cast_shadows>
+<!--       <collision name='base_link_geom_base_scan_link'>
+        <pose>0.000000 0.000000 0.114000 0.000000 0.000000 0.000000</pose>
+        <geometry>
+          <cylinder>
+            <length>0.028000</length>
+            <radius>0.022900</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision> -->
+      <collision name='base_link_geom_front_link'>
+        <pose>0.160000 0.000000 -0.0500000 0.000000 0.000000 0.000000</pose>
         <geometry>
           <box>
-            <size>.144 .445 .08</size>
+            <size>0.020000 0.150000 0.005000</size>
           </box>
         </geometry>
-        <!-- <material>
-          <ambient>0 0 0 0</ambient>
-          <diffuse>0 0 0 0</diffuse>
-          <specular>0 0 0 0</specular>
-          <emissive>0 0 0 0</emissive>
-        </material>
- -->      </visual>
-    </link>
-
-    <link name="wheel1">
-      <pose>0.07425 .1035 0.08 0 1.57075 0</pose>
-      <inertial>
-        <mass>0.05</mass>
-        <inertia>
-          <ixx>0.00002045</ixx>
-          <iyy>0.00002045</iyy>
-          <izz>0.000024025</izz>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyz>0</iyz>
-        </inertia>
-      </inertial>
-      <collision name="collision">
-        <geometry>
-          <cylinder>
-          	<radius> .031 </radius>
-            <length> .045 </length>
-          </cylinder>
-        </geometry>
         <surface>
+          <contact>
+            <ode/>
+          </contact>
           <friction>
-            <ode>
-              <mu>100</mu>
-              <mu2>50</mu2>
-            </ode>
+            <ode/>
+          </friction>
+        </surface>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
           </friction>
         </surface>
       </collision>
-      <visual name="wheel1_visual">
-        <cast_shadows>false</cast_shadows>
+      <collision name='base_link_geom_laser_base_link'>
+        <pose>0.000000 0.000000 0.075000 0.000000 0.000000 0.000000</pose>
         <geometry>
-          <cylinder>
-          	<radius> .031 </radius>
-            <length> .045 </length>
-          </cylinder>
-        </geometry>
-        <!-- <material>
-          <ambient>0 0 0 0</ambient>
-          <diffuse>0 0 0 0</diffuse>
-          <specular>0 0 0 0</specular>
-          <emissive>0 0 0 0</emissive>
-        </material>
- -->      </visual>
-    </link>
-
-    <link name="wheel2">
-      <pose>-0.07425 .1035 0.08 0 1.57075 0</pose>
-      <inertial>
-        <mass>0.05</mass>
-        <inertia>
-          <ixx>0.00002045</ixx>
-          <iyy>0.00002045</iyy>
-          <izz>0.000024025</izz>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyz>0</iyz>
-        </inertia>
-      </inertial>
-      <collision name="collision">
-        <geometry>
-          <cylinder>
-          	<radius> .031 </radius>
-            <length> .045 </length>
-          </cylinder>
+          <box>
+            <size>0.050000 0.050000 0.050000</size>
+          </box>
         </geometry>
         <surface>
+          <contact>
+            <ode/>
+          </contact>
           <friction>
-            <ode>
-              <mu>100</mu>
-              <mu2>50</mu2>
-            </ode>
+            <ode/>
           </friction>
         </surface>
       </collision>
-      <visual name="wheel2_visual">
-        <cast_shadows>false</cast_shadows>
+      <visual name='base_link_visual'>
+        <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+        <geometry>
+          <box>
+            <size>0.400000 0.150000 0.09500000</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+          </script>
+        </material>
+      </visual>
+      <!-- <visual name='base_link_visualbase_scan_link'>
+        <pose>0.000000 0.000000 0.114000 0.000000 0.000000 0.000000</pose>
         <geometry>
           <cylinder>
-          	<radius> .031 </radius>
-            <length> .045 </length>
+            <length>0.028000</length>
+            <radius>0.022900</radius>
           </cylinder>
         </geometry>
-        <!-- <material>
-          <ambient>0 0 0 0</ambient>
-          <diffuse>0 0 0 0</diffuse>
-          <specular>0 0 0 0</specular>
-          <emissive>0 0 0 0</emissive>
+        <material>
+          <script>
+            <name>Gazebo/Green</name>
+          </script>
         </material>
- -->      </visual>
-    </link>
-
-    <link name="wheel3">
-      <pose>0.07425 -.1625 0.08 0 1.57075 0</pose>
-      <inertial>
-        <mass>0.05</mass>
-        <inertia>
-          <ixx>0.00002045</ixx>
-          <iyy>0.00002045</iyy>
-          <izz>0.000024025</izz>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyz>0</iyz>
-        </inertia>
-      </inertial>
-      <collision name="collision">
+      </visual> -->
+      <visual name='base_link_visualfront_link'>
+        <pose>0.160000 0.000000 -0.0500000 0.000000 0.000000 0.000000</pose>
+        <geometry>
+          <box>
+            <size>0.020000 0.150000 0.005000</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Red</name>
+          </script>
+        </material>
+        <material>
+          <script>
+            <name>Gazebo/Red</name>
+          </script>
+        </material>
+      </visual>
+      <visual name='base_link_visuallaser_base_link'>
+        <pose>0.000000 0.000000 0.07000 0.000000 0.000000 0.000000</pose>
         <geometry>
           <cylinder>
-          	<radius> .031 </radius>
-            <length> .045 </length>
+            <!-- <size>0.050000 0.050000 0.050000</size> -->
+            <radius> 0.025</radius>
+            <length> 0.05 </length>
           </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Green</name>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0.000000</linear>
+        <angular>0.000000</angular>
+      </velocity_decay>
+      <velocity_decay>
+        <linear>0.000000</linear>
+        <angular>0.000000</angular>
+      </velocity_decay>
+      <velocity_decay>
+        <linear>0.000000</linear>
+        <angular>0.000000</angular>
+      </velocity_decay>
+      <velocity_decay>
+        <linear>0.000000</linear>
+        <angular>0.000000</angular>
+      </velocity_decay>
+      <velocity_decay>
+        <linear>0.000000</linear>
+        <angular>0.000000</angular>
+      </velocity_decay>
+      <gravity>1</gravity>
+      <velocity_decay>
+        <linear>0.000000</linear>
+        <angular>0.000000</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+
+      <sensor name="laser" type="ray">
+        <pose>0.01 0 0.07 0 -0 0</pose>
+        
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>360</samples>
+              <resolution>1</resolution>
+              <min_angle>0</min_angle>
+              <max_angle>6.28318530718</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>6</max>
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+        <!-- <topic>/laser_scan</topic>  -->
+        <plugin name="laser" filename="libgazebo_ros_laser.so"> 
+          <robotNamespace></robotNamespace>
+          <topicName>/laser_scan</topicName> 
+          <frameName>map</frameName> 
+        </plugin>
+        <always_on>1</always_on>
+        <update_rate>1</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+
+      <collision name='pilar_front_right'>
+        <pose>0.060000 -0.074 0.065 0.000000 -0.385398 0.200000</pose>
+        <geometry>
+          <box>
+            <size>0.022 0.001 0.08</size>
+          </box>
         </geometry>
         <surface>
+          <contact>
+            <ode/>
+          </contact>
           <friction>
-            <ode>
-              <mu>100</mu>
-              <mu2>50</mu2>
-            </ode>
+            <ode/>
           </friction>
         </surface>
       </collision>
-      <visual name="wheel3_visual">
-        <cast_shadows>false</cast_shadows>
+      <visual name='pilar_front_right_visual'>
+        <pose>0.060000 -0.075 0.065 0.000000 -0.385398 0.2000000</pose>
         <geometry>
-          <cylinder>
-          	<radius> .031 </radius>
-            <length> .045 </length>
-          </cylinder>
+          <box>
+            <size>0.022 0.001 0.08</size>
+          </box>
         </geometry>
-        <!-- <material>
-          <ambient>0 0 0 0</ambient>
-          <diffuse>0 0 0 0</diffuse>
-          <specular>0 0 0 0</specular>
-          <emissive>0 0 0 0</emissive>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+          </script>
         </material>
- -->      </visual>
-    </link>
+      </visual>
 
-    <link name="wheel4">
-      <pose>-0.07425 -.1625 0.08 0 1.57075 0</pose>
-      <inertial>
-        <mass>0.05</mass>
-        <inertia>
-          <ixx>0.00002045</ixx>
-          <iyy>0.00002045</iyy>
-          <izz>0.000024025</izz>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyz>0</iyz>
-        </inertia>
-      </inertial>
-      <collision name="collision">
+      <collision name='pilar_front_left'>
+        <pose>0.060000 0.074 0.065 0.000000 -0.385398 0.200000</pose>
         <geometry>
-          <cylinder>
-          	<radius> .031 </radius>
-            <length> .045 </length>
-          </cylinder>
+          <box>
+            <size>0.022 0.001 0.08</size>
+          </box>
         </geometry>
         <surface>
+          <contact>
+            <ode/>
+          </contact>
           <friction>
-            <ode>
-              <mu>100</mu>
-              <mu2>50</mu2>
-            </ode>
+            <ode/>
           </friction>
         </surface>
       </collision>
-      <visual name="wheel4_visual">
-        <cast_shadows>false</cast_shadows>
+      <visual name='pilar_front_left_visual'>
+        <pose>0.060000 0.074 0.065 0.000000 -0.385398 -0.2000000</pose>
+        <geometry>
+          <box>
+            <size>0.022 0.001 0.08</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+          </script>
+        </material>
+      </visual>
+
+      <collision name='pilar_back_left'>
+        <pose>-0.115 0.074 0.065 0.000000 0.585398 0.2000000</pose>
+        <geometry>
+          <box>
+            <size>0.042 0.001 0.08</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='pilar_back_left_visual'>
+        <pose>-0.115 0.074 0.07 0.000000 0.585398 0.2000000</pose>
+        <geometry>
+          <box>
+            <size>0.042 0.001 0.08</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+          </script>
+        </material>
+      </visual>
+
+      <collision name='pilar_back_right'>
+        <pose>-0.115 -0.074 0.065 0.000000 0.585398 -0.2000000</pose>
+        <geometry>
+          <box>
+            <size>0.042 0.001 0.08</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='pilar_back_right_visual'>
+        <pose>-0.115 -0.074 0.07 0.000000 0.585398 -0.2000000</pose>
+        <geometry>
+          <box>
+            <size>0.042 0.001 0.08</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+          </script>
+        </material>
+      </visual>
+
+      <collision name='ceiling'>
+        <pose>-0.035 0.0 0.11 1.57 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.17 0.01 0.15</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='ceiling_visual'>
+        <pose>-0.035 0.0 0.11 1.57 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.17 0.01 0.15</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <link name='back_left_wheel_link'>
+      <pose>-0.160000 0.100000 -0.0500000 0.000000 0.000000 0.000000</pose>
+      <inertial>
+        <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+        <mass>0.010000</mass>
+        <inertia>
+          <ixx>0.010000</ixx>
+          <ixy>0.000000</ixy>
+          <ixz>0.000000</ixz>
+          <iyy>0.010000</iyy>
+          <iyz>0.000000</iyz>
+          <izz>0.010000</izz>
+        </inertia>
+      </inertial>
+      <collision name='back_left_wheel_link_geom'>
+        <pose>0.000000 0.000000 0.000000 1.570800 0.000000 0.000000</pose>
         <geometry>
           <cylinder>
-          	<radius> .031 </radius>
-            <length> .045 </length>
+            <length>0.005000</length>
+            <radius>0.020000</radius>
           </cylinder>
         </geometry>
-        <!-- <material>
-          <ambient>0 0 0 0</ambient>
-          <diffuse>0 0 0 0</diffuse>
-          <specular>0 0 0 0</specular>
-          <emissive>0 0 0 0</emissive>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='back_left_wheel_link_visual'>
+        <pose>0.000000 0.000000 0.000000 1.570800 0.000000 0.000000</pose>
+        <geometry>
+          <cylinder>
+            <length>0.005000</length>
+            <radius>0.020000</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Green</name>
+          </script>
         </material>
- -->      </visual>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay>
+        <linear>0.000000</linear>
+        <angular>0.000000</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
     </link>
-
-    <!-- <joint name='chassis-wheel_JOINT1' type='revolute'>
-      <parent>chassis</parent>
-      <child>wheel1</child>
-      <pose frame=''>0 0 0 0 0 0</pose>
+    <joint name='back_left_wheel_joint' type='revolute'>
+      <child>back_left_wheel_link</child>
+      <parent>base_link</parent>
       <axis>
-        <xyz>0 0 -1</xyz>
-        <use_parent_model_frame>0</use_parent_model_frame>
+        <xyz>0.000000 1.000000 0.000000</xyz>
         <limit>
-          <lower>-1.79769e+308</lower>
-          <upper>1.79769e+308</upper>
-          <effort>-1</effort>
-          <velocity>-1</velocity>
+          <lower>-10000000000000000.000000</lower>
+          <upper>10000000000000000.000000</upper>
         </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-          <damping>0</damping>
-          <friction>0</friction>
-        </dynamics>
+        <!-- <dynamics/> -->
       </axis>
-      <physics>
-        <ode>
-          <limit>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </limit>
-          <suspension>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </suspension>
-        </ode>
-      </physics>
-    </joint> -->
-
-    <!-- <joint name='chassis-wheel_JOINT2' type='revolute'>
-      <parent>chassis</parent>
-      <child>wheel2</child>
-      <pose frame=''>0 0 0 0 0 0</pose>
-      <axis>
-        <xyz>0 0 -1</xyz>
-        <use_parent_model_frame>0</use_parent_model_frame>
-        <limit>
-          <lower>-1.79769e+308</lower>
-          <upper>1.79769e+308</upper>
-          <effort>-1</effort>
-          <velocity>-1</velocity>
-        </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-          <damping>0</damping>
-          <friction>0</friction>
-        </dynamics>
-      </axis>
-      <physics>
-        <ode>
-          <limit>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </limit>
-          <suspension>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </suspension>
-        </ode>
-      </physics>
-    </joint> -->
-
-    <joint name='chassis-wheel_JOINT3' type='revolute'>
-      <parent>chassis</parent>
-      <child>wheel3</child>
-      <pose frame=''>0 0 0 0 0 0</pose>
-      <axis>
-        <xyz>0 0 1</xyz>
-        <use_parent_model_frame>0</use_parent_model_frame>
-        <limit>
-          <lower>-1.79769e+308</lower>
-          <upper>1.79769e+308</upper>
-          <effort>-1</effort>
-          <velocity>-1</velocity>
-        </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-          <damping>0</damping>
-          <friction>0</friction>
-        </dynamics>
-      </axis>
-      <physics>
-        <ode>
-          <limit>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </limit>
-          <suspension>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </suspension>
-        </ode>
-      </physics>
     </joint>
-
-    <joint name='chassis-wheel_JOINT4' type='revolute'>
-      <parent>chassis</parent>
-      <child>wheel4</child>
-      <pose frame=''>0 0 0 0 0 0</pose>
+    <link name='back_right_wheel_link'>
+      <pose>-0.160000 -0.100000 -0.0500000 0.000000 0.000000 0.000000</pose>
+      <inertial>
+        <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+        <mass>0.010000</mass>
+        <inertia>
+          <ixx>0.010000</ixx>
+          <ixy>0.000000</ixy>
+          <ixz>0.000000</ixz>
+          <iyy>0.010000</iyy>
+          <iyz>0.000000</iyz>
+          <izz>0.010000</izz>
+        </inertia>
+      </inertial>
+      <collision name='back_right_wheel_link_geom'>
+        <pose>0.000000 0.000000 0.000000 1.570800 0.000000 0.000000</pose>
+        <geometry>
+          <cylinder>
+            <length>0.005000</length>
+            <radius>0.020000</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='back_right_wheel_link_visual'>
+        <pose>0.000000 0.000000 0.000000 1.570800 0.000000 0.000000</pose>
+        <geometry>
+          <cylinder>
+            <length>0.005000</length>
+            <radius>0.020000</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Green</name>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay>
+        <linear>0.000000</linear>
+        <angular>0.000000</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='back_right_wheel_joint' type='revolute'>
+      <child>back_right_wheel_link</child>
+      <parent>base_link</parent>
       <axis>
-        <xyz>0 0 1</xyz>
-        <use_parent_model_frame>0</use_parent_model_frame>
+        <xyz>0.000000 1.000000 0.000000</xyz>
         <limit>
-          <lower>-1.79769e+308</lower>
-          <upper>1.79769e+308</upper>
-          <effort>-1</effort>
-          <velocity>-1</velocity>
+          <lower>-10000000000000000.000000</lower>
+          <upper>10000000000000000.000000</upper>
         </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-          <damping>0</damping>
-          <friction>0</friction>
-        </dynamics>
+        <!-- <dynamics/> -->
       </axis>
-      <physics>
-        <ode>
-          <limit>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </limit>
-          <suspension>
-            <cfm>0</cfm>
-            <erp>0.2</erp>
-          </suspension>
-        </ode>
-      </physics>
     </joint>
-
-    <joint name="wheel_right_steer_spin" type="universal">
-      <parent>chassis</parent>
-      <child>wheel1</child>
+    <link name='front_left_bar_link'>
+      <pose>0.160000 0.060000 -0.0500000 0.000000 0.000000 0.000000</pose>
+      <inertial>
+        <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+        <mass>0.010000</mass>
+        <inertia>
+          <ixx>0.010000</ixx>
+          <ixy>0.000000</ixy>
+          <ixz>0.000000</ixz>
+          <iyy>0.010000</iyy>
+          <iyz>0.000000</iyz>
+          <izz>0.010000</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_left_bar_link_geom'>
+        <pose>-0.020000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+        <geometry>
+          <box>
+            <size>0.040000 0.020000 0.005000</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='front_left_bar_link_visual'>
+        <pose>-0.020000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+        <geometry>
+          <box>
+            <size>0.040000 0.020000 0.005000</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Red</name>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay>
+        <linear>0.000000</linear>
+        <angular>0.000000</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='front_left_bar_joint' type='revolute'>
+      <child>front_left_bar_link</child>
+      <parent>base_link</parent>
       <axis>
-        <xyz>-1 0 0</xyz>
+        <xyz>0.000000 0.000000 1.000000</xyz>
         <limit>
-          <lower>-0.6108652381980153</lower>
-          <upper>0.6108652381980153</upper>
+          <lower>-0.500000</lower>
+          <upper>0.500000</upper>
         </limit>
+        <!-- <dynamics/> -->
       </axis>
-      <axis2>
-        <xyz>0 0 1</xyz>
-      </axis2>
     </joint>
-
-    <joint name="wheel_left_steer_spin" type="universal">
-      <parent>chassis</parent>
-      <child>wheel2</child>
+    <link name='front_left_wheel_link'>
+      <pose>0.160000 0.100000 -0.0500000 0.000000 0.000000 0.000000</pose>
+      <inertial>
+        <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+        <mass>0.010000</mass>
+        <inertia>
+          <ixx>0.010000</ixx>
+          <ixy>0.000000</ixy>
+          <ixz>0.000000</ixz>
+          <iyy>0.010000</iyy>
+          <iyz>0.000000</iyz>
+          <izz>0.010000</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_left_wheel_link_geom'>
+        <pose>0.000000 0.000000 0.000000 1.570800 0.000000 0.000000</pose>
+        <geometry>
+          <cylinder>
+            <length>0.005000</length>
+            <radius>0.020000</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='front_left_wheel_link_visual'>
+        <pose>0.000000 0.000000 0.000000 1.570800 0.000000 0.000000</pose>
+        <geometry>
+          <cylinder>
+            <length>0.005000</length>
+            <radius>0.020000</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Green</name>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay>
+        <linear>0.000000</linear>
+        <angular>0.000000</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='front_left_wheel_joint' type='revolute'>
+      <child>front_left_wheel_link</child>
+      <parent>front_left_bar_link</parent>
       <axis>
-        <xyz>-1 0 0</xyz>
+        <xyz>0.000000 1.000000 0.000000</xyz>
         <limit>
-          <lower>-0.6108652381980153</lower>
-          <upper>0.6108652381980153</upper>
+          <lower>-10000000000000000.000000</lower>
+          <upper>10000000000000000.000000</upper>
         </limit>
+        <dynamics/>
       </axis>
-      <axis2>
-        <xyz>0 0 1</xyz>
-      </axis2>
     </joint>
+    <link name='front_right_bar_link'>
+      <pose>0.160000 -0.060000 -0.0500000 0.000000 0.000000 0.000000</pose>
+      <inertial>
+        <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+        <mass>0.010000</mass>
+        <inertia>
+          <ixx>0.010000</ixx>
+          <ixy>0.000000</ixy>
+          <ixz>0.000000</ixz>
+          <iyy>0.010000</iyy>
+          <iyz>0.000000</iyz>
+          <izz>0.010000</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_right_bar_link_geom'>
+        <pose>-0.020000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+        <geometry>
+          <box>
+            <size>0.040000 0.020000 0.005000</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='front_right_bar_link_visual'>
+        <pose>-0.020000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+        <geometry>
+          <box>
+            <size>0.040000 0.020000 0.005000</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Red</name>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay>
+        <linear>0.000000</linear>
+        <angular>0.000000</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='front_right_bar_joint' type='revolute'>
+      <child>front_right_bar_link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0.000000 0.000000 1.000000</xyz>
+        <limit>
+          <lower>-0.500000</lower>
+          <upper>0.500000</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='front_right_wheel_link'>
+      <pose>0.160000 -0.100000 -0.0500000 0.000000 0.000000 0.000000</pose>
+      <inertial>
+        <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+        <mass>0.010000</mass>
+        <inertia>
+          <ixx>0.010000</ixx>
+          <ixy>0.000000</ixy>
+          <ixz>0.000000</ixz>
+          <iyy>0.010000</iyy>
+          <iyz>0.000000</iyz>
+          <izz>0.010000</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_right_wheel_link_geom'>
+        <pose>0.000000 0.000000 0.000000 1.570800 0.000000 0.000000</pose>
+        <geometry>
+          <cylinder>
+            <length>0.005000</length>
+            <radius>0.020000</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='front_right_wheel_link_visual'>
+        <pose>0.000000 0.000000 0.000000 1.570800 0.000000 0.000000</pose>
+        <geometry>
+          <cylinder>
+            <length>0.005000</length>
+            <radius>0.020000</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Green</name>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay>
+        <linear>0.000000</linear>
+        <angular>0.000000</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='front_right_wheel_joint' type='revolute'>
+      <child>front_right_wheel_link</child>
+      <parent>front_right_bar_link</parent>
+      <axis>
+        <xyz>0.000000 1.000000 0.000000</xyz>
+        <limit>
+          <lower>-10000000000000000.000000</lower>
+          <upper>10000000000000000.000000</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='steer_link'>
+      <pose>0.160000 0.000000 -0.0500000 0.000000 0.000000 0.000000</pose>
+      <inertial>
+        <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+        <mass>0.010000</mass>
+        <inertia>
+          <ixx>0.010000</ixx>
+          <ixy>0.000000</ixy>
+          <ixz>0.000000</ixz>
+          <iyy>0.010000</iyy>
+          <iyz>0.000000</iyz>
+          <izz>0.010000</izz>
+        </inertia>
+      </inertial>
+      <collision name='steer_link_geom'>
+        <pose>0.020000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+        <geometry>
+          <box>
+            <size>0.040000 0.020000 0.005000</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='steer_link_visual'>
+        <pose>-0.020000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+        <geometry>
+          <box>
+            <size>0.040000 0.020000 0.005000</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Red</name>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay>
+        <linear>0.000000</linear>
+        <angular>0.000000</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='steer_joint' type='revolute'>
+      <child>steer_link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0.000000 0.000000 1.000000</xyz>
+        <limit>
+          <lower>-0.500000</lower>
+          <upper>0.500000</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='ackermann_bar_link'>
+      <pose>0.120000 0.000000 -0.0500000 0.000000 0.000000 0.000000</pose>
+      <inertial>
+        <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+        <mass>0.010000</mass>
+        <inertia>
+          <ixx>0.010000</ixx>
+          <ixy>0.000000</ixy>
+          <ixz>0.000000</ixz>
+          <iyy>0.010000</iyy>
+          <iyz>0.000000</iyz>
+          <izz>0.010000</izz>
+        </inertia>
+      </inertial>
+      <collision name='ackermann_bar_link_geom'>
+        <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+        <geometry>
+          <box>
+            <size>0.020000 0.150000 0.010000</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='ackermann_bar_link_visual'>
+        <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+        <geometry>
+          <box>
+            <size>0.020000 0.150000 0.010000</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay>
+        <linear>0.000000</linear>
+        <angular>0.000000</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='ackermann_joint' type='revolute'>
+      <child>ackermann_bar_link</child>
+      <parent>steer_link</parent>
+      <axis>
+        <xyz>0.000000 0.000000 1.000000</xyz>
+        <limit>
+          <lower>-0.500000</lower>
+          <upper>0.500000</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <joint name='ackermann_left_bar_joint' type='revolute'>
+      <parent>front_left_bar_link</parent>
+      <child>ackermann_bar_link</child>
+      <axis>
+        <xyz>0.000000 0.000000 1.000000</xyz>
+        <limit>
+          <lower>-10000000000000000.000000</lower>
+          <upper>10000000000000000.000000</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+      <pose>0.000000 0.060000 0.000000 0.000000 0.000000 0.000000</pose>
+    </joint>
+    <joint name='ackermann_right_bar_joint' type='revolute'>
+      <parent>front_right_bar_link</parent>
+      <child>ackermann_bar_link</child>
+      <axis>
+        <xyz>0.000000 0.000000 1.000000</xyz>
+        <limit>
+          <lower>-10000000000000000.000000</lower>
+          <upper>10000000000000000.000000</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+      <pose>0.000000 -0.060000 0.000000 0.000000 0.000000 0.000000</pose>
+    </joint>
+    <static>0</static>
+    <pose>0.000000 0.000000 0.25 0.000000 0.000000 0.000000</pose>
   </model>
 </sdf>
-
-
-    
-
-
