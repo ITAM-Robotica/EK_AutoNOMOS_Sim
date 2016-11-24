@@ -30,31 +30,7 @@
           </friction>
         </surface>
       </collision>
-<!--       <collision name='base_link_geom_base_scan_link'>
-        <pose>0.000000 0.000000 0.114000 0.000000 0.000000 0.000000</pose>
-        <geometry>
-          <cylinder>
-            <length>0.028000</length>
-            <radius>0.022900</radius>
-          </cylinder>
-        </geometry>
-        <surface>
-          <contact>
-            <ode/>
-          </contact>
-          <friction>
-            <ode/>
-          </friction>
-        </surface>
-        <surface>
-          <contact>
-            <ode/>
-          </contact>
-          <friction>
-            <ode/>
-          </friction>
-        </surface>
-      </collision> -->
+
       <collision name='base_link_geom_front_link'>
         <pose>0.160000 0.000000 -0.0500000 0.000000 0.000000 0.000000</pose>
         <geometry>
@@ -104,7 +80,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/Blue</name>
+            <name>Gazebo/Green</name>
           </script>
         </material>
       </visual>
@@ -181,6 +157,36 @@
         <angular>0.000000</angular>
       </velocity_decay>
       <self_collide>0</self_collide>
+      <sensor name="camera" type="depth">
+        <pose>0.04 0 0.14 0 0.1 0</pose>
+        <update_rate>20</update_rate>
+        <visualize>true</visualize>
+        <always_on>1</always_on>
+        <camera>
+          <horizontal_fov>1.047198</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>3</far>
+          </clip>
+          <depth_camera>
+            <output>points</output>
+          </depth_camera>
+        </camera>
+
+
+
+        <plugin name="camera" filename="libgazebo_ros_depth_camera.so"> 
+          <robotNamespace></robotNamespace>
+          <topicName>/depth_camera</topicName> 
+          <frameName>map</frameName> 
+        </plugin>
+
+      </sensor>
 
       <sensor name="laser" type="ray">
         <pose>0.01 0 0.07 0 -0 0</pose>
@@ -236,7 +242,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/Blue</name>
+            <name>Gazebo/Green</name>
           </script>
         </material>
       </visual>
@@ -266,7 +272,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/Blue</name>
+            <name>Gazebo/Green</name>
           </script>
         </material>
       </visual>
@@ -296,7 +302,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/Blue</name>
+            <name>Gazebo/Green</name>
           </script>
         </material>
       </visual>
@@ -326,7 +332,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/Blue</name>
+            <name>Gazebo/Green</name>
           </script>
         </material>
       </visual>
@@ -356,7 +362,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/Blue</name>
+            <name>Gazebo/Green</name>
           </script>
         </material>
       </visual>
@@ -402,7 +408,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/Green</name>
+            <name>Gazebo/White</name>
           </script>
         </material>
       </visual>
@@ -466,7 +472,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/Green</name>
+            <name>Gazebo/White</name>
           </script>
         </material>
       </visual>
@@ -592,7 +598,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/Green</name>
+            <name>Gazebo/White</name>
           </script>
         </material>
       </visual>
@@ -718,7 +724,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/Green</name>
+            <name>Gazebo/White</name>
           </script>
         </material>
       </visual>
@@ -891,6 +897,59 @@
       </axis>
       <pose>0.000000 -0.060000 0.000000 0.000000 0.000000 0.000000</pose>
     </joint>
+
+    <include>
+      <uri>model://kinect</uri>
+      <pose>0.04 0 0.14 0 0.1 0</pose>
+
+  <!--     <sensor name="camera" type="depth">
+        <update_rate>20</update_rate>
+        <visualize>true</visualize>
+        <always_on>1</always_on>
+        <camera>
+          <horizontal_fov>1.047198</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>3</far>
+          </clip>
+          <depth_camera>
+            <output>points</output>
+          </depth_camera>
+        </camera>
+
+
+
+        <plugin name="camera" filename="libgazebo_ros_depth_camera.so"> 
+          <robotNamespace></robotNamespace>
+          <topicName>/depth_camera</topicName> 
+          <frameName>map</frameName> 
+        </plugin>
+
+      </sensor>
+ -->
+
+    </include>
+
+    <joint name="kinect_rack" type="revolute">
+      <parent>kinect::link</parent>
+      <child>base_link
+      </child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+        <use_parent_model_frame>true</use_parent_model_frame>
+      </axis>
+    </joint>
+
+
     <static>0</static>
     <pose>0.000000 0.000000 0.25 0.000000 0.000000 0.000000</pose>
   </model>
