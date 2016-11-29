@@ -157,8 +157,9 @@
         <angular>0.000000</angular>
       </velocity_decay>
       <self_collide>0</self_collide>
+
       <sensor name="camera" type="depth">
-        <pose>0.04 0 0.14 0 0.1 0</pose>
+        <pose>0.04 0 0.08 0 0.4 0</pose>
         <update_rate>20</update_rate>
         <visualize>true</visualize>
         <always_on>1</always_on>
@@ -180,13 +181,48 @@
 
 
 
-        <plugin name="camera" filename="libgazebo_ros_depth_camera.so"> 
-          <robotNamespace></robotNamespace>
-          <topicName>/depth_camera</topicName> 
-          <frameName>map</frameName> 
+       <!--  <plugin name="camera" filename="libgazebo_ros_depth_camera.so"> 
+           <alwayson>true</alwayson>
+                <updaterate>30.0</updaterate>
+                <cameraname>cameraLeft</cameraname>
+                <framename>camera_link</framename>                  
+            <imagetopicname>CameraLeft/rgb/image_raw</imagetopicname>
+            <depthimagetopicname>CameraLeft/depth/image_raw</depthimagetopicname>
+            <pointcloudtopicname>CameraLeft/depth/points</pointcloudtopicname>
+            <camerainfotopicname>CameraLeft/rgb/camera_info</camerainfotopicname>     
+            <imageTopicName>CameraLeft</imageTopicName>
+            <depthimagecamerainfotopicname>CameraLeft/depth/camera_info</depthimagecamerainfotopicname>            
+            <pointcloudcutoff>0.8</pointcloudcutoff>
+            <pointcloudcutoffmax>3.5</pointcloudcutoffmax>
         </plugin>
 
-      </sensor>
+      </sensor> -->
+      <plugin name="${link_name}_controller" filename="libgazebo_ros_openni_kinect.so">
+        <baseline>0.2</baseline>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>20</updateRate>
+        <cameraName>camera_name_ir</cameraName>
+        <imageTopicName>camera_name/depth/image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_name/depth/camera_info</cameraInfoTopicName>
+        <depthImageTopicName>camera_name/depth/image_raw</depthImageTopicName>
+      
+        <depthImageCameraInfoTopicName>camera_name/depth/camera_info</depthImageCameraInfoTopicName>
+        <pointCloudTopicName>camera_name/depth/points</pointCloudTopicName>
+        <frameName>map</frameName>
+        <pointCloudCutoffMax>0.5</pointCloudCutoffMax>
+        <pointCloudCutoff>0.5</pointCloudCutoff>
+        <!-- <distortionK1>0.00000001</distortionK1> -->
+        <!-- <distortionK2>0.00000001</distortionK2> -->
+        <!-- <distortionK3>0.00000001</distortionK3> -->
+        <!-- <distortionT1>0.00000001</distortionT1> -->
+        <!-- <distortionT2>0.00000001</distortionT2> -->
+        <CxPrime>0</CxPrime>
+        <Cx>0</Cx>
+        <Cy>0</Cy>
+        <focalLength>0</focalLength>
+        <hackBaseline>0</hackBaseline>
+      </plugin>
+    </sensor>
 
       <sensor name="laser" type="ray">
         <pose>0.01 0 0.07 0 -0 0</pose>
