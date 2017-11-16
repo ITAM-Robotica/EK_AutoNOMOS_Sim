@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <Eigen/Geometry>
 #include "gazebo_msgs/ApplyJointEffort.h"
+#include "gazebo_msgs/JointRequest.h"
 #include "gazebo_msgs/LinkStates.h"
 #include "tf/transform_datatypes.h"
 #include "tf/LinearMath/Matrix3x3.h"
@@ -30,7 +31,7 @@ geometry_msgs::PoseStamped pose_stp_ack;
 std::string car_name = "ackermann";
 std::string world = "world";
 //rate_hz assignment
-double rate_hz = 30;
+double rate_hz = 10;
 int des_steering = 0;
 int speed = 0;
 float curr_steering = 0;
@@ -39,7 +40,7 @@ float sum_err = 0;
 float kp = .1;
 float ki = .0;
 
-int set_steering_force()
+float set_steering_force()
 {
 	
 	err = des_steering - curr_steering;
@@ -151,8 +152,11 @@ int main(int argc, char **argv){
 	ROS_INFO_STREAM("Using gazebo model: " << car_name);
 	// Suscribe to Gazebo service ApplyJointEffor
 	ros::ServiceClient client = nh.serviceClient<gazebo_msgs::ApplyJointEffort>("/gazebo/apply_joint_effort");
+	ros::ServiceClient client_clr = nh.serviceClient<gazebo_msgs::JointRequest>("/gazebo/clear_joint_forces");
 	gazebo_msgs::ApplyJointEffort eff_msg[4];
 	
+	gazebo_msgs::JointRequest jr;
+	jr.request.joint_name = "steer_joint";
 
 	ros::Subscriber sub_steering = nh.subscribe("/manual_control/steering", 1, &get_steering);
 	ros::Subscriber sub_speed = nh.subscribe("/manual_control/speed", 1, &get_speed);
@@ -164,7 +168,7 @@ int main(int argc, char **argv){
     //define the rate
 	ros::Rate rate(rate_hz);
 	ros::Time start_time ;
-	ros::Duration duration ;
+	
 
 	double effort[4];
 
@@ -173,6 +177,8 @@ int main(int argc, char **argv){
 
 	tf::StampedTransform transform_steering;
 	double roll, pitch, yaw;
+
+	float aux_pi;
 
 	while (ros::ok())
 	{
@@ -213,13 +219,17 @@ int main(int argc, char **argv){
 			
 			start_time.sec = 0;
 			start_time.nsec = 0;
-			duration.sec = 1/rate_hz;
-			duration.nsec = 0;
+			ros::Duration duration (1/rate_hz);
+			duration.sec = -1;
+			// duration.nsec = 0;
 			// set_steering_force(); 
 			// Wheel-Joint 1
+			aux_pi = set_steering_force();
+			ROS_INFO_STREAM("PI: " << aux_pi << " duration: " << duration);
+
 			eff_msg[0].request.joint_name = "steer_joint";
 			eff_msg[0].request.duration = duration;
-			eff_msg[0].request.effort = set_steering_force();
+			eff_msg[0].request.effort = aux_pi;
 			eff_msg[0].request.start_time = start_time;
 
 			// Wheel-Joint 2
@@ -234,7 +244,7 @@ int main(int argc, char **argv){
 			eff_msg[2].request.effort = 0;
 			eff_msg[2].request.start_time = start_time;
 
-
+			client_clr.call(jr);
 			client.call(eff_msg[0]);
 			client.call(eff_msg[1]);																																																																								
 			client.call(eff_msg[2]);

@@ -985,8 +985,17 @@
       </axis>
     </joint>
 
+    <!-- <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"> -->
+      <!-- <robotParam>    ackermann</robotParam> -->
+      <!-- <robotNamespace>ackermann</robotNamespace> -->
+      <!-- <robotNamespace>/MYROBOT</robotNamespace> -->
+      <!-- <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType> -->
+    <!-- </plugin> -->
 
     <static>0</static>
     <pose>0.000000 0.000000 0.25 0.000000 0.000000 0.000000</pose>
+
+
+
   </model>
 </sdf>
