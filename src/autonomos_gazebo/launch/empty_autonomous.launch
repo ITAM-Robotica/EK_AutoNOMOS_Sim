@@ -2,15 +2,24 @@
 
   <!-- <rosparam file="$(find autonomos_gazebo)/config/autonomos_gazebo_control.yaml" command="load"/> -->
 
-  <!-- <node name="spawner" pkg="controller_manager" type="spawner" -->
-    <!-- output="screen" ns="ackermann" args="joint_state_controller -->
-       <!-- steer/steer_position_controller"/> -->
+<!--   <node name="spawner" pkg="controller_manager" type="spawner"
+    output="screen" ns="ackermann" args="joint_state_controller
+       steer/steer_position_controller"/>
+ -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    	<!-- <arg name="world_name" value="worlds/mud.world"/> --> <!-- Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable -->
+    	<arg name="paused" value="false"/>
+    	<arg name="use_sim_time" value="true"/>
+    	<arg name="gui" value="true"/>
+    	<arg name="recording" value="false"/>
+    	<arg name="debug" value="false"/>
+    </include>
 
-  <include file="$(find gazebo_ros)/launch/empty_world.launch">
-  	<arg name="verbose" value="true"/>
+  <!-- <include file="$(find gazebo_ros)/launch/empty_world.launch"> -->
+  	<!-- <arg name="verbose" value="true"/> -->
   	
-    <arg name="world_name" value="$(find autonomos_gazebo)/worlds/empty_world.world"/>
+    <!-- <arg name="world_name" value="$(find autonomos_gazebo)/worlds/empty_world.world"/> -->
     <!-- more default parameters can be changed here -->
-  </include>
+  <!-- </include> -->
 </launch>
 	

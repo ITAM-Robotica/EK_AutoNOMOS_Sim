@@ -162,7 +162,8 @@ int main(int argc, char **argv){
 	ros::Subscriber sub_speed = nh.subscribe("/manual_control/speed", 1, &get_speed);
 	// ros::Subscriber sub_curr_link_states = nh.subscribe("/gazebo/link_states", 1, &get_curr_link_states);
 
-	ros::Publisher pub = nh.advertise<std_msgs::Float64> ("/car_steering_angle", 1);
+	ros::Publisher pub_cur = nh.advertise<std_msgs::Float64> ("/car_cur_steering_angle", 1);
+	ros::Publisher pub_des = nh.advertise<std_msgs::Float64> ("/car_des_steering_angle", 1);
 	std_msgs::Float64 msg_fl;
 
     //define the rate
@@ -219,9 +220,10 @@ int main(int argc, char **argv){
 			
 			start_time.sec = 0;
 			start_time.nsec = 0;
-			ros::Duration duration (1/rate_hz);
-			duration.sec = -1;
-			// duration.nsec = 0;
+			// ros::Duration duration (1/rate_hz);
+			ros::Duration duration;
+			duration.sec = 0;
+			duration.nsec = 0010000000;
 			// set_steering_force(); 
 			// Wheel-Joint 1
 			aux_pi = set_steering_force();
@@ -244,7 +246,7 @@ int main(int argc, char **argv){
 			eff_msg[2].request.effort = 0;
 			eff_msg[2].request.start_time = start_time;
 
-			client_clr.call(jr);
+			// client_clr.call(jr);
 			client.call(eff_msg[0]);
 			client.call(eff_msg[1]);																																																																								
 			client.call(eff_msg[2]);
@@ -256,7 +258,9 @@ int main(int argc, char **argv){
 			);
 		}																																																																																																
 		msg_fl.data = curr_steering;
-		pub.publish(msg_fl);
+		pub_cur.publish(msg_fl);
+		msg_fl.data = des_steering;
+		pub_des.publish(msg_fl);
 
 		ros::spinOnce();
 		rate.sleep();
