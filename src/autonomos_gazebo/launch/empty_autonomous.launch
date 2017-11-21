@@ -1,19 +1,36 @@
 <launch>
 
-  <!-- <rosparam file="$(find autonomos_gazebo)/config/autonomos_gazebo_control.yaml" command="load"/> -->
+ 
 
-<!--   <node name="spawner" pkg="controller_manager" type="spawner"
-    output="screen" ns="ackermann" args="joint_state_controller
-       steer/steer_position_controller"/>
- -->
-    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <!-- <include file="$(find gazebo_ros)/launch/empty_world.launch"> -->
     	<!-- <arg name="world_name" value="worlds/mud.world"/> --> <!-- Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable -->
-    	<arg name="paused" value="false"/>
-    	<arg name="use_sim_time" value="true"/>
-    	<arg name="gui" value="true"/>
-    	<arg name="recording" value="false"/>
-    	<arg name="debug" value="false"/>
-    </include>
+    	<!-- <arg name="paused" value="false"/> -->
+    	<!-- <arg name="use_sim_time" value="true"/> -->
+    	<!-- <arg name="gui" value="true"/> -->
+    	<!-- <arg name="recording" value="false"/> -->
+    	<!-- <arg name="debug" value="false"/> -->
+    <!-- </include> -->
+
+<!--      <node name="gazebo_open" pkg="gazebo_ros" type="empty_world.launch" respawn="false"
+    output="screen"/> -->
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <!-- <arg name="recording" value="false"/> -->
+    <arg name="debug" value="false"/>
+  </include>
+
+    <!-- rosrun gazebo_ros spawn_model -sdf -model AutoNOMOS_mini -file ~/.gazebo/models/AutoNOMOS_mini/model.sdf -->
+  <!-- <group ns="robot_description"> -->
+     <node name = "spawn_model" pkg = "gazebo_ros" type = "spawn_model" output = "screen" args="-sdf -model AutoNOMOS_mini -file /home/ros/.gazebo/models/AutoNOMOS_mini/model.sdf " /> 
+
+      <!-- <rosparam file="$(find autonomos_gazebo)/config/autonomos_gazebo_control.yaml" command="load"/> -->
+
+  
+
+  <!-- </group> -->
 
   <!-- <include file="$(find gazebo_ros)/launch/empty_world.launch"> -->
   	<!-- <arg name="verbose" value="true"/> -->

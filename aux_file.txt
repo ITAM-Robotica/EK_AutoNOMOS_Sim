@@ -1,0 +1,715 @@
+[ 20%] Built target autoNOMOS_gazebo_bridge_node
+[ 40%] Built target perception_node
+[ 60%] Built target tf2_broadcaster_node
+[ 80%] Building CXX object autonomos_simulation/CMakeFiles/torque_ctrl_node.dir/torque_ctrl.cpp.o
+In file included from /opt/ros/indigo/include/ros/ros.h:40:0,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp: In function ‘void get_steering_angle(const LinkStates&)’:
+/opt/ros/indigo/include/ros/console.h:352:61: error: no match for ‘operator<<’ (operand types are ‘std::stringstream {aka std::basic_stringstream<char>}’ and ‘const _name_type {aka const std::vector<std::basic_string<char> >}’)
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                             ^
+/opt/ros/indigo/include/ros/console.h:357:5: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER’
+     ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER(0, args)
+     ^
+/opt/ros/indigo/include/ros/console.h:394:7: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION’
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^
+/opt/ros/indigo/include/ros/console.h:564:43: note: in expansion of macro ‘ROS_LOG_STREAM_COND’
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^
+/opt/ros/indigo/include/rosconsole/macros_generated.h:111:31: note: in expansion of macro ‘ROS_LOG_STREAM’
+ #define ROS_INFO_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, args)
+                               ^
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:2: note: in expansion of macro ‘ROS_INFO_STREAM’
+  ROS_INFO_STREAM(msg.name);
+  ^
+In file included from /usr/include/c++/5/iostream:39:0,
+                 from /opt/ros/indigo/include/ros/time.h:54,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/ostream:108:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ostream_type& (*)(std::basic_ostream<_CharT, _Traits>::__ostream_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(__ostream_type& (*__pf)(__ostream_type&))
+       ^
+/usr/include/c++/5/ostream:108:7: note:   no known conversion for argument 1 from ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ to ‘std::basic_ostream<char>::__ostream_type& (*)(std::basic_ostream<char>::__ostream_type&) {aka std::basic_ostream<char>& (*)(std::basic_ostream<char>&)}’
+/usr/include/c++/5/ostream:117:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ios_type& (*)(std::basic_ostream<_CharT, _Traits>::__ios_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>; std::basic_ostream<_CharT, _Traits>::__ios_type = std::basic_ios<char>]
+       operator<<(__ios_type& (*__pf)(__ios_type&))
+       ^
+/usr/include/c++/5/ostream:117:7: note:   no known conversion for argument 1 from ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ to ‘std::basic_ostream<char>::__ios_type& (*)(std::basic_ostream<char>::__ios_type&) {aka std::basic_ios<char>& (*)(std::basic_ios<char>&)}’
+/usr/include/c++/5/ostream:127:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::ios_base& (*)(std::ios_base&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(ios_base& (*__pf) (ios_base&))
+       ^
+/usr/include/c++/5/ostream:127:7: note:   no known conversion for argument 1 from ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ to ‘std::ios_base& (*)(std::ios_base&)’
+/usr/include/c++/5/ostream:166:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long __n)
+       ^
+/usr/include/c++/5/ostream:166:7: note:   no known conversion for argument 1 from ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ to ‘long int’
+/usr/include/c++/5/ostream:170:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned long __n)
+       ^
+/usr/include/c++/5/ostream:170:7: note:   no known conversion for argument 1 from ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ to ‘long unsigned int’
+/usr/include/c++/5/ostream:174:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(bool) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(bool __n)
+       ^
+/usr/include/c++/5/ostream:174:7: note:   no known conversion for argument 1 from ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ to ‘bool’
+In file included from /usr/include/c++/5/ostream:638:0,
+                 from /usr/include/c++/5/iostream:39,
+                 from /opt/ros/indigo/include/ros/time.h:54,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/bits/ostream.tcc:91:5: note: candidate: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(short int) [with _CharT = char; _Traits = std::char_traits<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/include/c++/5/bits/ostream.tcc:91:5: note:   no known conversion for argument 1 from ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ to ‘short int’
+In file included from /usr/include/c++/5/iostream:39:0,
+                 from /opt/ros/indigo/include/ros/time.h:54,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/ostream:181:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(short unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned short __n)
+       ^
+/usr/include/c++/5/ostream:181:7: note:   no known conversion for argument 1 from ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ to ‘short unsigned int’
+In file included from /usr/include/c++/5/ostream:638:0,
+                 from /usr/include/c++/5/iostream:39,
+                 from /opt/ros/indigo/include/ros/time.h:54,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/bits/ostream.tcc:105:5: note: candidate: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(int) [with _CharT = char; _Traits = std::char_traits<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/include/c++/5/bits/ostream.tcc:105:5: note:   no known conversion for argument 1 from ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ to ‘int’
+In file included from /usr/include/c++/5/iostream:39:0,
+                 from /opt/ros/indigo/include/ros/time.h:54,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/ostream:192:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned int __n)
+       ^
+/usr/include/c++/5/ostream:192:7: note:   no known conversion for argument 1 from ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ to ‘unsigned int’
+/usr/include/c++/5/ostream:201:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long long __n)
+       ^
+/usr/include/c++/5/ostream:201:7: note:   no known conversion for argument 1 from ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ to ‘long long int’
+/usr/include/c++/5/ostream:205:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned long long __n)
+       ^
+/usr/include/c++/5/ostream:205:7: note:   no known conversion for argument 1 from ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ to ‘long long unsigned int’
+/usr/include/c++/5/ostream:220:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(double __f)
+       ^
+/usr/include/c++/5/ostream:220:7: note:   no known conversion for argument 1 from ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ to ‘double’
+/usr/include/c++/5/ostream:224:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(float) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(float __f)
+       ^
+/usr/include/c++/5/ostream:224:7: note:   no known conversion for argument 1 from ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ to ‘float’
+/usr/include/c++/5/ostream:232:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long double __f)
+       ^
+/usr/include/c++/5/ostream:232:7: note:   no known conversion for argument 1 from ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ to ‘long double’
+/usr/include/c++/5/ostream:245:7: note: candidate: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(const void*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(const void* __p)
+       ^
+/usr/include/c++/5/ostream:245:7: note:   no known conversion for argument 1 from ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ to ‘const void*’
+In file included from /usr/include/c++/5/ostream:638:0,
+                 from /usr/include/c++/5/iostream:39,
+                 from /opt/ros/indigo/include/ros/time.h:54,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/bits/ostream.tcc:119:5: note: candidate: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__streambuf_type*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__streambuf_type = std::basic_streambuf<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/include/c++/5/bits/ostream.tcc:119:5: note:   no known conversion for argument 1 from ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ to ‘std::basic_ostream<char>::__streambuf_type* {aka std::basic_streambuf<char>*}’
+In file included from /opt/ros/indigo/include/ros/node_handle.h:51:0,
+                 from /opt/ros/indigo/include/ros/ros.h:45,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/opt/ros/indigo/include/XmlRpcValue.h:192:15: note: candidate: std::ostream& operator<<(std::ostream&, XmlRpc::XmlRpcValue&)
+ std::ostream& operator<<(std::ostream& os, XmlRpc::XmlRpcValue& v);
+               ^
+/opt/ros/indigo/include/XmlRpcValue.h:192:15: note:   no known conversion for argument 2 from ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ to ‘XmlRpc::XmlRpcValue&’
+In file included from /usr/include/eigen3/Eigen/Core:318:0,
+                 from /usr/include/eigen3/Eigen/Dense:1,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:6:
+/usr/include/eigen3/Eigen/src/Core/IO.h:240:16: note: candidate: template<class Derived> std::ostream& Eigen::operator<<(std::ostream&, const Eigen::DenseBase<Derived>&)
+ std::ostream & operator <<
+                ^
+/usr/include/eigen3/Eigen/src/Core/IO.h:240:16: note:   template argument deduction/substitution failed:
+In file included from /opt/ros/indigo/include/ros/ros.h:40:0,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:22: note:   ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ is not derived from ‘const Eigen::DenseBase<Derived>’
+  ROS_INFO_STREAM(msg.name);
+                      ^
+/opt/ros/indigo/include/ros/console.h:352:64: note: in definition of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER’
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^
+/opt/ros/indigo/include/ros/console.h:394:7: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION’
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^
+/opt/ros/indigo/include/ros/console.h:564:43: note: in expansion of macro ‘ROS_LOG_STREAM_COND’
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^
+/opt/ros/indigo/include/rosconsole/macros_generated.h:111:31: note: in expansion of macro ‘ROS_LOG_STREAM’
+ #define ROS_INFO_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, args)
+                               ^
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:2: note: in expansion of macro ‘ROS_INFO_STREAM’
+  ROS_INFO_STREAM(msg.name);
+  ^
+In file included from /usr/include/boost/detail/container_fwd.hpp:96:0,
+                 from /usr/include/boost/functional/hash/extensions.hpp:17,
+                 from /usr/include/boost/functional/hash/hash.hpp:529,
+                 from /usr/include/boost/functional/hash.hpp:6,
+                 from /usr/include/boost/unordered/unordered_map.hpp:20,
+                 from /usr/include/boost/unordered_map.hpp:16,
+                 from /opt/ros/indigo/include/tf/tf.h:44,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:18:
+/usr/include/c++/5/bitset:1530:5: note: candidate: template<class _CharT, class _Traits, long unsigned int _Nb> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::bitset<_Nb>&)
+     operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+     ^
+/usr/include/c++/5/bitset:1530:5: note:   template argument deduction/substitution failed:
+In file included from /opt/ros/indigo/include/ros/ros.h:40:0,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:22: note:   ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ is not derived from ‘const std::bitset<_Nb>’
+  ROS_INFO_STREAM(msg.name);
+                      ^
+/opt/ros/indigo/include/ros/console.h:352:64: note: in definition of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER’
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^
+/opt/ros/indigo/include/ros/console.h:394:7: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION’
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^
+/opt/ros/indigo/include/ros/console.h:564:43: note: in expansion of macro ‘ROS_LOG_STREAM_COND’
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^
+/opt/ros/indigo/include/rosconsole/macros_generated.h:111:31: note: in expansion of macro ‘ROS_LOG_STREAM’
+ #define ROS_INFO_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, args)
+                               ^
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:2: note: in expansion of macro ‘ROS_INFO_STREAM’
+  ROS_INFO_STREAM(msg.name);
+  ^
+In file included from /usr/include/boost/config/no_tr1/complex.hpp:21:0,
+                 from /usr/include/boost/math/policies/error_handling.hpp:15,
+                 from /usr/include/boost/math/special_functions/round.hpp:14,
+                 from /opt/ros/indigo/include/ros/time.h:58,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/complex:526:5: note: candidate: template<class _Tp, class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::complex<_Tp>&)
+     operator<<(basic_ostream<_CharT, _Traits>& __os, const complex<_Tp>& __x)
+     ^
+/usr/include/c++/5/complex:526:5: note:   template argument deduction/substitution failed:
+In file included from /opt/ros/indigo/include/ros/ros.h:40:0,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:22: note:   ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ is not derived from ‘const std::complex<_Tp>’
+  ROS_INFO_STREAM(msg.name);
+                      ^
+/opt/ros/indigo/include/ros/console.h:352:64: note: in definition of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER’
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^
+/opt/ros/indigo/include/ros/console.h:394:7: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION’
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^
+/opt/ros/indigo/include/ros/console.h:564:43: note: in expansion of macro ‘ROS_LOG_STREAM_COND’
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^
+/opt/ros/indigo/include/rosconsole/macros_generated.h:111:31: note: in expansion of macro ‘ROS_LOG_STREAM’
+ #define ROS_INFO_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, args)
+                               ^
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:2: note: in expansion of macro ‘ROS_INFO_STREAM’
+  ROS_INFO_STREAM(msg.name);
+  ^
+In file included from /usr/include/boost/math/policies/error_handling.hpp:12:0,
+                 from /usr/include/boost/math/special_functions/round.hpp:14,
+                 from /opt/ros/indigo/include/ros/time.h:58,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/iomanip:238:5: note: candidate: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::_Setw)
+     operator<<(basic_ostream<_CharT, _Traits>& __os, _Setw __f)
+     ^
+/usr/include/c++/5/iomanip:238:5: note:   template argument deduction/substitution failed:
+In file included from /opt/ros/indigo/include/ros/ros.h:40:0,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:22: note:   cannot convert ‘msg.gazebo_msgs::LinkStates_<std::allocator<void> >::name’ (type ‘const _name_type {aka const std::vector<std::basic_string<char> >}’) to type ‘std::_Setw’
+  ROS_INFO_STREAM(msg.name);
+                      ^
+/opt/ros/indigo/include/ros/console.h:352:64: note: in definition of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER’
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^
+/opt/ros/indigo/include/ros/console.h:394:7: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION’
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^
+/opt/ros/indigo/include/ros/console.h:564:43: note: in expansion of macro ‘ROS_LOG_STREAM_COND’
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^
+/opt/ros/indigo/include/rosconsole/macros_generated.h:111:31: note: in expansion of macro ‘ROS_LOG_STREAM’
+ #define ROS_INFO_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, args)
+                               ^
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:2: note: in expansion of macro ‘ROS_INFO_STREAM’
+  ROS_INFO_STREAM(msg.name);
+  ^
+In file included from /usr/include/boost/math/policies/error_handling.hpp:12:0,
+                 from /usr/include/boost/math/special_functions/round.hpp:14,
+                 from /opt/ros/indigo/include/ros/time.h:58,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/iomanip:208:5: note: candidate: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::_Setprecision)
+     operator<<(basic_ostream<_CharT, _Traits>& __os, _Setprecision __f)
+     ^
+/usr/include/c++/5/iomanip:208:5: note:   template argument deduction/substitution failed:
+In file included from /opt/ros/indigo/include/ros/ros.h:40:0,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:22: note:   cannot convert ‘msg.gazebo_msgs::LinkStates_<std::allocator<void> >::name’ (type ‘const _name_type {aka const std::vector<std::basic_string<char> >}’) to type ‘std::_Setprecision’
+  ROS_INFO_STREAM(msg.name);
+                      ^
+/opt/ros/indigo/include/ros/console.h:352:64: note: in definition of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER’
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^
+/opt/ros/indigo/include/ros/console.h:394:7: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION’
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^
+/opt/ros/indigo/include/ros/console.h:564:43: note: in expansion of macro ‘ROS_LOG_STREAM_COND’
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^
+/opt/ros/indigo/include/rosconsole/macros_generated.h:111:31: note: in expansion of macro ‘ROS_LOG_STREAM’
+ #define ROS_INFO_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, args)
+                               ^
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:2: note: in expansion of macro ‘ROS_INFO_STREAM’
+  ROS_INFO_STREAM(msg.name);
+  ^
+In file included from /usr/include/boost/math/policies/error_handling.hpp:12:0,
+                 from /usr/include/boost/math/special_functions/round.hpp:14,
+                 from /opt/ros/indigo/include/ros/time.h:58,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/iomanip:178:5: note: candidate: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::_Setfill<_CharT>)
+     operator<<(basic_ostream<_CharT, _Traits>& __os, _Setfill<_CharT> __f)
+     ^
+/usr/include/c++/5/iomanip:178:5: note:   template argument deduction/substitution failed:
+In file included from /opt/ros/indigo/include/ros/ros.h:40:0,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:22: note:   ‘std::vector<std::basic_string<char> >’ is not derived from ‘std::_Setfill<_CharT>’
+  ROS_INFO_STREAM(msg.name);
+                      ^
+/opt/ros/indigo/include/ros/console.h:352:64: note: in definition of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER’
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^
+/opt/ros/indigo/include/ros/console.h:394:7: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION’
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^
+/opt/ros/indigo/include/ros/console.h:564:43: note: in expansion of macro ‘ROS_LOG_STREAM_COND’
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^
+/opt/ros/indigo/include/rosconsole/macros_generated.h:111:31: note: in expansion of macro ‘ROS_LOG_STREAM’
+ #define ROS_INFO_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, args)
+                               ^
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:2: note: in expansion of macro ‘ROS_INFO_STREAM’
+  ROS_INFO_STREAM(msg.name);
+  ^
+In file included from /usr/include/boost/math/policies/error_handling.hpp:12:0,
+                 from /usr/include/boost/math/special_functions/round.hpp:14,
+                 from /opt/ros/indigo/include/ros/time.h:58,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/iomanip:143:5: note: candidate: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::_Setbase)
+     operator<<(basic_ostream<_CharT, _Traits>& __os, _Setbase __f)
+     ^
+/usr/include/c++/5/iomanip:143:5: note:   template argument deduction/substitution failed:
+In file included from /opt/ros/indigo/include/ros/ros.h:40:0,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:22: note:   cannot convert ‘msg.gazebo_msgs::LinkStates_<std::allocator<void> >::name’ (type ‘const _name_type {aka const std::vector<std::basic_string<char> >}’) to type ‘std::_Setbase’
+  ROS_INFO_STREAM(msg.name);
+                      ^
+/opt/ros/indigo/include/ros/console.h:352:64: note: in definition of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER’
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^
+/opt/ros/indigo/include/ros/console.h:394:7: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION’
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^
+/opt/ros/indigo/include/ros/console.h:564:43: note: in expansion of macro ‘ROS_LOG_STREAM_COND’
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^
+/opt/ros/indigo/include/rosconsole/macros_generated.h:111:31: note: in expansion of macro ‘ROS_LOG_STREAM’
+ #define ROS_INFO_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, args)
+                               ^
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:2: note: in expansion of macro ‘ROS_INFO_STREAM’
+  ROS_INFO_STREAM(msg.name);
+  ^
+In file included from /usr/include/boost/math/policies/error_handling.hpp:12:0,
+                 from /usr/include/boost/math/special_functions/round.hpp:14,
+                 from /opt/ros/indigo/include/ros/time.h:58,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/iomanip:109:5: note: candidate: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::_Setiosflags)
+     operator<<(basic_ostream<_CharT, _Traits>& __os, _Setiosflags __f)
+     ^
+/usr/include/c++/5/iomanip:109:5: note:   template argument deduction/substitution failed:
+In file included from /opt/ros/indigo/include/ros/ros.h:40:0,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:22: note:   cannot convert ‘msg.gazebo_msgs::LinkStates_<std::allocator<void> >::name’ (type ‘const _name_type {aka const std::vector<std::basic_string<char> >}’) to type ‘std::_Setiosflags’
+  ROS_INFO_STREAM(msg.name);
+                      ^
+/opt/ros/indigo/include/ros/console.h:352:64: note: in definition of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER’
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^
+/opt/ros/indigo/include/ros/console.h:394:7: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION’
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^
+/opt/ros/indigo/include/ros/console.h:564:43: note: in expansion of macro ‘ROS_LOG_STREAM_COND’
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^
+/opt/ros/indigo/include/rosconsole/macros_generated.h:111:31: note: in expansion of macro ‘ROS_LOG_STREAM’
+ #define ROS_INFO_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, args)
+                               ^
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:2: note: in expansion of macro ‘ROS_INFO_STREAM’
+  ROS_INFO_STREAM(msg.name);
+  ^
+In file included from /usr/include/boost/math/policies/error_handling.hpp:12:0,
+                 from /usr/include/boost/math/special_functions/round.hpp:14,
+                 from /opt/ros/indigo/include/ros/time.h:58,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/iomanip:79:5: note: candidate: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::_Resetiosflags)
+     operator<<(basic_ostream<_CharT, _Traits>& __os, _Resetiosflags __f)
+     ^
+/usr/include/c++/5/iomanip:79:5: note:   template argument deduction/substitution failed:
+In file included from /opt/ros/indigo/include/ros/ros.h:40:0,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:22: note:   cannot convert ‘msg.gazebo_msgs::LinkStates_<std::allocator<void> >::name’ (type ‘const _name_type {aka const std::vector<std::basic_string<char> >}’) to type ‘std::_Resetiosflags’
+  ROS_INFO_STREAM(msg.name);
+                      ^
+/opt/ros/indigo/include/ros/console.h:352:64: note: in definition of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER’
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^
+/opt/ros/indigo/include/ros/console.h:394:7: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION’
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^
+/opt/ros/indigo/include/ros/console.h:564:43: note: in expansion of macro ‘ROS_LOG_STREAM_COND’
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^
+/opt/ros/indigo/include/rosconsole/macros_generated.h:111:31: note: in expansion of macro ‘ROS_LOG_STREAM’
+ #define ROS_INFO_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, args)
+                               ^
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:2: note: in expansion of macro ‘ROS_INFO_STREAM’
+  ROS_INFO_STREAM(msg.name);
+  ^
+In file included from /usr/include/c++/5/iostream:39:0,
+                 from /opt/ros/indigo/include/ros/time.h:54,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/ostream:574:5: note: candidate: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const unsigned char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const unsigned char* __s)
+     ^
+/usr/include/c++/5/ostream:574:5: note:   template argument deduction/substitution failed:
+In file included from /opt/ros/indigo/include/ros/ros.h:40:0,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:22: note:   cannot convert ‘msg.gazebo_msgs::LinkStates_<std::allocator<void> >::name’ (type ‘const _name_type {aka const std::vector<std::basic_string<char> >}’) to type ‘const unsigned char*’
+  ROS_INFO_STREAM(msg.name);
+                      ^
+/opt/ros/indigo/include/ros/console.h:352:64: note: in definition of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER’
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^
+/opt/ros/indigo/include/ros/console.h:394:7: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION’
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^
+/opt/ros/indigo/include/ros/console.h:564:43: note: in expansion of macro ‘ROS_LOG_STREAM_COND’
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^
+/opt/ros/indigo/include/rosconsole/macros_generated.h:111:31: note: in expansion of macro ‘ROS_LOG_STREAM’
+ #define ROS_INFO_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, args)
+                               ^
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:2: note: in expansion of macro ‘ROS_INFO_STREAM’
+  ROS_INFO_STREAM(msg.name);
+  ^
+In file included from /usr/include/c++/5/iostream:39:0,
+                 from /opt/ros/indigo/include/ros/time.h:54,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/ostream:569:5: note: candidate: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const signed char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const signed char* __s)
+     ^
+/usr/include/c++/5/ostream:569:5: note:   template argument deduction/substitution failed:
+In file included from /opt/ros/indigo/include/ros/ros.h:40:0,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:22: note:   cannot convert ‘msg.gazebo_msgs::LinkStates_<std::allocator<void> >::name’ (type ‘const _name_type {aka const std::vector<std::basic_string<char> >}’) to type ‘const signed char*’
+  ROS_INFO_STREAM(msg.name);
+                      ^
+/opt/ros/indigo/include/ros/console.h:352:64: note: in definition of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER’
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^
+/opt/ros/indigo/include/ros/console.h:394:7: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION’
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^
+/opt/ros/indigo/include/ros/console.h:564:43: note: in expansion of macro ‘ROS_LOG_STREAM_COND’
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^
+/opt/ros/indigo/include/rosconsole/macros_generated.h:111:31: note: in expansion of macro ‘ROS_LOG_STREAM’
+ #define ROS_INFO_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, args)
+                               ^
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:2: note: in expansion of macro ‘ROS_INFO_STREAM’
+  ROS_INFO_STREAM(msg.name);
+  ^
+In file included from /usr/include/c++/5/iostream:39:0,
+                 from /opt/ros/indigo/include/ros/time.h:54,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/ostream:556:5: note: candidate: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const char* __s)
+     ^
+/usr/include/c++/5/ostream:556:5: note:   template argument deduction/substitution failed:
+In file included from /opt/ros/indigo/include/ros/ros.h:40:0,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:22: note:   cannot convert ‘msg.gazebo_msgs::LinkStates_<std::allocator<void> >::name’ (type ‘const _name_type {aka const std::vector<std::basic_string<char> >}’) to type ‘const char*’
+  ROS_INFO_STREAM(msg.name);
+                      ^
+/opt/ros/indigo/include/ros/console.h:352:64: note: in definition of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER’
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^
+/opt/ros/indigo/include/ros/console.h:394:7: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION’
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^
+/opt/ros/indigo/include/ros/console.h:564:43: note: in expansion of macro ‘ROS_LOG_STREAM_COND’
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^
+/opt/ros/indigo/include/rosconsole/macros_generated.h:111:31: note: in expansion of macro ‘ROS_LOG_STREAM’
+ #define ROS_INFO_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, args)
+                               ^
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:2: note: in expansion of macro ‘ROS_INFO_STREAM’
+  ROS_INFO_STREAM(msg.name);
+  ^
+In file included from /usr/include/c++/5/ostream:638:0,
+                 from /usr/include/c++/5/iostream:39,
+                 from /opt/ros/indigo/include/ros/time.h:54,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/bits/ostream.tcc:321:5: note: candidate: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const char*)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, const char* __s)
+     ^
+/usr/include/c++/5/bits/ostream.tcc:321:5: note:   template argument deduction/substitution failed:
+In file included from /opt/ros/indigo/include/ros/ros.h:40:0,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:22: note:   cannot convert ‘msg.gazebo_msgs::LinkStates_<std::allocator<void> >::name’ (type ‘const _name_type {aka const std::vector<std::basic_string<char> >}’) to type ‘const char*’
+  ROS_INFO_STREAM(msg.name);
+                      ^
+/opt/ros/indigo/include/ros/console.h:352:64: note: in definition of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER’
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^
+/opt/ros/indigo/include/ros/console.h:394:7: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION’
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^
+/opt/ros/indigo/include/ros/console.h:564:43: note: in expansion of macro ‘ROS_LOG_STREAM_COND’
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^
+/opt/ros/indigo/include/rosconsole/macros_generated.h:111:31: note: in expansion of macro ‘ROS_LOG_STREAM’
+ #define ROS_INFO_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, args)
+                               ^
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:2: note: in expansion of macro ‘ROS_INFO_STREAM’
+  ROS_INFO_STREAM(msg.name);
+  ^
+In file included from /usr/include/c++/5/iostream:39:0,
+                 from /opt/ros/indigo/include/ros/time.h:54,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/ostream:539:5: note: candidate: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const _CharT*)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, const _CharT* __s)
+     ^
+/usr/include/c++/5/ostream:539:5: note:   template argument deduction/substitution failed:
+In file included from /opt/ros/indigo/include/ros/ros.h:40:0,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:22: note:   mismatched types ‘const _CharT*’ and ‘std::vector<std::basic_string<char> >’
+  ROS_INFO_STREAM(msg.name);
+                      ^
+/opt/ros/indigo/include/ros/console.h:352:64: note: in definition of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER’
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^
+/opt/ros/indigo/include/ros/console.h:394:7: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION’
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^
+/opt/ros/indigo/include/ros/console.h:564:43: note: in expansion of macro ‘ROS_LOG_STREAM_COND’
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^
+/opt/ros/indigo/include/rosconsole/macros_generated.h:111:31: note: in expansion of macro ‘ROS_LOG_STREAM’
+ #define ROS_INFO_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, args)
+                               ^
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:2: note: in expansion of macro ‘ROS_INFO_STREAM’
+  ROS_INFO_STREAM(msg.name);
+  ^
+In file included from /usr/include/c++/5/iostream:39:0,
+                 from /opt/ros/indigo/include/ros/time.h:54,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/ostream:519:5: note: candidate: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, unsigned char)
+     operator<<(basic_ostream<char, _Traits>& __out, unsigned char __c)
+     ^
+/usr/include/c++/5/ostream:519:5: note:   template argument deduction/substitution failed:
+In file included from /opt/ros/indigo/include/ros/ros.h:40:0,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:22: note:   cannot convert ‘msg.gazebo_msgs::LinkStates_<std::allocator<void> >::name’ (type ‘const _name_type {aka const std::vector<std::basic_string<char> >}’) to type ‘unsigned char’
+  ROS_INFO_STREAM(msg.name);
+                      ^
+/opt/ros/indigo/include/ros/console.h:352:64: note: in definition of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER’
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^
+/opt/ros/indigo/include/ros/console.h:394:7: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION’
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^
+/opt/ros/indigo/include/ros/console.h:564:43: note: in expansion of macro ‘ROS_LOG_STREAM_COND’
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^
+/opt/ros/indigo/include/rosconsole/macros_generated.h:111:31: note: in expansion of macro ‘ROS_LOG_STREAM’
+ #define ROS_INFO_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, args)
+                               ^
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:2: note: in expansion of macro ‘ROS_INFO_STREAM’
+  ROS_INFO_STREAM(msg.name);
+  ^
+In file included from /usr/include/c++/5/iostream:39:0,
+                 from /opt/ros/indigo/include/ros/time.h:54,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/ostream:514:5: note: candidate: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, signed char)
+     operator<<(basic_ostream<char, _Traits>& __out, signed char __c)
+     ^
+/usr/include/c++/5/ostream:514:5: note:   template argument deduction/substitution failed:
+In file included from /opt/ros/indigo/include/ros/ros.h:40:0,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:22: note:   cannot convert ‘msg.gazebo_msgs::LinkStates_<std::allocator<void> >::name’ (type ‘const _name_type {aka const std::vector<std::basic_string<char> >}’) to type ‘signed char’
+  ROS_INFO_STREAM(msg.name);
+                      ^
+/opt/ros/indigo/include/ros/console.h:352:64: note: in definition of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER’
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^
+/opt/ros/indigo/include/ros/console.h:394:7: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION’
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^
+/opt/ros/indigo/include/ros/console.h:564:43: note: in expansion of macro ‘ROS_LOG_STREAM_COND’
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^
+/opt/ros/indigo/include/rosconsole/macros_generated.h:111:31: note: in expansion of macro ‘ROS_LOG_STREAM’
+ #define ROS_INFO_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, args)
+                               ^
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:2: note: in expansion of macro ‘ROS_INFO_STREAM’
+  ROS_INFO_STREAM(msg.name);
+  ^
+In file included from /usr/include/c++/5/iostream:39:0,
+                 from /opt/ros/indigo/include/ros/time.h:54,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/ostream:508:5: note: candidate: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, char)
+     operator<<(basic_ostream<char, _Traits>& __out, char __c)
+     ^
+/usr/include/c++/5/ostream:508:5: note:   template argument deduction/substitution failed:
+In file included from /opt/ros/indigo/include/ros/ros.h:40:0,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:22: note:   cannot convert ‘msg.gazebo_msgs::LinkStates_<std::allocator<void> >::name’ (type ‘const _name_type {aka const std::vector<std::basic_string<char> >}’) to type ‘char’
+  ROS_INFO_STREAM(msg.name);
+                      ^
+/opt/ros/indigo/include/ros/console.h:352:64: note: in definition of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER’
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^
+/opt/ros/indigo/include/ros/console.h:394:7: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION’
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^
+/opt/ros/indigo/include/ros/console.h:564:43: note: in expansion of macro ‘ROS_LOG_STREAM_COND’
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^
+/opt/ros/indigo/include/rosconsole/macros_generated.h:111:31: note: in expansion of macro ‘ROS_LOG_STREAM’
+ #define ROS_INFO_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, args)
+                               ^
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:2: note: in expansion of macro ‘ROS_INFO_STREAM’
+  ROS_INFO_STREAM(msg.name);
+  ^
+In file included from /usr/include/c++/5/iostream:39:0,
+                 from /opt/ros/indigo/include/ros/time.h:54,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/ostream:502:5: note: candidate: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, char)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, char __c)
+     ^
+/usr/include/c++/5/ostream:502:5: note:   template argument deduction/substitution failed:
+In file included from /opt/ros/indigo/include/ros/ros.h:40:0,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:22: note:   cannot convert ‘msg.gazebo_msgs::LinkStates_<std::allocator<void> >::name’ (type ‘const _name_type {aka const std::vector<std::basic_string<char> >}’) to type ‘char’
+  ROS_INFO_STREAM(msg.name);
+                      ^
+/opt/ros/indigo/include/ros/console.h:352:64: note: in definition of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER’
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^
+/opt/ros/indigo/include/ros/console.h:394:7: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION’
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^
+/opt/ros/indigo/include/ros/console.h:564:43: note: in expansion of macro ‘ROS_LOG_STREAM_COND’
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^
+/opt/ros/indigo/include/rosconsole/macros_generated.h:111:31: note: in expansion of macro ‘ROS_LOG_STREAM’
+ #define ROS_INFO_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, args)
+                               ^
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:2: note: in expansion of macro ‘ROS_INFO_STREAM’
+  ROS_INFO_STREAM(msg.name);
+  ^
+In file included from /usr/include/c++/5/iostream:39:0,
+                 from /opt/ros/indigo/include/ros/time.h:54,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/ostream:497:5: note: candidate: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, _CharT)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, _CharT __c)
+     ^
+/usr/include/c++/5/ostream:497:5: note:   template argument deduction/substitution failed:
+In file included from /opt/ros/indigo/include/ros/ros.h:40:0,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:22: note:   deduced conflicting types for parameter ‘_CharT’ (‘char’ and ‘std::vector<std::basic_string<char> >’)
+  ROS_INFO_STREAM(msg.name);
+                      ^
+/opt/ros/indigo/include/ros/console.h:352:64: note: in definition of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER’
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^
+/opt/ros/indigo/include/ros/console.h:394:7: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION’
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^
+/opt/ros/indigo/include/ros/console.h:564:43: note: in expansion of macro ‘ROS_LOG_STREAM_COND’
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^
+/opt/ros/indigo/include/rosconsole/macros_generated.h:111:31: note: in expansion of macro ‘ROS_LOG_STREAM’
+ #define ROS_INFO_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, args)
+                               ^
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:2: note: in expansion of macro ‘ROS_INFO_STREAM’
+  ROS_INFO_STREAM(msg.name);
+  ^
+In file included from /usr/include/c++/5/string:52:0,
+                 from /opt/ros/indigo/include/ros/platform.h:55,
+                 from /opt/ros/indigo/include/ros/time.h:53,
+                 from /opt/ros/indigo/include/ros/ros.h:38,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/usr/include/c++/5/bits/basic_string.h:5257:5: note: candidate: template<class _CharT, class _Traits, class _Alloc> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator<<(basic_ostream<_CharT, _Traits>& __os,
+     ^
+/usr/include/c++/5/bits/basic_string.h:5257:5: note:   template argument deduction/substitution failed:
+In file included from /opt/ros/indigo/include/ros/ros.h:40:0,
+                 from /home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:1:
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:22: note:   ‘const _name_type {aka const std::vector<std::basic_string<char> >}’ is not derived from ‘const std::basic_string<_CharT, _Traits, _Alloc>’
+  ROS_INFO_STREAM(msg.name);
+                      ^
+/opt/ros/indigo/include/ros/console.h:352:64: note: in definition of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION_WITH_FILTER’
+     __rosconsole_print_stream_at_location_with_filter__ss__ << args; \
+                                                                ^
+/opt/ros/indigo/include/ros/console.h:394:7: note: in expansion of macro ‘ROSCONSOLE_PRINT_STREAM_AT_LOCATION’
+       ROSCONSOLE_PRINT_STREAM_AT_LOCATION(args); \
+       ^
+/opt/ros/indigo/include/ros/console.h:564:43: note: in expansion of macro ‘ROS_LOG_STREAM_COND’
+ #define ROS_LOG_STREAM(level, name, args) ROS_LOG_STREAM_COND(true, level, name, args)
+                                           ^
+/opt/ros/indigo/include/rosconsole/macros_generated.h:111:31: note: in expansion of macro ‘ROS_LOG_STREAM’
+ #define ROS_INFO_STREAM(args) ROS_LOG_STREAM(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, args)
+                               ^
+/home/ros/EK_AutoNOMOS/src/autonomos_simulation/torque_ctrl.cpp:85:2: note: in expansion of macro ‘ROS_INFO_STREAM’
+  ROS_INFO_STREAM(msg.name);
+  ^
+make[2]: *** [autonomos_simulation/CMakeFiles/torque_ctrl_node.dir/torque_ctrl.cpp.o] Error 1
+make[1]: *** [autonomos_simulation/CMakeFiles/torque_ctrl_node.dir/all] Error 2
+make: *** [all] Error 2
+Base path: /home/ros/EK_AutoNOMOS
+Source space: /home/ros/EK_AutoNOMOS/src
+Build space: /home/ros/EK_AutoNOMOS/build
+Devel space: /home/ros/EK_AutoNOMOS/devel
+Install space: /home/ros/EK_AutoNOMOS/install
+####
+#### Running command: "make cmake_check_build_system" in "/home/ros/EK_AutoNOMOS/build"
+####
+####
+#### Running command: "make -j1 -l1" in "/home/ros/EK_AutoNOMOS/build"
+####
+Invoking "make -j1 -l1" failed

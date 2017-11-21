@@ -1,4 +1,4 @@
-ackermann:
+robot_description:
   # these controller will be loaded as gazebo plugins, so the /gazebo
   # node will be in control of them.
   # Publish all joint states -----------------------------------
@@ -8,7 +8,7 @@ ackermann:
 
   # Position Controllers ---------------------------------------
   steer:
-    steer_position_controller:
-      type: effort_controllers/JointPositionController
-      joint: steer_joint
-      pid: {p: 20.0, i: 0.001, d: 0.5} #, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    # steer_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: steer_joint
+    pid: {p: 20.0, i: 0.001, d: 0.5} #, i_clamp_min: -1.0, i_clamp_max: 1.0}
