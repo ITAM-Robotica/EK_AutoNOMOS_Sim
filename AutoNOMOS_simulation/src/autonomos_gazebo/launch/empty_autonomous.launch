@@ -24,7 +24,7 @@
 
     <!-- rosrun gazebo_ros spawn_model -sdf -model AutoNOMOS_mini -file ~/.gazebo/models/AutoNOMOS_mini/model.sdf -->
   <!-- <group ns="robot_description"> -->
-     <node name = "spawn_model" pkg = "gazebo_ros" type = "spawn_model" output = "screen" args="-sdf -model AutoNOMOS_mini -file /home/ros/.gazebo/models/AutoNOMOS_mini/model.sdf " /> 
+     <node name = "spawn_model" pkg = "gazebo_ros" type = "spawn_model" output = "screen" args="-sdf -model AutoNOMOS_mini -file /home/robotica/.gazebo/models/AutoNOMOS_mini/model.sdf " /> 
 
       <!-- <rosparam file="$(find autonomos_gazebo)/config/autonomos_gazebo_control.yaml" command="load"/> -->
 
