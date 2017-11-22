@@ -984,7 +984,7 @@
         <use_parent_model_frame>true</use_parent_model_frame>
       </axis>
     </joint>
-    <plugin name="test_control" filename="libtest_plugin.so">
+    <plugin name="test_control" filename="libautonomos_plugin.so">
       <debug>True</debug>
     <!-- <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"> -->
       <!-- <robotParam>robot_description</robotParam> -->
