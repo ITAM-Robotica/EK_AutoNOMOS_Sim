@@ -13,6 +13,7 @@
 
      <node name = "tf_autonomos" pkg = "autonomos_simulation" type = "tf2_broadcaster_node" args = "AutoNOMOS_mini" />
 
+     <node name = "robot-pose" pkg = "autonomos_simulation" type = "robot_pose_publisher" />
 
 
 </launch>
