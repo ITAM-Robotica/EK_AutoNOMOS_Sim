@@ -140,13 +140,13 @@ add_definitions(${PCL_DEFINITIONS})
 add_executable(tf2_broadcaster_node tf2_broadcaster_node.cpp)
 add_executable(perception_node perception_node.cpp)
 add_executable(vision_node vision_node.cpp)
-add_executable(autoNOMOS_gazebo_bridge_node autoNOMOS_gazebo_bridge.cpp)
+add_executable(robot_pose_publisher robot_pose_publisher.cpp)
 # add_executable(robot_trajectory_node robot_trajectory_node.cpp)
 
 target_link_libraries(tf2_broadcaster_node ${catkin_LIBRARIES})
 target_link_libraries(perception_node ${catkin_LIBRARIES} ${PCL_LIBRARIES})
 target_link_libraries(vision_node ${catkin_LIBRARIES} ${PCL_LIBRARIES})
-target_link_libraries(autoNOMOS_gazebo_bridge_node ${catkin_LIBRARIES} ${PCL_LIBRARIES})
+target_link_libraries(robot_pose_publisher ${catkin_LIBRARIES})
 # target_link_libraries(robot_trajectory_node ${catkin_LIBRARIES})
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
