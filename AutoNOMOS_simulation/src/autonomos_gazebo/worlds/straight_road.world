@@ -7,12 +7,12 @@
     <include>
       <uri>model://sun</uri>
     </include>
-    <include>
-      <uri>model://AutoNOMOS_mini</uri>
-      <pose>-4.5 -4 0 0 0 -.785 </pose>
-    </include>
-    <include>
-      <uri>model://AutoNOMOS_straight_road</uri>
-    </include>
+    <!-- <include> -->
+      <!-- <uri>model://$(find autonomos_gazebo)/models/AutoNOMOS_mini/model.sdf</uri> -->
+      <!-- <pose>-4.5 -4 0 0 0 -.785 </pose> -->
+    <!-- </include> -->
+    <!-- <include> -->
+      <!-- <uri>model://AutoNOMOS_straight_road</uri> -->
+    <!-- </include> -->
   </world>
 </sdf>

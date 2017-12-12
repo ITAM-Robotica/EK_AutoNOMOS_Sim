@@ -16,7 +16,7 @@
 #include <tf/transform_listener.h>
 #include "geometry_msgs/PoseStamped.h"
 #include <geometry_msgs/Pose2D.h>
-
+#include <string>
 
 #define ARRAY_SIZE(array) (sizeof((array))/sizeof((array[0])))
 
@@ -153,19 +153,24 @@ int main(int argc, char **argv){
 	nh.param<std::string>("car_name", car_name, "ackermann");
 	ROS_INFO_STREAM("Using gazebo model: " << car_name);
 	// Suscribe to Gazebo service ApplyJointEffor
-	ros::ServiceClient client = nh.serviceClient<gazebo_msgs::ApplyJointEffort>("/gazebo/apply_joint_effort");
-	ros::ServiceClient client_clr = nh.serviceClient<gazebo_msgs::JointRequest>("/gazebo/clear_joint_forces");
-	gazebo_msgs::ApplyJointEffort eff_msg[4];
+	// ros::ServiceClient client = nh.serviceClient<gazebo_msgs::ApplyJointEffort>("/gazebo/apply_joint_effort");
+	// ros::ServiceClient client_clr = nh.serviceClient<gazebo_msgs::JointRequest>("/gazebo/clear_joint_forces");
+	// gazebo_msgs::ApplyJointEffort eff_msg[4];
 	
-	gazebo_msgs::JointRequest jr;
-	jr.request.joint_name = "steer_joint";
+	// gazebo_msgs::JointRequest jr;
+	// jr.request.joint_name = "steer_joint";
 
-	ros::Subscriber sub_steering = nh.subscribe("/manual_control/steering", 1, &get_steering);
-	ros::Subscriber sub_speed = nh.subscribe("/manual_control/speed", 1, &get_speed);
+	// ros::Subscriber sub_steering = nh.subscribe("/manual_control/steering", 1, &get_steering);
+	// ros::Subscriber sub_speed = nh.subscribe("/manual_control/speed", 1, &get_speed);
 	// ros::Subscriber sub_curr_link_states = nh.subscribe("/gazebo/link_states", 1, &get_curr_link_states);
 
-	ros::Publisher pub_cur = nh.advertise<geometry_msgs::Pose2D> ("/robot/pose", 1);
-	ros::Publisher pub_des = nh.advertise<std_msgs::Float64> ("/car_des_steering_angle", 1);
+
+	std::string ns = ros::this_node::getNamespace();
+	ns.erase(0,1);
+	std::string topic_name = "/" + ns + "/pose";
+	
+	ros::Publisher pub_cur = nh.advertise<geometry_msgs::Pose2D> (topic_name, 1);
+	// ros::Publisher pub_des = nh.advertise<std_msgs::Float64> ("/car_des_steering_angle", 1);
 	std_msgs::Float64 msg_fl;
 
     //define the rate
@@ -185,11 +190,13 @@ int main(int argc, char **argv){
 
 	geometry_msgs::Pose2D car_pose;
 
+	std::string steering_link_name = ns + "::steer_link";
+
 	while (ros::ok())
 	{
 		try{
 			// tfListener.transformPose("ackermann", pose_stp_w, pose_stp_ack);
-			tfListener.lookupTransform("/ground_plane", "/steer_link", ros::Time(0), transform_steering);
+			tfListener.lookupTransform("ground_plane::link", steering_link_name, ros::Time(0), transform_steering);
 			// ROS_INFO_STREAM("After transformPose: " << pose_stp_w << pose_stp_ack);
 			// ROS_INFO_STREAM("After transformPose: " );
 

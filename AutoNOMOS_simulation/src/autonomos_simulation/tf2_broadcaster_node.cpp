@@ -34,16 +34,18 @@ void set_leaf(std::string parent_name, std::string child_name, geometry_msgs::Po
 	// Base case: there is no child (child is empty).
 	if (!child_name.empty())
 	{
-		std::size_t char_pos = child_name.find("::"); 							// find the position of the first '::' (multiple chained links  ==> multiple '::')
+		// std::size_t char_pos = child_name.find("::"); 							// find the position of the first '::' (multiple chained links  ==> multiple '::')
 		parent = "world";// parent_name;													// the parent is alway parent_name
-		if(char_pos ==  std::string::npos)										// check if '::' wasnt found (position is npos)
-		{
+		// if(char_pos ==  std::string::npos)										// check if '::' wasnt found (position is npos)
+		// {
 			child = child_name;													// this is the last child, asign it without checking for grandchildren
 			grandchildren = "";													// there are no more grand children
-		} else {
-			child = child_name.substr(0, char_pos);								// if '::' was found, split the child from the grandchildren
-			grandchildren = child_name.substr(char_pos+2, std::string::npos);	// get the grandchildren
-		}
+		
+			
+		// } else {
+		// 	child = child_name.substr(0, char_pos);								// if '::' was found, split the child from the grandchildren
+		// 	grandchildren = child_name.substr(char_pos+2, std::string::npos);	// get the grandchildren
+		// }
 
 		if(parent_name.empty())													// Only in the first iteration the parent name can be empty
 		{

@@ -244,8 +244,8 @@
         </ray>
         <!-- <topic>/laser_scan</topic>  -->
         <plugin name="laser" filename="libgazebo_ros_laser.so"> 
-          <robotNamespace></robotNamespace>
-          <topicName>/laser_scan</topicName> 
+          <!-- <robotNamespace></robotNamespace> -->
+          <topicName>laser_scan</topicName> 
           <frameName>map</frameName> 
         </plugin>
         <always_on>1</always_on>
