@@ -1,11 +1,2 @@
-# EK_AutoNOMOS
-Eagle Knights development for AutoNOMOS mini Simulation
-
-## Gazebo Plugin
-Plugin for controlling the autonomos mini
-
-
-## AutoNOMOS simulation
-Files for using the simulation of the autonomos  
-
-
+# TMR2018
+Branch for development towards TMR 2018. For info check the [wiki](https://github.com/EagleKnights/Eagle_Knights-Wiki/wiki).

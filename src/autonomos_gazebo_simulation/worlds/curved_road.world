@@ -1,0 +1,174 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+
+    <include>
+      <uri>model://ground_plane</uri>
+      <pose> 0 0 -.0001 0 0 0 </pose>
+    </include>
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <include>
+      <uri>model://AutoNOMOS_mini</uri>
+      <pose>.75 0 0 0 0 1.570796327 </pose>
+    </include>
+
+
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>.5 .5 0 0 0 0 </pose>
+    </include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>.5 -.5 0 0 0 0 </pose>
+    </include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>.5 1.5 0 0 0 0 </pose>
+    </include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>.5 -1.5 0 0 0 0 </pose>
+    </include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>.5 -2.5 0 0 0 0 </pose>
+    </include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>.5 2.5 0 0 0 0 </pose>
+    </include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>.5 -3.5 0 0 0 0 </pose>
+    </include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>.5 3.5 0 0 0 0 </pose>
+    </include>
+
+    <include>
+      <uri>model://curved_road</uri>
+      <pose> 1 5 0 0 0 0 </pose>
+  	</include>
+
+
+  	<include>
+      <uri>model://straight_road</uri>
+      <pose> 2.5 5.5 0 0 0 -1.570796327 </pose>
+    </include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>3.5 5.5 0 0 0 -1.570796327 </pose>
+    </include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>4.5 5.5 0 0 0 -1.570796327 </pose>
+    </include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>5.5 5.5 0 0 0 -1.570796327 </pose>
+    </include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>6.5 5.5 0 0 0 -1.570796327 </pose>
+    </include>
+
+    <include>
+      <uri>model://curved_road</uri>
+      <pose> 8 5 0 0 0 -1.570796327 </pose>
+  	</include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>2.5 -5.5 0 0 0 1.570796327 </pose>
+    </include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>3.5 -5.5 0 0 0 1.570796327 </pose>
+    </include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>4.5 -5.5 0 0 0 1.570796327 </pose>
+    </include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>5.5 -5.5 0 0 0 1.570796327 </pose>
+    </include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>6.5 -5.5 0 0 0 1.570796327 </pose>
+    </include>
+
+    <include>
+      <uri>model://curved_road</uri>
+      <pose> 8 -5 0 0 0 3.141592654 </pose>
+  	</include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>8.5 .5 0 0 0 3.141592654 </pose>
+    </include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>8.5 1.5 0 0 0 3.141592654 </pose>
+    </include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>8.5 2.5 0 0 0 3.141592654 </pose>
+    </include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>8.5 3.5 0 0 0 3.141592654 </pose>
+    </include>
+
+  
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>8.5 -.5 0 0 0 3.141592654 </pose>
+    </include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>8.5 -1.5 0 0 0 3.141592654 </pose>
+    </include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>8.5 -2.5 0 0 0 3.141592654 </pose>
+    </include>
+
+    <include>
+      <uri>model://straight_road</uri>
+      <pose>8.5 -3.5 0 0 0 3.141592654 </pose>
+    </include>
+
+      <include>
+      <uri>model://curved_road</uri>
+      <pose> 1 -5 0 0 0 1.570796327 </pose>
+  	</include>
+
+  </world>
+</sdf>

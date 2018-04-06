@@ -1,8 +1,0 @@
-<launch>
-     <!-- Turtlesim Node-->
-
-    <node pkg="autonomos_simulation" type="tf2_broadcaster_node" name="tf2_broadcaster_node"/>
-    <node pkg="autonomos_simulation" type="vision_node" name="vision_node" /> -->
-    <node pkg="autonomos_simulation" type="perception_node" name="perception_node" output="screen"/>
-
-</launch>
