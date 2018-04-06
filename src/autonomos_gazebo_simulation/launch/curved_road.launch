@@ -13,15 +13,5 @@
 
   <node name = "robot_pose" pkg = "autonomos_gazebo_simulation" type = "robot_pose_publisher" />
 
-  <include file="$(find vision)/launch/line_detection_fu.launch"/>
-
-  <include file="$(find navigation)/launch/lane_states.launch"/>
-
-  <include file="$(find navigation)/launch/gen_next_pose.launch"/>
-
-  <node name = "referee" pkg = "referee" type = "referee_node" />
-
-  <include file="$(find control_low)/launch/controller_sim.launch" /> 
-
 </launch>
 	
