@@ -4,11 +4,13 @@
 #include <gazebo/gazebo.hh>
 #include <gazebo/physics/physics.hh>
 #include <thread>
-#include "ros/ros.h"
-#include "ros/callback_queue.h"
-#include "ros/subscribe_options.h"
-#include "std_msgs/Float32.h"
-#include "std_msgs/Int16.h"
+#include <ros/ros.h>
+#include <ros/callback_queue.h>
+#include <ros/subscribe_options.h>
+#include <geometry_msgs/Pose2D.h>
+#include <std_msgs/Float32.h>
+#include <std_msgs/Int16.h>
+#include <gazebo_plugins/PubQueue.h>
 
 namespace gazebo
 {
@@ -45,10 +47,19 @@ namespace gazebo
     private: 
       void QueueThread();
 
+      void autonomos_connect();
+
+      void autonomos_disconnect();
+
       float position;
 
       float vel;
 
+      ros::Publisher pub_;
+      PubQueue<geometry_msgs::Pose2D>::Ptr pub_queue_;
+      
+      PubMultiQueue pmq;
+      
       event::ConnectionPtr updateConnection;
     /// \brief Pointer to the model.
       physics::ModelPtr model;

@@ -33,9 +33,11 @@ namespace gazebo
     // Safety check
     if (_model->GetJointCount() == 0)
     {
-      std::cerr << "Invalid joint count, Velodyne plugin not loaded\n";
+      std::cerr << "Invalid joint count, autonomos_plugin not loaded\n";
       return;
     }
+
+     this->pmq.startServiceThread();
 
     // if (_sdf->HasElement("debug"))
     // {
@@ -117,10 +119,32 @@ namespace gazebo
       // simulation iteration.
     this->updateConnection = event::Events::ConnectWorldUpdateBegin(
       boost::bind(&autonomos_plugin::OnUpdate, this, _1));
+
+     ros::AdvertiseOptions ao =
+      ros::AdvertiseOptions::create<geometry_msgs::Pose2D>(
+      "/AutoNOMOS_simulation/real_pose", 1,
+      boost::bind(&autonomos_plugin::autonomos_connect, this),
+      boost::bind(&autonomos_plugin::autonomos_disconnect, this),
+      ros::VoidPtr(), NULL);
+
+      this->pub_ = this->rosNode->advertise(ao);
+
+      
+      this->pub_queue_ = this->pmq.addPub<geometry_msgs::Pose2D>();
   }
 
   /// \brief Set the velocity of the Velodyne
   /// \param[in] _vel New target velocity
+  void autonomos_plugin::autonomos_connect()
+  {
+    printf("At: %s\n",__PRETTY_FUNCTION__);
+  }
+
+  void autonomos_plugin::autonomos_disconnect()
+  {
+    printf("At: %s\n",__PRETTY_FUNCTION__);    
+  }
+
   void autonomos_plugin::SetPosition(const double &_pos)
   {
 
@@ -176,16 +200,12 @@ namespace gazebo
     pose = this->model->GetWorldPose();
     math::Vector3 v(0, 0, 0);
 
-    v = pose.pos;
-    x = v.x; // x coordinate
-    y = v.y; // y coordinate
-    z = v.z;
-    printf("Model: %s \tPose: (%3.2f, %3.2f, %3.2f )\n",
-      this->model->GetName().c_str(), 
-      x, 
-      y,
-      pose.rot.GetYaw()
-      );
+    geometry_msgs::Pose2D pose_msg;
+    pose_msg.x = pose.pos.x;
+    pose_msg.y = pose.pos.y;
+    pose_msg.theta = pose.rot.GetYaw();
+
+    this->pub_queue_->push(pose_msg, this->pub_);
   }
       
   /// \brief ROS helper function that processes messages
