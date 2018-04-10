@@ -8,9 +8,9 @@ cmake ..
 make 
 cd $SIM_PWD 
 
-plugin="src/Gazebo_plugin/build"
-models="src/autonomos_gazebo_simulation/models"
-resource="src/autonomos_gazebo_simulation/worlds"
+plugin="/src/Gazebo_plugin/build"
+models="/src/autonomos_gazebo_simulation/models"
+resource="/src/autonomos_gazebo_simulation/worlds"
 
 #plugin_path=$HOME_PWD$plugin
 echo "export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:$SIM_PWD$plugin" >> ~/.bashrc
