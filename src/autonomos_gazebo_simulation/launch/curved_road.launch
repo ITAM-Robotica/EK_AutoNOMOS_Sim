@@ -1,14 +1,17 @@
+<!-- EXAMPLE OF ROS LAUNCH FILE FOR THE CURVED AUTONOMOS WORLD  -->
+<!-- ONLY LAUNCHES GAZEBO WITH THE CURVED AUTONOMOS WORLD -->
 <launch>
-  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
-  <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="paused" value="false"/>
-    <arg name="use_sim_time" value="true"/>
-    <arg name="gui" value="true"/>
-    <arg name="debug" value="false"/>
-    <arg name="world_name" value="curved_road.world"/>
-    <!-- more default parameters can be changed here -->
-  </include>
- <!-- <node name = "spawn_model" pkg = "gazebo_ros" type = "spawn_model" output = "screen" args="-sdf -model AutoNOMOS_mini -file $(find autonomos_gazebo)/models/AutoNOMOS_mini/model.sdf " />  -->
+  <!-- INCLUDE THE LAUNCH FILE OF CURVED WORLD IN THE gazebo_ros PACKAGE -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="debug" value="false"/>
 
+        <!-- INCLUDE THE CURVED ROAD WORLD -->
+        <arg name="world_name" value="autoNOMOS_curved_road.world"/>
+    
+        <!-- more default parameters can be changed here -->
+    </include>
+ 
 </launch>
-	

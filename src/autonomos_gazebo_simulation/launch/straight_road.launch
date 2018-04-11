@@ -1,14 +1,18 @@
+<!-- EXAMPLE OF ROS LAUNCH FILE FOR THE INTERSECTION  -->
+<!-- ONLY LAUNCHES GAZEBO WITH THE INTERSECTION WORLD -->
 <launch>
-  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <!-- INCLUDE THE LAUNCH FILE OF EMPTY WORLD IN THE gazebo_ros PACKAGE -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
     <arg name="debug" value="false"/>
-    <arg name="world_name" value="straight_road.world"/>
+  
+    <!-- INCLUDE THE STRAIGHT ROAD WORLD -->
+    <arg name="world_name" value="autoNOMOS_straight_road.world"/>
+  
     <!-- more default parameters can be changed here -->
   </include>
- <!-- <node name = "spawn_model" pkg = "gazebo_ros" type = "spawn_model" output = "screen" args="-sdf -model AutoNOMOS_mini -file $(find autonomos_gazebo)/models/AutoNOMOS_mini/model.sdf " />  -->
 
 </launch>
 	
