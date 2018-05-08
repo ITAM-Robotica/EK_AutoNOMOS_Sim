@@ -181,10 +181,12 @@
             <height>480</height>
             <format>R8G8B8</format>
           </image>
+          <!--
           <clip>
             <near>0.05</near>
             <far>3</far>
           </clip>
+          -->
           <depth_camera>
             <output>points</output>
           </depth_camera>
@@ -258,7 +260,7 @@
         </plugin>
         <always_on>1</always_on>
         <update_rate>1</update_rate>
-        <visualize>true</visualize>
+        <visualize>false</visualize>
       </sensor>
 
     <sensor name="imu_sensor" type="imu">
