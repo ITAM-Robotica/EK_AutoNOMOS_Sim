@@ -157,7 +157,7 @@ namespace gazebo
   /// of the Velodyne.
   void autonomos_plugin::OnRosMsg_steering(const std_msgs::Int16ConstPtr &_msg)
   {
-    this->position = _msg->data;
+    this->position = _msg->data + 45;
   }
 
   void autonomos_plugin::OnRosMsg_vel(const std_msgs::Int16ConstPtr &_msg)
