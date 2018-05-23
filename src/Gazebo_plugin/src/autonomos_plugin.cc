@@ -8,6 +8,8 @@
 //#include <std_msgs/Float32.h>
 //#include <std_msgs/Int16.h>
 
+#define ADJ_FACT 1 / 50
+
 namespace gazebo
 {
   // Tell Gazebo about this plugin, so that Gazebo can call Load on this plugin.
@@ -155,13 +157,15 @@ namespace gazebo
   /// of the Velodyne.
   void autonomos_plugin::OnRosMsg_steering(const std_msgs::Int16ConstPtr &_msg)
   {
-    this->position = _msg->data;
+    this->position = _msg->data + 45;
   }
 
   void autonomos_plugin::OnRosMsg_vel(const std_msgs::Int16ConstPtr &_msg)
   {
-    this->vel = _msg->data;
-    std::cout << "On OnRosMsg_vel" << this->vel << std::endl;
+    // this->vel = _msg->data;
+    this->vel = _msg->data * -15 / 31 * ADJ_FACT;
+
+    std::cout << "On OnRosMsg_vel (new)" << this->vel << std::endl;
   }
 
   void autonomos_plugin::OnUpdate(const common::UpdateInfo &)
