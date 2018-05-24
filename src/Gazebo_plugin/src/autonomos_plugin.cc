@@ -8,7 +8,7 @@
 //#include <std_msgs/Float32.h>
 //#include <std_msgs/Int16.h>
 
-#define ADJ_FACT 1 / 50
+#define ADJ_FACT 1 / 12 // original 1/50
 
 namespace gazebo
 {
@@ -157,7 +157,9 @@ namespace gazebo
   /// of the Velodyne.
   void autonomos_plugin::OnRosMsg_steering(const std_msgs::Int16ConstPtr &_msg)
   {
-    this->position = _msg->data + 45;
+    this->position = _msg->data - 45;
+
+    std::cout << "On OnRosMsg_steering (new): " << this->position << ", msg_rcv: " << _msg->data << std::endl;
   }
 
   void autonomos_plugin::OnRosMsg_vel(const std_msgs::Int16ConstPtr &_msg)
@@ -165,7 +167,7 @@ namespace gazebo
     // this->vel = _msg->data;
     this->vel = _msg->data * -15 / 31 * ADJ_FACT;
 
-    std::cout << "On OnRosMsg_vel (new)" << this->vel << std::endl;
+    std::cout << "On OnRosMsg_vel (new): " << this->vel << ", msg_rcv: " << _msg->data << std::endl;
   }
 
   void autonomos_plugin::OnUpdate(const common::UpdateInfo &)
