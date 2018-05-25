@@ -105,7 +105,7 @@ namespace gazebo
 
     ros::SubscribeOptions so_vel =
     ros::SubscribeOptions::create<std_msgs::Int16>(
-      "/" + this->model->GetName() + "/manual_control/velocity",
+      "/" + this->model->GetName() + "/manual_control/speed",
       1,
       boost::bind(&autonomos_plugin::OnRosMsg_vel, this, _1),
       ros::VoidPtr(), &this->rosQueue);
@@ -157,7 +157,7 @@ namespace gazebo
   /// of the Velodyne.
   void autonomos_plugin::OnRosMsg_steering(const std_msgs::Int16ConstPtr &_msg)
   {
-    this->position = _msg->data - 45;
+    this->position = _msg->data - 90;
 
     std::cout << "On OnRosMsg_steering (new): " << this->position << ", msg_rcv: " << _msg->data << std::endl;
   }
