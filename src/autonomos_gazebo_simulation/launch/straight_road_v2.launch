@@ -1,0 +1,18 @@
+<!-- EXAMPLE OF ROS LAUNCH FILE FOR THE INTERSECTION  -->
+<!-- ONLY LAUNCHES GAZEBO WITH THE INTERSECTION WORLD -->
+<launch>
+  <!-- INCLUDE THE LAUNCH FILE OF EMPTY WORLD IN THE gazebo_ros PACKAGE -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="debug" value="false"/>
+  
+    <!-- INCLUDE THE STRAIGHT ROAD WORLD -->
+    <arg name="world_name" value="autoNOMOS_straight_road_v2.world"/>
+  
+    <!-- more default parameters can be changed here -->
+  </include>
+
+</launch>
+	
