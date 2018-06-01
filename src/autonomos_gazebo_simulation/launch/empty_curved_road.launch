@@ -9,7 +9,7 @@
         <arg name="debug" value="false"/>
 
         <!-- INCLUDE THE CURVED ROAD WORLD -->
-        <arg name="world_name" value="autoNOMOS_curved_road.world"/>
+        <arg name="world_name" value="curved_road.world"/>
     
         <!-- more default parameters can be changed here -->
     </include>
