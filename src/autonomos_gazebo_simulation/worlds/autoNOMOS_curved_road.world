@@ -16,7 +16,7 @@
     <include>
       <uri>model://AutoNOMOS_mini</uri>
       <!-- <pose>.75 3.48 0.16 0 0 1.5707 </pose> -->
-      <pose>.75 1.48 0.16 0 0 1.5707 </pose>
+      <pose>.75 0 0.16 0 0 1.5707 </pose>
     </include>
     
     
