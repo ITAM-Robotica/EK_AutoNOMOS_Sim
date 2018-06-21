@@ -19,6 +19,7 @@ if [[ $GAZEBO_PLUGIN_PATH = *"$SIM_PWD$plugin"* ]]; then
 else
 	# no match ==> add the variable to the bashrc file
 	echo "export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:$SIM_PWD$plugin" >> ~/.bashrc
+	echo "GAZEBO_PLUGIN_PATH set"
 fi
 
 if [[ $GAZEBO_MODEL_PATH = *"$SIM_PWD$models"* ]]; then
@@ -26,6 +27,7 @@ if [[ $GAZEBO_MODEL_PATH = *"$SIM_PWD$models"* ]]; then
 else
 	# no match ==> add the variable to the bashrc file
 	echo "export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:$SIM_PWD$models" >> ~/.bashrc
+	echo "GAZEBO_MODEL_PATH set"
 fi
 
 if [[ $GAZEBO_RESOURCE_PATH = *"$SIM_PWD$resource"* ]]; then
@@ -33,6 +35,7 @@ if [[ $GAZEBO_RESOURCE_PATH = *"$SIM_PWD$resource"* ]]; then
 else
 	# no match ==> add the variable to the bashrc file
 	echo "export GAZEBO_RESOURCE_PATH=${GAZEBO_RESOURCE_PATH}:$SIM_PWD$resource" >> ~/.bashrc
+	echo "GAZEBO_RESOURCE_PATH set"
 fi
 
 # echo "export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:$SIM_PWD$plugin" >> ~/.bashrc
