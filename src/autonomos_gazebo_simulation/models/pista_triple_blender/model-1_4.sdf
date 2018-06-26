@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <model name="asphalt_plane">
+    <static>true</static>
+    <link name="link">
+      <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>5.32 9.32</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+            </friction>
+            <bounce/>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+          <!-- <max_contacts>10</max_contacts> -->
+        </collision>
+      <visual name="visual">
+        <!-- <cast_shadows>false</cast_shadows> -->
+        <geometry>
+          <mesh>
+	         <uri>model://pista_triple_blender/meshes/triple_carril_blender.dae</uri>
+         </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>
+    </link>
+  </model>
+</sdf>
