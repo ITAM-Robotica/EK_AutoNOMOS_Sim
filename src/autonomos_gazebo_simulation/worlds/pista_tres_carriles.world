@@ -12,7 +12,7 @@
     </include>
 
     <include>
-      <uri>model://pista_triple_blender</uri>
+      <uri>model://pista_tripe_sc_blender</uri>
       <pose>0 0 0 0 0 0</pose>
     </include>
     
