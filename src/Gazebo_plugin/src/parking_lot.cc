@@ -1,219 +1,151 @@
-#include <ignition/math/Pose3.hh>
-// #include <gazebo/common/CommonIface.hh>
-#include <gazebo/common/Plugin.hh>
-// #include <gazebo/physics/PhysicsIface.hh>
-#include <gazebo/gazebo_client.hh>
-#include <gazebo/physics/World.hh>
-
-#include <ignition/transport.hh>
-#include <ignition/math.hh>
-#include <ignition/msgs.hh>
-#include <gazebo/common/Time.hh>
-
-namespace gazebo
-{
-class parking_lot : public WorldPlugin
-{
-  public: void Load(physics::WorldPtr _parent, sdf::ElementPtr /*_sdf*/)
-  {
-    printf("At WorldPlugin load\n");
+#include "parking_lot.hh"
 
 
-      ignition::transport::Node node;
+using namespace gazebo;
 
-
-      ignition::msgs::ModelConfiguration link_1;
-      ignition::msgs::Model model_1;
-      model_1.set_name("AutoNOMOS_mini");
-      model_1.set_id(0);
-      model_1.set_pose(ignition::math::Pose3d(-1, 1, 0, 0, 0, 0))
-      // Create the marker message
-      // ignition::msgs::Marker markerMsg;
-      // markerMsg.set_ns("default");
-      // markerMsg.set_id(0);
-      // markerMsg.set_action(ignition::msgs::Marker::ADD_MODIFY);
-      // markerMsg.set_type(ignition::msgs::Marker::SPHERE);
-
-      //ignition::msgs::Material *matMsg ;//= markerMsg.mutable_material();
-      // ignition::msgs::Material *matMsg = markerMsg.mutable_material();
-      // matMsg->mutable_script()->set_name("Gazebo/BlueLaser");
-
-      // The rest of this function adds different shapes and/or modifies shapes.
-      // Read the terminal statements to figure out what each node.Request
-      // call accomplishes.
-
-      // std::cout << "Spawning a sphere at the origin\n";
-      // gazebo::common::Time::Sleep(4);
-      // node.Request("/marker", model_1);
-
-      // std::cout << "Moving the sphere to x=0, y=0, z=1\n";
-      // gazebo::common::Time::Sleep(4);
-      // ignition::msgs::Set(model_1.mutable_pose(),
-                          // ignition::math::Pose3d(1, 1, 0, 0, 0, 0));
-      // node.Request("/marker", model_1);
-
-      // std::cout << "Shrinking the sphere\n";
-      // // gazebo::common::Time::Sleep(4);
-      // ignition::msgs::Set(model_1.mutable_scale(),
-      //                   ignition::math::Vector3d(0.2, 0.2, 0.2));
-      // node.Request("/marker", model_1);
-
-      // std::cout << "Changing the sphere to red\n";
-      // gazebo::common::Time::Sleep(4);
-      // matMsg->mutable_script()->set_name("Gazebo/Red");
-      // node.Request("/marker", markerMsg);
-
-      std::cout << "Adding a green box\n";
-      // gazebo::common::Time::Sleep(4);
-      ignition::msgs::Marker markerMsg;
-      markerMsg.set_ns("default");
-      markerMsg.set_id(1);
-      markerMsg.set_action(ignition::msgs::Marker::ADD_MODIFY);
-      markerMsg.set_type(ignition::msgs::Marker::BOX);
-      ignition::msgs::Material *matMsg = markerMsg.mutable_material();
-      matMsg->mutable_script()->set_name("Gazebo/Green");
-      ignition::msgs::Set(markerMsg.mutable_scale(),
-                        ignition::math::Vector3d(1.0, 1.0, 1.0));
-      ignition::msgs::Set(markerMsg.mutable_pose(),
-                        ignition::math::Pose3d(2, 0, .5, 0, 0, 0));
-      node.Request("/marker", markerMsg);
-
-      std::cout << "Change the green box to a cylinder\n";
-      // gazebo::common::Time::Sleep(4);
-      markerMsg.set_type(ignition::msgs::Marker::CYLINDER);
-      node.Request("/marker", markerMsg);
-
-      std::cout << "Adding a line between the sphere and cylinder\n";
-      // gazebo::common::Time::Sleep(4);
-      markerMsg.set_id(2);
-      ignition::msgs::Set(markerMsg.mutable_pose(),
-                        ignition::math::Pose3d(0, 0, 0, 0, 0, 0));
-      markerMsg.set_action(ignition::msgs::Marker::ADD_MODIFY);
-      markerMsg.set_type(ignition::msgs::Marker::LINE_LIST);
-      ignition::msgs::Set(markerMsg.add_point(),
-          ignition::math::Vector3d(0, 0, 1.1));
-      ignition::msgs::Set(markerMsg.add_point(),
-          ignition::math::Vector3d(2, 0, 0.5));
-      node.Request("/marker", markerMsg);
-
-      std::cout << "Adding a square around the origin\n";
-      // gazebo::common::Time::Sleep(4);
-      markerMsg.set_id(3);
-      markerMsg.set_action(ignition::msgs::Marker::ADD_MODIFY);
-      markerMsg.set_type(ignition::msgs::Marker::LINE_STRIP);
-      ignition::msgs::Set(markerMsg.mutable_point(0),
-          ignition::math::Vector3d(0.5, 0.5, 0.05));
-      ignition::msgs::Set(markerMsg.mutable_point(1),
-          ignition::math::Vector3d(0.5, -0.5, 0.05));
-      ignition::msgs::Set(markerMsg.add_point(),
-          ignition::math::Vector3d(-0.5, -0.5, 0.05));
-      ignition::msgs::Set(markerMsg.add_point(),
-          ignition::math::Vector3d(-0.5, 0.5, 0.05));
-      ignition::msgs::Set(markerMsg.add_point(),
-          ignition::math::Vector3d(0.5, 0.5, 0.05));
-      node.Request("/marker", markerMsg);
-
-      std::cout << "Adding 100 points inside the square\n";
-      // gazebo::common::Time::Sleep(4);
-      markerMsg.set_id(4);
-      markerMsg.set_action(ignition::msgs::Marker::ADD_MODIFY);
-      markerMsg.set_type(ignition::msgs::Marker::POINTS);
-      markerMsg.clear_point();
-      for (int i = 0; i < 100; ++i)
-      {
-        ignition::msgs::Set(markerMsg.add_point(),
-            ignition::math::Vector3d(
-              ignition::math::Rand::DblUniform(-0.49, 0.49),
-              ignition::math::Rand::DblUniform(-0.49, 0.49),
-              0.05));
-      }
-      node.Request("/marker", markerMsg);
-
-      std::cout << "Adding HELLO at 0, 0, 2\n";
-      // gazebo::common::Time::Sleep(4);
-      markerMsg.set_id(5);
-      markerMsg.set_action(ignition::msgs::Marker::ADD_MODIFY);
-      markerMsg.set_type(ignition::msgs::Marker::TEXT);
-      markerMsg.set_text("HELLO");
-      ignition::msgs::Set(markerMsg.mutable_scale(),
-                        ignition::math::Vector3d(0.2, 0.2, 0.2));
-      ignition::msgs::Set(markerMsg.mutable_pose(),
-                        ignition::math::Pose3d(0, 0, 2, 0, 0, 0));
-      node.Request("/marker", markerMsg);
-
-      std::cout << "Adding a semi-circular triangle fan\n";
-      // gazebo::common::Time::Sleep(4);
-      markerMsg.set_id(6);
-      markerMsg.set_action(ignition::msgs::Marker::ADD_MODIFY);
-      markerMsg.set_type(ignition::msgs::Marker::TRIANGLE_FAN);
-      markerMsg.clear_point();
-      ignition::msgs::Set(markerMsg.mutable_pose(),
-                        ignition::math::Pose3d(0, 1.5, 0, 0, 0, 0));
-      ignition::msgs::Set(markerMsg.add_point(),
-            ignition::math::Vector3d(0, 0, 0.05));
-      double radius = 2;
-      for (double t = 0; t <= M_PI; t+= 0.01)
-      {
-        ignition::msgs::Set(markerMsg.add_point(),
-            ignition::math::Vector3d(radius * cos(t), radius * sin(t), 0.05));
-      }
-      node.Request("/marker", markerMsg);
-
-      std::cout << "Adding two triangles using a triangle list\n";
-      // gazebo::common::Time::Sleep(4);
-      markerMsg.set_id(7);
-      markerMsg.set_action(ignition::msgs::Marker::ADD_MODIFY);
-      markerMsg.set_type(ignition::msgs::Marker::TRIANGLE_LIST);
-      markerMsg.clear_point();
-      ignition::msgs::Set(markerMsg.mutable_pose(),
-                        ignition::math::Pose3d(0, -1.5, 0, 0, 0, 0));
-      ignition::msgs::Set(markerMsg.add_point(),
-            ignition::math::Vector3d(0, 0, 0.05));
-      ignition::msgs::Set(markerMsg.add_point(),
-          ignition::math::Vector3d(1, 0, 0.05));
-      ignition::msgs::Set(markerMsg.add_point(),
-          ignition::math::Vector3d(1, 1, 0.05));
-
-      ignition::msgs::Set(markerMsg.add_point(),
-          ignition::math::Vector3d(1, 1, 0.05));
-      ignition::msgs::Set(markerMsg.add_point(),
-          ignition::math::Vector3d(2, 1, 0.05));
-      ignition::msgs::Set(markerMsg.add_point(),
-          ignition::math::Vector3d(2, 2, 0.05));
-
-      node.Request("/marker", markerMsg);
-
-      std::cout << "Adding a rectangular triangle strip\n";
-      // gazebo::common::Time::Sleep(4);
-      markerMsg.set_id(8);
-      markerMsg.set_action(ignition::msgs::Marker::ADD_MODIFY);
-      markerMsg.set_type(ignition::msgs::Marker::TRIANGLE_STRIP);
-      markerMsg.clear_point();
-      ignition::msgs::Set(markerMsg.mutable_pose(),
-                        ignition::math::Pose3d(-2, -2, 0, 0, 0, 0));
-      ignition::msgs::Set(markerMsg.add_point(),
-            ignition::math::Vector3d(0, 0, 0.05));
-      ignition::msgs::Set(markerMsg.add_point(),
-          ignition::math::Vector3d(1, 0, 0.05));
-      ignition::msgs::Set(markerMsg.add_point(),
-          ignition::math::Vector3d(0, 1, 0.05));
-
-      ignition::msgs::Set(markerMsg.add_point(),
-          ignition::math::Vector3d(1, 1, 0.05));
-      ignition::msgs::Set(markerMsg.add_point(),
-          ignition::math::Vector3d(0, 2, 0.05));
-      ignition::msgs::Set(markerMsg.add_point(),
-          ignition::math::Vector3d(1, 2, 0.05));
-
-      node.Request("/marker", markerMsg);
-
-      // std::cout << "Delete all the markers\n";
-      // gazebo::common::Time::Sleep(4);
-      // markerMsg.set_action(ignition::msgs::Marker::DELETE_ALL);
-      // node.Request("/marker", markerMsg);
-  }
-};
-
-// Register this plugin with the simulator
+// class parking_lot : public WorldPlugin
+// {
 GZ_REGISTER_WORLD_PLUGIN(parking_lot)
+
+parking_lot::parking_lot()
+{
+  this->node_1 = transport::NodePtr(new transport::Node());
+  this->node_1->Init();
+  this->factoryPub = this->node_1->Advertise<msgs::Factory>("~/factory");
+  printf("Cons of parking_lot\n" );
+  // Create the message
+  sdf::addURIPath 	( "model://",  std::getenv("GAZEBO_MODEL_PATH")	);
+
+  car_model = "AutoNOMOS_mini_static";
+  parking_space_model = "parking_space";
+
+  car_counter = 0;
+  parking_space_counter = 0;
+  car_sdfptr = get_sdf_file(car_model);
+  parking_space_sdfptr = get_sdf_file(parking_space_model);
+
+}
+
+parking_lot::~parking_lot()
+{
+
+}
+void parking_lot::Load(physics::WorldPtr _parent, sdf::ElementPtr /*_sdf*/)
+{
+  printf("At WorldPlugin load\n");
+
+
+  // change_sdf_model_name(car_sdfptr, car_model, car_counter );
+  // msgs::Factory msg_2;
+  // msg_2.set_sdf(car_sdfptr->ToString());
+  // msgs::Set(msg_2.mutable_pose(),
+  // ignition::math::Pose3d(
+  //   ignition::math::Vector3d(1, -1, 0),
+  //   ignition::math::Quaterniond(0, 0, 0)));
+  // this->factoryPub->Publish(msg_2);
+
+
+  // multiple_parking_spaces( ignition::math::Vector3d(0, 2, 0),
+  //   10, ignition::math::Quaterniond(0, 0, 0));
+  // multiple_parking_spaces( ignition::math::Vector3d(.5, 2, 0),
+  //   10, ignition::math::Quaterniond(0, 0, M_PI));
+
+
+  // double_parking(ignition::math::Vector3d(0, 2, 0));
+  // double_parking(ignition::math::Vector3d(-2, 1, 0));
+
+  // row_parking(ignition::math::Vector3d(9, 2, 0), 10);
+
+  matrix_parking(ignition::math::Vector3d(9, -6, 0), 3, 10);
+}
+
+void parking_lot::matrix_parking(ignition::math::Vector3d col_init, int height, int length)
+{
+  for (size_t i = 0; i < height; i++)
+  {
+    row_parking(col_init + ignition::math::Vector3d(0, ROW_SEP * i, 0), length);
+  }
+}
+
+void parking_lot::row_parking(ignition::math::Vector3d row_init, int length)
+{
+  for (size_t i = 0; i < length; i++)
+  {
+    double_parking(row_init - ignition::math::Vector3d(COL_SEP * i, 0, 0));
+  }
+}
+
+void parking_lot::double_parking(ignition::math::Vector3d offset_xyz)
+{
+  multiple_parking_spaces( ignition::math::Vector3d(0, 0, 0) + offset_xyz,
+    10, ignition::math::Quaterniond(0, 0, 0) );
+  multiple_parking_spaces( ignition::math::Vector3d(.5, 0, 0) + offset_xyz,
+    10, ignition::math::Quaterniond(0, 0, M_PI) );
+}
+
+sdf::SDFPtr parking_lot::get_sdf_file(std::string model_name )
+{
+  sdf::SDFPtr sdfElement(new sdf::SDF());
+  sdf::init(sdfElement);
+  std::string model("model://");
+  model.append(model_name);
+  std::string sdf_file =  sdf::findFile(model);
+  sdf_file.append("/model.sdf");
+  if (!sdf::readFile(sdf_file, sdfElement))
+  {
+    std::cerr << "sdf NOT loaded: " << sdf_file << '\n';
+  }
+  return sdfElement;
+}
+
+void parking_lot::change_sdf_model_name(sdf::SDFPtr &sdfElement, std::string name, int &counter )
+{
+  const sdf::ElementPtr rootElement = sdfElement->Root();
+  if (!rootElement->HasElement("model"))
+  {
+    std::cerr << " is not a model SDF file!" << std::endl;
+  }
+  const sdf::ElementPtr modelElement = rootElement->GetElement("model");
+  sdf::ParamPtr param_name = modelElement->GetAttribute("name");
+  std::string new_name;
+  new_name.assign(name);
+  new_name.append("_");
+  new_name.append(std::to_string(counter));
+
+  param_name->SetFromString(new_name);
+  std::cout << "param_name is: " << param_name->GetAsString()  << '\n';
+  counter++;
+}
+
+void parking_lot::spawn_car(ignition::math::Vector3d v_xyz, ignition::math::Quaterniond quat)
+{
+  msgs::Factory msg;
+  change_sdf_model_name(car_sdfptr, car_model, car_counter );
+  msg.set_sdf(car_sdfptr->ToString());
+  msgs::Set(msg.mutable_pose(), ignition::math::Pose3d(v_xyz, quat));
+  this->factoryPub->Publish(msg);
+}
+
+void parking_lot::multiple_parking_spaces(ignition::math::Vector3d center_xyz, int num_spaces, ignition::math::Quaterniond new_quat)
+{
+  for (int i = 0; i < num_spaces; i++) {
+    ignition::math::Pose3d pose = ignition::math::Pose3d(
+      ignition::math::Vector3d(0, (i - num_spaces / 2.0)*.3, 0) - center_xyz,
+      new_quat);
+    place_parking_space(pose);
+    if (rand() % 10 < PROB_SPAWN_CAR) {
+      spawn_car(ignition::math::Vector3d(0,  (i - num_spaces / 2.0)*.3, 0) - center_xyz,
+        new_quat);
+    }
+  }
+}
+
+void parking_lot::place_parking_space(ignition::math::Pose3d pose)
+{
+  msgs::Factory msg;
+  change_sdf_model_name(parking_space_sdfptr, parking_space_model, parking_space_counter );
+  // msg.set_sdf_filename("model://parking_space");
+  msg.set_sdf(parking_space_sdfptr->ToString());
+  msgs::Set(msg.mutable_pose(), pose);
+  this->factoryPub->Publish(msg);
 }

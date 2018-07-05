@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+	<model name="parking_space">
+		<static>true</static>
+		<link name="link">
+			<pose>0 0 .01 0 0 1.507</pose>
+			<visual name="visual">
+				<pose> -.15 0 0 0 0 0  </pose>
+				<cast_shadows>false</cast_shadows>
+				<geometry>
+					<plane>
+						<normal>0 0 1</normal>
+						<size>.05 .45</size>
+					</plane>
+				</geometry>
+			</visual>
+			<visual name="visual_2">
+				<pose> .15 0 0 0 0 0  </pose>
+				<cast_shadows>false</cast_shadows>
+				<geometry>
+					<plane>
+						<normal>0 0 1</normal>
+						<size>.05 .45</size>
+					</plane>
+				</geometry>
+			</visual>
+			<visual name="visual_3">
+				<pose> 0 .25 0 0 0 0  </pose>
+				<cast_shadows>false</cast_shadows>
+				<geometry>
+					<plane>
+						<normal>0 0 1</normal>
+						<size>.35 .05</size>
+					</plane>
+				</geometry>
+			</visual>
+
+		</link>
+	</model>
+</sdf>
