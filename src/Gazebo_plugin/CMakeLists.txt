@@ -15,6 +15,20 @@ include_directories(include)
 link_directories(${GAZEBO_LIBRARY_DIRS})
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")
 
+find_package(ignition-msgs1 REQUIRED)
+find_package(ignition-transport4 REQUIRED)
+
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${IGNITION-TRANSPORT_CXX_FLAGS}")
+include_directories(${IGNITION-TRANSPORT_INCLUDE_DIRS})
+link_directories(${IGNITION-TRANSPORT_LIBRARY_DIRS})
+
+
 # Build our plugin
 add_library(autonomos_plugin SHARED src/autonomos_plugin.cc)
 target_link_libraries(autonomos_plugin ${GAZEBO_libraries} ${roscpp_LIBRARIES})
+
+add_executable(marker src/marker.cc)
+target_link_libraries(marker ${GAZEBO_LIBRARIES} ${IGNITION-TRANSPORT_LIBRARIES})
+
+add_library(parking_lot SHARED src/parking_lot.cc)
+target_link_libraries(parking_lot  ${GAZEBO_LIBRARIES})
