@@ -11,16 +11,6 @@
       <uri>model://sun</uri>
     </include>
     
-    
-    
-    <include>
-      <uri>model://AutoNOMOS_mini</uri>
-      <!-- <pose>.75 3.48 0.16 0 0 1.5707 </pose> -->
-      <pose>.75 0 0.16 0 0 1.5707 </pose>
-    </include>
-    
-    
-    
     <include>
       <uri>model://straight_road</uri>
       <pose>.5 .5 0 0 0 0 </pose>

@@ -4,3 +4,4 @@ src/CMakeLists.txt
 **/devel/*
 **/install/*
 **/src/Gazebo_plugin/build/*
+.DS_Store

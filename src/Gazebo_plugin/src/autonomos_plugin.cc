@@ -113,18 +113,18 @@ namespace gazebo
 
 
 
-        // Spin up the queue helper thread.
+    // Spin up the queue helper thread.
     this->rosQueueThread =
     std::thread(std::bind(&autonomos_plugin::QueueThread, this));
 
-          // Listen to the update event. This event is broadcast every
-      // simulation iteration.
+    // Listen to the update event. This event is broadcast every
+    // simulation iteration.
     this->updateConnection = event::Events::ConnectWorldUpdateBegin(
       boost::bind(&autonomos_plugin::OnUpdate, this, _1));
 
      ros::AdvertiseOptions ao =
       ros::AdvertiseOptions::create<geometry_msgs::Pose2D>(
-      "/AutoNOMOS_simulation/real_pose", 1,
+      "/" + this->model->GetName() + "/real_pose_from_gazebo", 1,
       boost::bind(&autonomos_plugin::autonomos_connect, this),
       boost::bind(&autonomos_plugin::autonomos_disconnect, this),
       ros::VoidPtr(), NULL);
@@ -157,9 +157,24 @@ namespace gazebo
   /// of the Velodyne.
   void autonomos_plugin::OnRosMsg_steering(const std_msgs::Int16ConstPtr &_msg)
   {
-    this->position = _msg->data - 90;
 
-    std::cout << "On OnRosMsg_steering (new): " << this->position << ", msg_rcv: " << _msg->data << std::endl;
+      // carro real config:
+      // https://github.com/AutoModelCar/model_car/blob/version-3.1-kinetic/catkin_ws/src/fub_steering_calibration/scripts/SteerAngleActuator.xml
+      // command 0  : 0.3967852340780831    //  22.7341193   // izquierda
+      // command 30 : 0.28655792116953055   //  16.418559
+      // command 60 : 0.13636611612784297   //  7.8132029
+      // command 90 : -0.01                 //  -0.572957    // centro
+      // command 120: -0.139860631021484    //  -8.013423
+      // command 150: -0.2675472287070919   //  -15.329327
+      // command 180: -0.41853095368099036  //  -23.980057   // derecha
+
+      // sin corrección
+      //    this->position = _msg->data - 90;
+      // aproximación lineal a angulos reales del autonomos
+      this->position = -0.252556 * (_msg->data - 90) + 0.572957;
+
+      std::cout << "On OnRosMsg_steering (new): " << this->position << ", msg_rcv: " << _msg->data << std::endl;
+
   }
 
   void autonomos_plugin::OnRosMsg_vel(const std_msgs::Int16ConstPtr &_msg)
