@@ -171,7 +171,7 @@ namespace gazebo
       // sin corrección
       //    this->position = _msg->data - 90;
       // aproximación lineal a angulos reales del autonomos
-      this->position = -0.252556 * (_msg->data - 90) + 0.572957;
+      this->position = 0.252556 * (_msg->data - 90) + 0.572957; // eliminado signo negativo a ver si con eso
 
       std::cout << "On OnRosMsg_steering (new): " << this->position << ", msg_rcv: " << _msg->data << std::endl;
 
