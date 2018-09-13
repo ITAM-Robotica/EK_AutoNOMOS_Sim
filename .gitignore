@@ -5,3 +5,5 @@ src/CMakeLists.txt
 **/install/*
 **/src/Gazebo_plugin/build/*
 .DS_Store
+.catkin_tools
+logs

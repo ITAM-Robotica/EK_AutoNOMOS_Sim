@@ -131,7 +131,7 @@ namespace gazebo
 
       this->pub_ = this->rosNode->advertise(ao);
 
-      
+
       this->pub_queue_ = this->pmq.addPub<geometry_msgs::Pose2D>();
   }
 
@@ -144,7 +144,7 @@ namespace gazebo
 
   void autonomos_plugin::autonomos_disconnect()
   {
-    printf("At: %s\n",__PRETTY_FUNCTION__);    
+    printf("At: %s\n",__PRETTY_FUNCTION__);
   }
 
   void autonomos_plugin::SetPosition(const double &_pos)
@@ -186,16 +186,18 @@ namespace gazebo
   }
 
   void autonomos_plugin::OnUpdate(const common::UpdateInfo &)
-  {    
+  {
     // compute the steptime for the PID
-    common::Time currTime = this->model->GetWorld()->GetSimTime();
+    common::Time currTime = this->model->GetWorld()->SimTime();
     common::Time stepTime = currTime - this->prevUpdateTime;
     this->prevUpdateTime = currTime;
 
-    // set the current position of the joint, and the target position, 
+    // set the current position of the joint, and the target position,
     // and the maximum effort limit
     float pos_target = this->position;
-    float pos_curr = this->joint->GetAngle(0).Degree();
+    // manual radian to degrees
+    // float pos_curr = this->joint->Position()*180/3.141592653;
+    float pos_curr = ignition::math::Angle(this->joint->Position()).Degree();
 
     float vel_target = this->vel;
     float vel_curr_left = this->joint_left_wheel->GetVelocity(0);
@@ -217,18 +219,18 @@ namespace gazebo
     this->joint_right_wheel->SetForce(0, effort_cmd_vr);
 
     double x,y,z;
-    gazebo::math::Pose pose;     
-    pose = this->model->GetWorldPose();
-    math::Vector3 v(0, 0, 0);
-
+    ignition::math::Pose3d pose;
+    pose = this->model->WorldPose();
+    ignition::math::Vector3<double> vec_aux = pose.Pos();
+    ignition::math::Quaternion<double> qua_aux = pose.Rot();
     geometry_msgs::Pose2D pose_msg;
-    pose_msg.x = pose.pos.x;
-    pose_msg.y = pose.pos.y;
-    pose_msg.theta = pose.rot.GetYaw();
+    pose_msg.x = vec_aux.X();
+    pose_msg.y = vec_aux.Y();
+    pose_msg.theta = qua_aux.Yaw();
 
     this->pub_queue_->push(pose_msg, this->pub_);
   }
-      
+
   /// \brief ROS helper function that processes messages
   void autonomos_plugin::QueueThread()
   {
@@ -237,5 +239,5 @@ namespace gazebo
     {
       this->rosQueue.callAvailable(ros::WallDuration(timeout));
     }
-  }      
+  }
 }
