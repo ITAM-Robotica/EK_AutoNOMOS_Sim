@@ -6,12 +6,28 @@ add_compile_options(-std=c++11)
 # Find Gazebo
 find_package(catkin REQUIRED COMPONENTS roscpp std_msgs geometry_msgs)
 find_package(gazebo REQUIRED)
-find_package(ignition-msgs2 REQUIRED)
-find_package(ignition-transport5 REQUIRED)
+find_package(ignition-msgs1 QUIET)
+find_package(ignition-msgs2 QUIET)
+find_package(ignition-transport4 QUIET)
+find_package(ignition-transport5 QUIET)
+# find_package(ignition-msgs2 REQUIRED)
+# find_package(ignition-transport5 REQUIRED)
 
 catkin_package(
 	INCLUDE_DIRS include
 )
+
+if(ignition-msgs1_FOUND OR ignition-msgs2_FOUND)
+	message("ignition msgs FOUND")
+else()
+	message(FATAL_ERROR "ignition msgs NOT FOUND. Version 1 or higher REQUIRED. Install it or set the correct paths")
+endif()
+
+if(ignition-transport4_FOUND OR ignition-transport5_FOUND)
+	message("ignition transport FOUND")
+else()
+	message(FATAL_ERROR "ignition transport NOT FOUND. Version 4 or higher REQUIRED. Install it or set the correct paths")
+endif()
 
 include_directories(include)
 include_directories(${catkin_INCLUDE_DIRS})
