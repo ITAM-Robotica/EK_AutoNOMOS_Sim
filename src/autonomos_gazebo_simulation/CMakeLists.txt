@@ -108,7 +108,7 @@ catkin_package(
     	std_msgs
 		tf
 	DEPENDS
-	    Boost
+	    # Boost
 #	    Eigen
 #		PCL
 #  INCLUDE_DIRS include
