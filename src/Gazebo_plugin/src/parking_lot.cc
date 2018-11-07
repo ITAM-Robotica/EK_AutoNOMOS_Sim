@@ -14,7 +14,7 @@ parking_lot::parking_lot()
   this->node_1 = transport::NodePtr(new transport::Node());
   this->node_1->Init();
   this->factoryPub = this->node_1->Advertise<msgs::Factory>("~/factory");
-  printf("Cons of parking_lot\n" );
+  // printf("Cons of parking_lot\n" );
   // Create the message
   sdf::addURIPath 	( "model://",  std::getenv("GAZEBO_MODEL_PATH")	);
 
@@ -38,7 +38,7 @@ parking_lot::~parking_lot()
 }
 void parking_lot::Load(physics::WorldPtr _parent, sdf::ElementPtr /*_sdf*/)
 {
-  printf("At WorldPlugin load\n");
+  // printf("At WorldPlugin load\n");
 
   matrix_parking(ignition::math::Vector3d(9, -6, 0), 3, 5);
 }
@@ -103,7 +103,7 @@ void parking_lot::change_sdf_model_name(sdf::SDFPtr &sdfElement, std::string nam
   new_name.append(std::to_string(counter));
 
   param_name->SetFromString(new_name);
-  std::cout << "param_name is: " << param_name->GetAsString()  << '\n';
+  // std::cout << "param_name is: " << param_name->GetAsString()  << '\n';
   counter++;
 }
 
