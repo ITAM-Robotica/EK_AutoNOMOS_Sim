@@ -2,11 +2,7 @@
 echo "Begining instalation..."
 SIM_PWD=$(pwd)
 
-mkdir -p src/Gazebo_plugin/build
-cd src/Gazebo_plugin/build
-cmake ..
-make 
-cd $SIM_PWD 
+catkin_make
 
 plugin="/src/Gazebo_plugin/build"
 models="/src/autonomos_gazebo_simulation/models"
