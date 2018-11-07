@@ -69,39 +69,37 @@ link_directories(
 # )
 
 ## Install worlds
-set(AUTONOMOS_DEST_PATH "${CATKIN_GLOBAL_SHARE_DESTINATION}/AutoNOMOS")
+# set(AUTONOMOS_DEST_PATH "${CATKIN_GLOBAL_SHARE_DESTINATION}/AutoNOMOS")
 message("WORLD PATH: ${CATKIN_GLOBAL_SHARE_DESTINATION}")
-install(FILES
-	worlds/autoNOMOS_empty_world.world
-	worlds/autoNOMOS_curved_road.world
-	worlds/autoNOMOS_parking_lot.world
+install(DIRECTORY
+	worlds/
   	DESTINATION ${CATKIN_GLOBAL_SHARE_DESTINATION}/worlds
 )
 
 ## Install models
 install(DIRECTORY
-	models/AutoNOMOS_mini/
-  	DESTINATION ${CATKIN_GLOBAL_SHARE_DESTINATION}/models/AutoNOMOS_mini
+	models/
+  	DESTINATION ${CATKIN_GLOBAL_SHARE_DESTINATION}/models/
 )
 
-install(DIRECTORY
-	models/straight_road/
-  	DESTINATION ${CATKIN_GLOBAL_SHARE_DESTINATION}/models/straight_road
-)
+# install(DIRECTORY
+# 	models/straight_road/
+#   	DESTINATION ${CATKIN_GLOBAL_SHARE_DESTINATION}/models/straight_road
+# )
 
-install(DIRECTORY
-	models/curved_road/
-  	DESTINATION ${CATKIN_GLOBAL_SHARE_DESTINATION}/models/curved_road
-)
+# install(DIRECTORY
+# 	models/curved_road/
+#   	DESTINATION ${CATKIN_GLOBAL_SHARE_DESTINATION}/models/curved_road
+# )
 
-install(DIRECTORY
-	models/parking_space/
-  	DESTINATION ${CATKIN_GLOBAL_SHARE_DESTINATION}/models/parking_space
-)
+# install(DIRECTORY
+# 	models/parking_space/
+#   	DESTINATION ${CATKIN_GLOBAL_SHARE_DESTINATION}/models/parking_space
+# )
 
 ## Launch files
-install(FILES
-	launch/empty_autonomous.launch
+install(DIRECTORY
+	launch/
   	DESTINATION ${CATKIN_GLOBAL_SHARE_DESTINATION}/launch
 )
 

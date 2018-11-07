@@ -11,10 +11,10 @@
     </include>
 
 
-    <!-- <include>
-      <uri>model://AutoNOMOS_mini</uri>
-      <pose> 0 0 0 0 0 .785398 </pose>
-    </include> -->
+    <!-- <include> -->
+      <!-- <uri>model://AutoNOMOS_mini</uri> -->
+      <!-- <pose> 0 0 0 0 0 .785398 </pose> -->
+    <!-- </include> -->
 
     <plugin name="parking_lot" filename="libparking_lot.so"/>
   </world>
