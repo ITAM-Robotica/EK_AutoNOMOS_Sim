@@ -51,7 +51,8 @@ add_library(parking_lot SHARED src/parking_lot.cc)
 target_link_libraries(parking_lot  ${GAZEBO_LIBRARIES})
 
 # Install libraries
-message("Path to install: ${CATKIN_PACKAGE_LIB_DESTINATION}")
+# message("Path: ${PATH}")
+# message("Path to install: ${CATKIN_PACKAGE_SHARE_DESTINATION}")
 if(WIN32)
 	message("Really? Are you using windows?! Shame...")
 
@@ -65,5 +66,8 @@ else()
 	  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 	  COMPONENT
 	)
+	# install(DIRECTORY launch/
+ #  		DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+ #  	)
 endif()  
 
