@@ -4,7 +4,7 @@ SIM_PWD=$(pwd)
 
 catkin_make
 
-plugin="/src/Gazebo_plugin/build"
+plugin="/devel/lib"
 models="/src/autonomos_gazebo_simulation/models"
 resource="/src/autonomos_gazebo_simulation/worlds"
 
