@@ -51,7 +51,7 @@ namespace gazebo
     // Store the model pointer for convenience.
     this->model = _model;
 
-    const std::string val = "Printing from plugin...";
+    //const std::string val = "Printing from plugin...";
     // Get the first joint. We are making an assumption about the model
     // having one joint that is the rotational joint.
     this->joint = _model->GetJoint("steer_joint");
@@ -59,9 +59,9 @@ namespace gazebo
     this->joint_left_wheel = _model->GetJoint("back_left_wheel_joint");
     this->joint_right_wheel = _model->GetJoint("back_right_wheel_joint");
 
-    std::cout << val << std::endl;
+    //std::cout << val << std::endl;
 
-    std::cout << this->joint->GetName() << std::endl;
+    //std::cout << this->joint->GetName() << std::endl;
 
 
     // Setup a P-controller, with a gain of 0.1.
@@ -173,7 +173,7 @@ namespace gazebo
       // aproximación lineal a angulos reales del autonomos
       this->position = 0.252556 * (_msg->data - 90) + 0.572957; // eliminado signo negativo a ver si con eso
 
-      std::cout << "On OnRosMsg_steering (new): " << this->position << ", msg_rcv: " << _msg->data << std::endl;
+      // std::cout << "On OnRosMsg_steering (new): " << this->position << ", msg_rcv: " << _msg->data << std::endl;
 
   }
 
@@ -182,7 +182,7 @@ namespace gazebo
     // this->vel = _msg->data;
     this->vel = _msg->data * -15 / 31 * ADJ_FACT;
 
-    std::cout << "On OnRosMsg_vel (new): " << this->vel << ", msg_rcv: " << _msg->data << std::endl;
+    // std::cout << "On OnRosMsg_vel (new): " << this->vel << ", msg_rcv: " << _msg->data << std::endl;
   }
 
   void autonomos_plugin::OnUpdate(const common::UpdateInfo &)

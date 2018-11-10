@@ -1,6 +1,6 @@
 <sdf version='1.3'>
   <model name='AutoNOMOS_mini'>
-   
+
     <link name='base_link'>
     </link>
 
@@ -16,7 +16,7 @@
 	          <izz>0.08387</izz>
 	        </inertia>
       	</inertial>
-      
+
 	    <visual name="visual_body">
 	      	<geometry>
 				<mesh><uri>model://AutoNOMOS_mini/meshes/autonomos.dae</uri></mesh>
@@ -51,7 +51,7 @@
     	<parent>base_link</parent>
 		<child>body </child>
     </joint>
-    
+
     <link name='back_left_wheel_link'>
       <pose>-0.125000 0.100000 0.0100000 1.570800 0.000000 0.000000</pose>
       <inertial>
@@ -460,7 +460,7 @@
       </axis>
       <pose>0.000000 -0.060000 0.000000 0.000000 0.000000 0.000000</pose>
     </joint>
-    
+
     <!-- laser link -->
   	<link name="laser_link">
 	  	<pose>-0.045 0.00000 0.085 0.000000 0.000000 0.000000</pose>
@@ -514,10 +514,10 @@
 	            <resolution>0.01</resolution>
 	          </range>
 	        </ray>
-	        <plugin name="laser" filename="libgazebo_ros_laser.so"> 
+	        <plugin name="laser" filename="libgazebo_ros_laser.so">
 	          <robotNamespace></robotNamespace>
-	          <topicName>/scan</topicName> 
-	          <frameName>map</frameName> 
+	          <topicName>/scan</topicName>
+	          <frameName>map</frameName>
 	        </plugin>
 	        <always_on>1</always_on>
 	        <update_rate>30</update_rate>
