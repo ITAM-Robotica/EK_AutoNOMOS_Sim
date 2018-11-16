@@ -9,7 +9,7 @@ GZ_REGISTER_WORLD_PLUGIN(parking_lot)
 
 parking_lot::parking_lot()
 {
-   srand (231192);
+   //srand (231192);
 
   this->node_1 = transport::NodePtr(new transport::Node());
   this->node_1->Init();
