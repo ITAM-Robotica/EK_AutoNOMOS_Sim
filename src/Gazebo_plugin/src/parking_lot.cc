@@ -2,6 +2,7 @@
 
 
 using namespace gazebo;
+using namespace physics;
 
 // class parking_lot : public WorldPlugin
 // {
@@ -36,19 +37,61 @@ parking_lot::~parking_lot()
 {
 
 }
+
+void parking_lot::Reset()
+{
+	printf("At reset\n");
+//	physics::WorldPtr world = physics::get_world("default");
+//	world->Clear();
+//	world->InsertModelFile("model://ground_plane");
+	bool pauseState = world->IsPaused();
+	world->SetPaused(true);
+
+//	this->publishModelPoses.clear();
+
+  // Remove all models
+  Model_V models = world -> GetModels();
+
+  for (Model_V::iterator iter = models.begin();
+       iter != models.end(); ++iter)
+  {
+  //  this->rootElement->RemoveChild((*iter)->GetId());
+//  	std::cout << "Model: " << (*iter) -> GetName() << std::endl;
+	if ( (*iter) -> GetName() != "ground_plane") 
+	{
+
+//	  	std::cout << "Removing: " << (*iter) -> GetName() << std::endl;
+//		(*iter) -> GetParentModel() -> RemoveChild((*iter) -> GetId());
+		(*iter) -> Fini();
+		
+	}
+  } 
+	std::cout << "Done removing models." << std::endl;
+	std::cout << "The simulation is: " << world -> IsPaused() << std::endl;
+	matrix_parking(ignition::math::Vector3d(9, -6, 0), 3, 5);
+
+	world -> SetPaused(false);
+	std::cout << "Done reseting world." << std::endl;
+}
+
 void parking_lot::Load(physics::WorldPtr _parent, sdf::ElementPtr /*_sdf*/)
 {
   // printf("At WorldPlugin load\n");
-
+	world = _parent;
   matrix_parking(ignition::math::Vector3d(9, -6, 0), 3, 5);
+
+  printf("Done loading parkinglot plugin");
 }
 
 void parking_lot::matrix_parking(ignition::math::Vector3d col_init, int height, int length)
 {
+	
+	world -> SetPaused(true);
   for (size_t i = 0; i < height; i++)
   {
     row_parking(col_init + ignition::math::Vector3d(0, ROW_SEP * i, 0), length);
   }
+	world -> SetPaused(false);
 }
 
 void parking_lot::row_parking(ignition::math::Vector3d row_init, int length)

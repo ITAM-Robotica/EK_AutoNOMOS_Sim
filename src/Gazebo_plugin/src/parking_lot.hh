@@ -2,6 +2,7 @@
 #define _PARKING_LOT_HH_
 
 #include <gazebo/physics/World.hh>
+#include <gazebo/physics/Model.hh>
 #include <gazebo/common/CommonIface.hh>
 #include <gazebo/common/Plugin.hh>
 #include <gazebo/physics/PhysicsIface.hh>
@@ -22,8 +23,12 @@ namespace gazebo
       parking_lot();
       virtual ~parking_lot();
       void Load(physics::WorldPtr _parent, sdf::ElementPtr /*_sdf*/);
+      void Reset();
 
     private:
+	
+      physics::WorldPtr world;
+
       transport::NodePtr node_1;
       transport::PublisherPtr factoryPub;
       sdf::SDFPtr car_sdfptr;
