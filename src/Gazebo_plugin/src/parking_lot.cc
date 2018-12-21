@@ -8,6 +8,17 @@ using namespace physics;
 // {
 GZ_REGISTER_WORLD_PLUGIN(parking_lot)
 
+void parking_lot::spawn_model_callback(ConstWorldStatisticsPtr &_msg)
+{
+	models_spawned++;
+	printf("At callback:\t%d\n", models_spawned);
+	if (models_spawned == total_models)
+	{
+		world -> SetPaused(false);
+		printf("Done spawning models");
+	}
+}
+
 parking_lot::parking_lot()
 {
    //srand (231192);
@@ -15,6 +26,7 @@ parking_lot::parking_lot()
   this->node_1 = transport::NodePtr(new transport::Node());
   this->node_1->Init();
   this->factoryPub = this->node_1->Advertise<msgs::Factory>("~/factory");
+  sub_info = node_1->Subscribe("~/model/info", &parking_lot::spawn_model_callback, this);
   // printf("Cons of parking_lot\n" );
   // Create the message
   sdf::addURIPath 	( "model://",  std::getenv("GAZEBO_MODEL_PATH")	);
@@ -26,6 +38,7 @@ parking_lot::parking_lot()
   car_counter = 0;
   parking_space_counter = 0;
   lamp_post_counter = 0;
+  total_models = 0;
 
   car_sdfptr = get_sdf_file(car_model);
   parking_space_sdfptr = get_sdf_file(parking_space_model);
@@ -41,7 +54,8 @@ parking_lot::~parking_lot()
 void parking_lot::Reset()
 {
 	printf("At reset\n");
-//	physics::WorldPtr world = physics::get_world("default");
+	models_spawned = 0;
+	//	physics::WorldPtr world = physics::get_world("default");
 //	world->Clear();
 //	world->InsertModelFile("model://ground_plane");
 	bool pauseState = world->IsPaused();
@@ -66,11 +80,21 @@ void parking_lot::Reset()
 		
 	}
   } 
+  total_models = 0;
 	std::cout << "Done removing models." << std::endl;
 	std::cout << "The simulation is: " << world -> IsPaused() << std::endl;
 	matrix_parking(ignition::math::Vector3d(9, -6, 0), 3, 5);
 
-	world -> SetPaused(false);
+//	world -> SetPaused(false);
+	int other=0;
+	printf("models_spawned:\t%d\n", models_spawned);
+//	for(double dummy_1 = 0; dummy_1 < 10000000 ; dummy_1 += 0.0001)
+//	{
+//		other++;
+//	}
+	
+	printf("models_spawned:\t%d\n", models_spawned);
+	
 	std::cout << "Done reseting world." << std::endl;
 }
 
@@ -86,12 +110,12 @@ void parking_lot::Load(physics::WorldPtr _parent, sdf::ElementPtr /*_sdf*/)
 void parking_lot::matrix_parking(ignition::math::Vector3d col_init, int height, int length)
 {
 	
-	world -> SetPaused(true);
+//	world -> SetPaused(true);
   for (size_t i = 0; i < height; i++)
   {
     row_parking(col_init + ignition::math::Vector3d(0, ROW_SEP * i, 0), length);
   }
-	world -> SetPaused(false);
+//	world -> SetPaused(false);
 }
 
 void parking_lot::row_parking(ignition::math::Vector3d row_init, int length)
@@ -156,7 +180,8 @@ void parking_lot::spawn_car(ignition::math::Vector3d v_xyz, ignition::math::Quat
   change_sdf_model_name(car_sdfptr, car_model, car_counter );
   msg.set_sdf(car_sdfptr->ToString());
   msgs::Set(msg.mutable_pose(), ignition::math::Pose3d(v_xyz, quat));
-  this->factoryPub->Publish(msg);
+  this->factoryPub->Publish(msg, true);
+  total_models++;
 }
 
 void parking_lot::spawn_lamp_post(ignition::math::Vector3d v_xyz, ignition::math::Quaterniond quat)
@@ -165,7 +190,8 @@ void parking_lot::spawn_lamp_post(ignition::math::Vector3d v_xyz, ignition::math
   change_sdf_model_name(lamp_post_sdfptr, lamp_post, lamp_post_counter );
   msg.set_sdf(lamp_post_sdfptr->ToString());
   msgs::Set(msg.mutable_pose(), ignition::math::Pose3d(v_xyz, quat));
-  this->factoryPub->Publish(msg);
+  this->factoryPub->Publish(msg, true);
+  total_models++;
 }
 
 void parking_lot::multiple_parking_spaces(ignition::math::Vector3d center_xyz, int num_spaces, ignition::math::Quaterniond new_quat)
@@ -200,5 +226,6 @@ void parking_lot::place_parking_space(ignition::math::Pose3d pose)
   // msg.set_sdf_filename("model://parking_space");
   msg.set_sdf(parking_space_sdfptr->ToString());
   msgs::Set(msg.mutable_pose(), pose);
-  this->factoryPub->Publish(msg);
+  this->factoryPub->Publish(msg, true);
+  total_models++;
 }
