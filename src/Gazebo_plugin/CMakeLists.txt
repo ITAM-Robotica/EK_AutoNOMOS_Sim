@@ -17,6 +17,16 @@ catkin_package(
 	INCLUDE_DIRS include
 )
 
+message("Gazebo version:" ${GAZEBO_VERSION})
+
+string(REGEX REPLACE "[.][0-9]*"
+       "" GAZEBO_VERSION_MAJOR
+       ${GAZEBO_VERSION})
+
+message("Gazebo version major:" ${GAZEBO_VERSION_MAJOR})
+
+add_definitions(-DGAZEBO_VERSION_MAJOR=${GAZEBO_VERSION_MAJOR})
+
 if(ignition-msgs1_FOUND OR ignition-msgs2_FOUND)
 	message("ignition msgs FOUND")
 else()
@@ -44,6 +54,8 @@ link_directories(${IGNITION-TRANSPORT_LIBRARY_DIRS})
 add_library(autonomos_plugin SHARED src/autonomos_plugin.cc)
 target_link_libraries(autonomos_plugin ${GAZEBO_libraries} ${roscpp_LIBRARIES})
 
+# add_library(autonomos_ideal_plugin SHARED src/autonomos_ideal_plugin.cc)
+# target_link_libraries(autonomos_ideal_plugin ${GAZEBO_libraries} ${roscpp_LIBRARIES})
 # add_executable(marker src/marker.cc)
 # target_link_libraries(marker ${GAZEBO_LIBRARIES} ${IGNITION-TRANSPORT_LIBRARIES})
 

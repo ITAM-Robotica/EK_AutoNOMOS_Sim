@@ -188,14 +188,28 @@ namespace gazebo
   void autonomos_plugin::OnUpdate(const common::UpdateInfo &)
   {    
     // compute the steptime for the PID
-    common::Time currTime = this->model->GetWorld()->GetSimTime();
-    common::Time stepTime = currTime - this->prevUpdateTime;
+    float pos_target = 0;
+    float pos_curr = 0;
+
+    common::Time currTime;
+    common::Time stepTime;
+
+    pos_target = this->position;
+    stepTime = currTime - this->prevUpdateTime;
+
+    #if GAZEBO_VERSION_MAJOR >= 8
+      currTime = this->model->GetWorld()->SimTime();
+      ignition::math::Angle angle_aux(this->joint->Position(0)); // in radians
+      pos_curr = angle_aux.Degree();
+    #else
+      currTime = this->model->GetWorld()->GetSimTime();
+      pos_curr = this->joint->GetAngle(0).Degree();
+    #endif
+
     this->prevUpdateTime = currTime;
 
     // set the current position of the joint, and the target position, 
     // and the maximum effort limit
-    float pos_target = this->position;
-    float pos_curr = this->joint->GetAngle(0).Degree();
 
     float vel_target = this->vel;
     float vel_curr_left = this->joint_left_wheel->GetVelocity(0);
@@ -217,14 +231,24 @@ namespace gazebo
     this->joint_right_wheel->SetForce(0, effort_cmd_vr);
 
     double x,y,z;
-    gazebo::math::Pose pose;     
-    pose = this->model->GetWorldPose();
-    math::Vector3 v(0, 0, 0);
-
     geometry_msgs::Pose2D pose_msg;
-    pose_msg.x = pose.pos.x;
-    pose_msg.y = pose.pos.y;
-    pose_msg.theta = pose.rot.GetYaw();
+    #if GAZEBO_VERSION_MAJOR >= 8
+      ignition::math::Pose3d pose;
+      pose = this->model->WorldPose();
+      // ignition::math::Vector3d v(0, 0, 0);
+
+      pose_msg.x = pose.Pos().X();
+      pose_msg.y = pose.Pos().Y();
+      pose_msg.theta = pose.Rot().Yaw();
+
+    #else
+      gazebo::math::Pose pose;     
+      pose = this->model->GetWorldPose();
+      // math::Vector3 v(0, 0, 0);
+      pose_msg.x = pose.pos.x;
+      pose_msg.y = pose.pos.y;
+      pose_msg.theta = pose.rot.GetYaw();
+    #endif
 
     this->pub_queue_->push(pose_msg, this->pub_);
   }
