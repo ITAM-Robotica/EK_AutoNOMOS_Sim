@@ -64,8 +64,11 @@ void parking_lot::Reset()
 //	this->publishModelPoses.clear();
 
   // Remove all models
-  Model_V models = world -> GetModels();
-
+  #if GAZEBO_VERSION_MAJOR >= 8
+    Model_V models = world -> Models();
+  #else 
+    Model_V models = world -> GetModels();
+  #endif
   for (Model_V::iterator iter = models.begin();
        iter != models.end(); ++iter)
   {

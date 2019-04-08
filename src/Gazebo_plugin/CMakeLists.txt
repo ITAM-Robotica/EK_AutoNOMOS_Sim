@@ -52,7 +52,7 @@ link_directories(${IGNITION-TRANSPORT_LIBRARY_DIRS})
 
 # Build the plugins
 add_library(autonomos_plugin SHARED src/autonomos_plugin.cc)
-target_link_libraries(autonomos_plugin ${GAZEBO_libraries} ${roscpp_LIBRARIES})
+target_link_libraries(autonomos_plugin ${GAZEBO_LIBRARIES} ${roscpp_LIBRARIES})
 
 # add_library(autonomos_ideal_plugin SHARED src/autonomos_ideal_plugin.cc)
 # target_link_libraries(autonomos_ideal_plugin ${GAZEBO_libraries} ${roscpp_LIBRARIES})
