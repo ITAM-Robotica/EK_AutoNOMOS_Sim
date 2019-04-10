@@ -195,7 +195,6 @@ namespace gazebo
     common::Time stepTime;
 
     pos_target = this->position;
-    stepTime = currTime - this->prevUpdateTime;
 
     #if GAZEBO_VERSION_MAJOR >= 8
       currTime = this->model->GetWorld()->SimTime();
@@ -205,7 +204,8 @@ namespace gazebo
       currTime = this->model->GetWorld()->GetSimTime();
       pos_curr = this->joint->GetAngle(0).Degree();
     #endif
-
+    
+    stepTime = currTime - this->prevUpdateTime;
     this->prevUpdateTime = currTime;
 
     // set the current position of the joint, and the target position, 
