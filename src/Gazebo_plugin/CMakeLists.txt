@@ -4,7 +4,7 @@ project(gazebo_plugin)
 add_compile_options(-std=c++11)
 
 # Find Gazebo
-find_package(catkin REQUIRED COMPONENTS roscpp std_msgs geometry_msgs)
+find_package(catkin REQUIRED COMPONENTS roscpp std_msgs geometry_msgs message_generation)
 find_package(gazebo REQUIRED)
 find_package(ignition-msgs1 QUIET)
 find_package(ignition-msgs2 QUIET)
@@ -13,8 +13,23 @@ find_package(ignition-transport5 QUIET)
 # find_package(ignition-msgs2 REQUIRED)
 # find_package(ignition-transport5 REQUIRED)
 
+add_service_files(
+  FILES
+  trajectory_segment.srv
+  # Service2.srv
+)
+
+generate_messages(
+  DEPENDENCIES
+  std_msgs  # Or other packages containing msgs
+)
+
+
 catkin_package(
-	INCLUDE_DIRS include
+ 	INCLUDE_DIRS include
+#  LIBRARIES navigation
+	CATKIN_DEPENDS message_runtime
+#  DEPENDS system_lib
 )
 
 message("Gazebo version:" ${GAZEBO_VERSION})
@@ -54,8 +69,8 @@ link_directories(${IGNITION-TRANSPORT_LIBRARY_DIRS})
 add_library(autonomos_plugin SHARED src/autonomos_plugin.cc)
 target_link_libraries(autonomos_plugin ${GAZEBO_libraries} ${roscpp_LIBRARIES})
 
-# add_library(autonomos_ideal_plugin SHARED src/autonomos_ideal_plugin.cc)
-# target_link_libraries(autonomos_ideal_plugin ${GAZEBO_libraries} ${roscpp_LIBRARIES})
+add_library(autonomos_ideal_plugin SHARED src/autonomos_ideal_plugin.cc)
+target_link_libraries(autonomos_ideal_plugin ${GAZEBO_LIBRARIES} ${roscpp_LIBRARIES})
 # add_executable(marker src/marker.cc)
 # target_link_libraries(marker ${GAZEBO_LIBRARIES} ${IGNITION-TRANSPORT_LIBRARIES})
 
