@@ -1,0 +1,6 @@
+int64 seq
+---
+int8 is_valid
+float64 speed
+float64 steering
+float64 duration
