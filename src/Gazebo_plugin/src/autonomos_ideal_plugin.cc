@@ -103,8 +103,37 @@ void autonomos_ideal_plugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf
   
 }
 
-void autonomos_ideal_plugin::move_robot()
+void autonomos_ideal_plugin::next_pose()
 {
+  float theta, x_vel_rob, x_vel, y_vel, theta_vel;
+
+  theta = this -> steering_pos_traget;
+  x_vel_rob = this -> velocity_target;
+  
+  #if GAZEBO_VERSION_MAJOR >= 8
+    ignition::math::Pose3d current_pose, new_pose;
+    // ignition::math::Pose3d current_pose, new_pose;
+    current_pose = this -> model -> WorldPose();
+  #else
+    gazebo::math::Pose3d current_pose, new_pose;
+  #endif
+
+  x_vel = cos(theta) * x_vel_rob;
+  y_vel = sin(theta) * x_vel_rob;
+  theta_vel = ( tan(theta) / REAR_FRONT_DISTANCE ) * x_vel_rob;
+
+  new_pose.Set(
+    x_vel * this -> step_time.Double(),     // x
+    y_vel * this -> step_time.Double(),     // y
+    0,                                      // z
+    0,                                      // roll
+    0,                                      // pitch
+    theta_vel * this -> step_time.Double()  // yaw
+    );
+
+  new_pose += current_pose;
+
+  this -> model -> SetWorldPose(new_pose); 
 
 }
 
@@ -145,14 +174,14 @@ void autonomos_ideal_plugin::drive()
 {
   float vel_curr = 0;
   float error_x = 0;
-  double vel_err = 0;
+  // double vel_err = 0;
   double pid_res = 0;
   float vel_curr_left = 0;
-  float vel_curr_right = 0;
+  // float vel_curr_right = 0;
   double vel_err_left  = 0;
-  double vel_err_right = 0;
-  double effort_cmd_vl = 0;
-  double effort_cmd_vr = 0;
+  // double vel_err_right = 0;
+  // double effort_cmd_vl = 0;
+  // double effort_cmd_vr = 0;
 
   #if GAZEBO_VERSION_MAJOR >= 8
     ignition::math::Vector3d linear_vel = this -> model -> RelativeLinearVel();
@@ -272,8 +301,9 @@ void autonomos_ideal_plugin::OnUpdate(const common::UpdateInfo &)
     }
   }
   
-  SetPosition();
-  drive();
+  // SetPosition();
+  next_pose();
+  // drive();
 }
       
 /// \brief ROS helper function that processes messages

@@ -24,6 +24,7 @@
 #include <ignition/math.hh>
 
 #define WHEEL_PERIMETER M_PI * 0.03 * 2 // PI * DIAM = PI * RADIUS * 2
+#define REAR_FRONT_DISTANCE 0.25
 
 using namespace gazebo;
 /// \brief A plugin to control a Velodyne sensor.
@@ -63,7 +64,7 @@ class autonomos_ideal_plugin : public ModelPlugin
 
     void autonomos_disconnect();
 
-    void move_robot();
+    void next_pose();
 
     ///////////////
     // VARIABLES //
