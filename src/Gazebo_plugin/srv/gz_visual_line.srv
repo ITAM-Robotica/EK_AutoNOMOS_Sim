@@ -1,0 +1,6 @@
+geometry_msgs/Point32 start
+geometry_msgs/Point32 end
+string color
+bool reset
+---
+bool success

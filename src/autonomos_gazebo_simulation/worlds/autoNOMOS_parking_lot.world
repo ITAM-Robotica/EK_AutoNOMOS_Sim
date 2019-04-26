@@ -11,11 +11,15 @@
     </include>
 
 
+
     <include>
       <uri>model://AutoNOMOS_mini_ideal</uri>
       <pose> -5 -7.5 0 0 0 0 </pose>
     </include>
 
-    <plugin name="parking_lot" filename="libparking_lot.so"/>
+    <!-- <plugin name="parking_lot" filename="libparking_lot.so"/> -->
+    <!-- <plugin name="visual_plugin" filename="libplot_tree_plugin.so"/> -->
+
+    
   </world>
 </sdf>

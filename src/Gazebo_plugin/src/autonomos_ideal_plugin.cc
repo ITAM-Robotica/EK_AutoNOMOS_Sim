@@ -105,35 +105,52 @@ void autonomos_ideal_plugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf
 
 void autonomos_ideal_plugin::next_pose()
 {
-  float theta, x_vel_rob, x_vel, y_vel, theta_vel;
+  float steering, x_vel_rob, x_vel, y_vel, theta_vel, theta_past;
 
-  theta = this -> steering_pos_traget;
+  steering = this -> steering_pos_traget;
   x_vel_rob = this -> velocity_target;
   
   #if GAZEBO_VERSION_MAJOR >= 8
-    ignition::math::Pose3d current_pose, new_pose;
+    ignition::math::Pose3d current_pose;
+    ignition::math::Pose3d new_pose;
     // ignition::math::Pose3d current_pose, new_pose;
     current_pose = this -> model -> WorldPose();
   #else
     gazebo::math::Pose3d current_pose, new_pose;
   #endif
 
-  x_vel = cos(theta) * x_vel_rob;
-  y_vel = sin(theta) * x_vel_rob;
-  theta_vel = ( tan(theta) / REAR_FRONT_DISTANCE ) * x_vel_rob;
+  theta_past = current_pose.Rot().Yaw();
+  x_vel = cos(theta_past) * x_vel_rob ;
+  y_vel = sin(theta_past) * x_vel_rob ;
+  theta_vel = x_vel_rob * tan(steering) ; // REAR_FRONT_DISTANCE  ;
 
+// temp_state[0] += params::integration_step*cos(temp2)*control[0];
+// temp_state[1] += params::integration_step*sin(temp2)*control[0];
+// temp_state[2] += params::integration_step*control[1];
+  // this -> new_pose.Set(
+  // current_pose.CoordPositionAdd(ignition::math::Vector3d(
+  //   this -> step_time.Double() * x_vel, 
+  //   this -> step_time.Double() * y_vel, 
+  //   0));
+  // current_pose.RotatePositionAboutOrigin(ignition::math::Quaterniond(0,0,0));
   new_pose.Set(
-    x_vel * this -> step_time.Double(),     // x
-    y_vel * this -> step_time.Double(),     // y
+    this -> step_time.Double() * x_vel,     // x
+    this -> step_time.Double() * y_vel,     // y
     0,                                      // z
     0,                                      // roll
     0,                                      // pitch
-    theta_vel * this -> step_time.Double()  // yaw
+    this -> step_time.Double() * theta_vel  // yaw
+    // 0 // yaw
     );
 
-  new_pose += current_pose;
-
-  this -> model -> SetWorldPose(new_pose); 
+  // if (x_vel_rob != 0.0)
+  // {
+  //   // cout << "inc: ( " << x_vel << ", " << y_vel << ", " << theta_vel << " )" << endl;
+  //   cout << "\tcur pose: " << current_pose << endl;
+  //   // cout << "\tnew pose: " << new_pose << endl;
+  // }
+  current_pose += new_pose;
+  this -> model -> SetWorldPose(current_pose); 
 
 }
 
@@ -234,27 +251,28 @@ void autonomos_ideal_plugin::OnUpdate(const common::UpdateInfo &)
   {
     common::Time diff_time = seg_fin_time - this -> world -> SimTime();
 
-    cout << "Segment: "    << trj_seg_msg.request.seq - 1 << "\tStep: " << this->step_time.Double() << endl;
-    cout << "\t Initial: " << seg_init_time.sec << "." << seg_init_time.nsec << endl;
-    cout << "\t   Final: " << seg_fin_time.sec << "." << seg_fin_time.nsec << endl;
-    cout << "\tDuration: " << trj_seg_msg.response.duration << endl;
-    cout << "\tSteering: " << trj_seg_msg.response.steering << endl;
-    cout << "\tVel_desi: " << this -> velocity_target << endl;
-    cout << "\tVel_real: " << this -> model -> RelativeLinearVel().X() << endl; 
+    // cout << "\t Initial: " << seg_init_time.sec << "." << seg_init_time.nsec << endl;
+    // cout << "\t   Final: " << seg_fin_time.sec << "." << seg_fin_time.nsec << endl;
+    // cout << "\tSteering: " << trj_seg_msg.response.steering << endl;
+    // cout << "\tVel_desi: " << this -> velocity_target << endl;
 
     if (diff_time <= 0.0 && this -> ros_service_client.call(trj_seg_msg))
     {
       if (trj_seg_msg.response.is_valid)
       {
+        cout << "Segment: "    << trj_seg_msg.request.seq - 1 << "\tStep: " << this->step_time.Double() << endl;
+        cout << "\tDuration: " << trj_seg_msg.response.duration << endl;
+        // cout << "\tVel_real: " << this -> model -> RelativeLinearVel().X() << endl; 
         seg_init_time = this -> world -> SimTime();
         seg_fin_time.Set(trj_seg_msg.response.duration);
         seg_fin_time += seg_init_time;
         
         // this -> linear_vel.Set(trj_seg_msg.response.speed, 0, 0);
-        // this -> velocity_target = trj_seg_msg.response.speed;
-        this -> velocity_target = 0.5;
+        this -> velocity_target = trj_seg_msg.response.speed;
+        // this -> velocity_target = 0.5;
         // this -> model -> SetLinearVel(this -> linear_vel);
         this -> steering_pos_traget = trj_seg_msg.response.steering;
+        // this -> steering_pos_traget = 0;
 
         trj_seg_msg.request.seq++;
 
@@ -263,7 +281,8 @@ void autonomos_ideal_plugin::OnUpdate(const common::UpdateInfo &)
       {
         // waiting_valid_traj = true;
         // trj_seg_msg.request.seq = 0;
-        this -> linear_vel.Set(0, 0, 0);
+        // this -> linear_vel.Set(0, 0, 0);
+        this -> velocity_target = 0;
         // this -> model -> SetLinearVel(this -> linear_vel);
         this -> steering_pos_traget = 0;
       }

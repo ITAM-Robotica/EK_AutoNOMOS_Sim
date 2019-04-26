@@ -10,18 +10,22 @@ find_package(ignition-msgs1 QUIET)
 find_package(ignition-msgs2 QUIET)
 find_package(ignition-transport4 QUIET)
 find_package(ignition-transport5 QUIET)
+find_package(ignition-transport6 QUIET)
+find_package(ignition-transport7 QUIET)
 # find_package(ignition-msgs2 REQUIRED)
 # find_package(ignition-transport5 REQUIRED)
 
 add_service_files(
   FILES
   trajectory_segment.srv
+  gz_visual_line.srv
   # Service2.srv
 )
 
 generate_messages(
   DEPENDENCIES
   std_msgs  # Or other packages containing msgs
+  geometry_msgs
 )
 
 
@@ -48,7 +52,7 @@ else()
 	message(FATAL_ERROR "ignition msgs NOT FOUND. Version 1 or higher REQUIRED. Install it or set the correct paths")
 endif()
 
-if(ignition-transport4_FOUND OR ignition-transport5_FOUND)
+if(ignition-transport4_FOUND OR ignition-transport5_FOUND OR ignition-transport6_FOUND OR ignition-transport7_FOUND)
 	message("ignition transport FOUND")
 else()
 	message(FATAL_ERROR "ignition transport NOT FOUND. Version 4 or higher REQUIRED. Install it or set the correct paths")
@@ -73,6 +77,9 @@ add_library(autonomos_ideal_plugin SHARED src/autonomos_ideal_plugin.cc)
 target_link_libraries(autonomos_ideal_plugin ${GAZEBO_LIBRARIES} ${roscpp_LIBRARIES})
 # add_executable(marker src/marker.cc)
 # target_link_libraries(marker ${GAZEBO_LIBRARIES} ${IGNITION-TRANSPORT_LIBRARIES})
+
+add_library(plot_tree_plugin SHARED src/plot_tree.cc)
+target_link_libraries(plot_tree_plugin ${GAZEBO_LIBRARIES} ${roscpp_LIBRARIES} ${IGNITION-TRANSPORT_LIBRARIES}) 
 
 add_library(parking_lot SHARED src/parking_lot.cc)
 target_link_libraries(parking_lot  ${GAZEBO_LIBRARIES})

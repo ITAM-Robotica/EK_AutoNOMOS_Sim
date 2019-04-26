@@ -11,7 +11,7 @@ GZ_REGISTER_WORLD_PLUGIN(parking_lot)
 void parking_lot::spawn_model_callback(ConstWorldStatisticsPtr &_msg)
 {
 	models_spawned++;
-	printf("At callback:\t%d\n", models_spawned);
+	// printf("At callback:\t%d\n", models_spawned);
 	if (models_spawned == total_models)
 	{
 		world -> SetPaused(false);

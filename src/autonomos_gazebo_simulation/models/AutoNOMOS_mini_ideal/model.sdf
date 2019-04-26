@@ -613,11 +613,10 @@
 	    </axis>
 	</joint>
 
-    <!-- plugin with topics to control steer and speed -->
-    <!-- <plugin name="test_control" filename="libautonomos_plugin.so"> -->
     <plugin name="test_control" filename="libautonomos_ideal_plugin.so">
       <debug>True</debug>
     </plugin>
+    <plugin name="visual_plugin" filename="libplot_tree_plugin.so"/>
 
   </model>
 </sdf>

@@ -70,6 +70,8 @@ class autonomos_ideal_plugin : public ModelPlugin
     // VARIABLES //
     ///////////////
 
+    // ignition::math::Pose3d new_pose;
+
     common::Time seg_init_time;
     common::Time seg_fin_time;
 
