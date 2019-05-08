@@ -616,7 +616,7 @@
     <plugin name="test_control" filename="libautonomos_ideal_plugin.so">
       <debug>True</debug>
     </plugin>
-    <plugin name="visual_plugin" filename="libplot_tree_plugin.so"/>
+    <plugin name="model_plotting_plugin" filename="libplot_tree_plugin.so"/>
 
   </model>
 </sdf>
