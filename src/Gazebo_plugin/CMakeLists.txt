@@ -15,10 +15,24 @@ find_package(ignition-transport7 QUIET)
 # find_package(ignition-msgs2 REQUIRED)
 # find_package(ignition-transport5 REQUIRED)
 
+pkg_check_modules(OGRE OGRE)
+pkg_check_modules(libavcodec libavcodec)
+if (NOT libavcodec_FOUND)
+    BUILD_WARNING ("libavcodec not found. Audio-video capabilities will be disabled.")
+else()
+    include_directories(${libavcodec_INCLUDE_DIRS})
+    link_directories(${libavcodec_LIBRARY_DIRS})
+endif ()
+
+add_message_files(
+  FILES
+  Line_Segment.msg
+)
+
 add_service_files(
   FILES
   trajectory_segment.srv
-  gz_visual_line.srv
+  # gz_visual_line.srv
   # Service2.srv
 )
 
@@ -58,15 +72,22 @@ else()
 	message(FATAL_ERROR "ignition transport NOT FOUND. Version 4 or higher REQUIRED. Install it or set the correct paths")
 endif()
 
-include_directories(include)
-include_directories(${catkin_INCLUDE_DIRS})
-include_directories(${GAZEBO_INCLUDE_DIRS})
-include_directories(${IGNITION-TRANSPORT_INCLUDE_DIRS})
+#message("ogre_libs:" ${OGRE_INCLUDE_DIRS})
+#SET(OGRE_LIBRARY_DIRS "${OGRE_LIBRARY_DIRS} ${OGRE_LIBRARY_DIRS}/Paging")
+#message("ogre_libs:" ${OGRE_INCLUDE_DIRS})
+
+include_directories(include
+	${catkin_INCLUDE_DIRS}
+	${GAZEBO_INCLUDE_DIRS}
+	${IGNITION-TRANSPORT_INCLUDE_DIRS}
+	${OGRE_INCLUDE_DIRS}
+	${OGRE_INCLUDE_DIRS}/Paging
+	)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${IGNITION-TRANSPORT_CXX_FLAGS}")
 
-link_directories(${GAZEBO_LIBRARY_DIRS})
+link_directories(${GAZEBO_LIBRARY_DIRS} ${OGRE_LIBRARY_DIRS})
 link_directories(${IGNITION-TRANSPORT_LIBRARY_DIRS})
 
 # Build the plugins
