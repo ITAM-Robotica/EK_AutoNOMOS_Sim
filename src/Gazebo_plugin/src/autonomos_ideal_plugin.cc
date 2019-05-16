@@ -40,6 +40,11 @@ void autonomos_ideal_plugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf
   this -> model = _model;
   this -> world = _model -> GetWorld();
 
+  this -> autonomos_pose_connection = 0;
+
+  this -> joint_left_wheel = _model -> GetJoint("back_left_wheel_joint");
+  this -> joint_right_wheel = _model -> GetJoint("back_right_wheel_joint");
+
   // this -> steering_name = this -> joint_steering -> GetScopedName();
   // this -> left_wheel_name = this -> joint_left_wheel -> GetScopedName();
   // this -> right_wheel_name = this -> joint_right_wheel -> GetScopedName();
@@ -51,6 +56,7 @@ void autonomos_ideal_plugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf
     ros::init(argc, argv, "gazebo_client",
       ros::init_options::NoSigintHandler);
   }
+
   gzdbg << "autonomos_ideal_plugin: ROS initialized..." << endl;
 
   // Create our ROS node. This acts in a similar manner to the Gazebo node
@@ -61,7 +67,17 @@ void autonomos_ideal_plugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf
 
   this -> ros_service_client = nh.serviceClient<gazebo_plugin::trajectory_segment>("/navigation/get_next_control");
 
-  // Spin up the queue helper thread.
+  string pub_pose_topic_name = "/" + this -> model -> GetName() + "/pose";
+  ros::AdvertiseOptions pose_ao =
+    ros::AdvertiseOptions::create<geometry_msgs::Pose2D>(
+      pub_pose_topic_name,1,
+      boost::bind( &autonomos_ideal_plugin::autonomos_ideal_plugin_pose_connect,this),
+      boost::bind( &autonomos_ideal_plugin::autonomos_ideal_plugin_pose_disconnect,this),
+      ros::VoidPtr(), NULL);
+
+  this -> pub_pose = this->rosNode->advertise(pose_ao);
+  // this -> pub_pose = nh.advertise<geometry_msgs::Pose2D>(pub_pose_topic_name, 1);
+
   this->rosQueueThread = std::thread(std::bind(&autonomos_ideal_plugin::QueueThread, this));
 
   // Listen to the update event. This event is broadcast every
@@ -74,14 +90,26 @@ void autonomos_ideal_plugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf
 
   gzdbg << "autonomos_ideal_plugin: plugin loaded" << endl;
 
-  
 }
+
+void autonomos_ideal_plugin::autonomos_ideal_plugin_pose_connect()
+{
+  this->autonomos_pose_connection++;
+}
+
+void autonomos_ideal_plugin::autonomos_ideal_plugin_pose_disconnect()
+{
+  this->autonomos_pose_connection--;
+
+}
+
 
 void autonomos_ideal_plugin::next_pose()
 {
   double steering, x_vel_rob, x_vel, y_vel, theta_vel;
   double x_past, y_past, theta_past;
   double t_step;
+  geometry_msgs::Pose2D pose;
 
   t_step = this -> step_time.Double();
   steering = this -> steering_pos_traget;
@@ -100,10 +128,14 @@ void autonomos_ideal_plugin::next_pose()
   theta_past = current_pose.Rot().Yaw();
   x_past     += t_step * cos(theta_past) * x_vel_rob ;
   y_past     += t_step * sin(theta_past) * x_vel_rob ;
-  theta_past += t_step * steering;
+  // theta_past += t_step * steering;
+  theta_past += t_step * tan(steering) * x_vel_rob / REAR_FRONT_DISTANCE;
 
   current_pose.Set(x_past, y_past, 0, 0, 0, theta_past);
-  
+  pose.x = x_past;
+  pose.y = y_past;
+  pose.theta = theta_past;
+
   // gzdbg << "\ttheta_past: " << theta_past
   //   << "\tx: " << current_pose.Pos().X()
   //   << "\ty: " << current_pose.Pos().Y() 
@@ -111,6 +143,12 @@ void autonomos_ideal_plugin::next_pose()
   //   << endl;
 
   this -> model -> SetWorldPose(current_pose); 
+
+  this->autonomos_pose_connection++;
+  if (this->autonomos_pose_connection > 0)
+  {
+    this -> pub_pose.publish(pose);
+  }
 
 }
 
@@ -149,6 +187,7 @@ void autonomos_ideal_plugin::OnUpdate(const common::UpdateInfo &)
     {
       if (trj_seg_msg.response.is_valid)
       {
+        gzdbg << "New segment: " << trj_seg_msg.request.seq << endl;
         // cout << "Segment: "    << trj_seg_msg.request.seq - 1 << "\tStep: " << this->step_time.Double() << endl;
         // cout << "\tDuration: " << trj_seg_msg.response.duration << endl;
         // cout << "\tVel_real: " << this -> model -> RelativeLinearVel().X() << endl; 
@@ -165,9 +204,11 @@ void autonomos_ideal_plugin::OnUpdate(const common::UpdateInfo &)
       }
       else
       {
+        gzdbg << "NO new segment: " << endl;
         this -> velocity_target = 0;
         this -> steering_pos_traget = 0;
-        seg_fin_time = this -> world -> SimTime();
+        // seg_fin_time = this -> world -> SimTime();
+        waiting_valid_traj = true;
       }
     }
   }
@@ -181,8 +222,9 @@ void autonomos_ideal_plugin::OnUpdate(const common::UpdateInfo &)
       seg_fin_time.Set(trj_seg_msg.response.duration);
       seg_fin_time += seg_init_time;
       
-      this -> linear_vel.Set(trj_seg_msg.response.speed, 0, 0);
+      // this -> linear_vel.Set(trj_seg_msg.response.speed, 0, 0);
       // this -> model -> SetLinearVel(this -> linear_vel);
+      this -> velocity_target = trj_seg_msg.response.speed;
       this -> steering_pos_traget = trj_seg_msg.response.steering;
       
       trj_seg_msg.request.seq++;
