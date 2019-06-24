@@ -1,0 +1,8 @@
+std_msgs/Empty req
+---
+std_msgs/Header header
+string[] names
+bool[] is_static
+geometry_msgs/Polygon[] bounding_boxes
+geometry_msgs/Point[] bounding_boxes_dimensions
+geometry_msgs/Pose[] poses
