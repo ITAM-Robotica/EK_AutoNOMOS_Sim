@@ -32,7 +32,7 @@ add_message_files(
 add_service_files(
   FILES
   trajectory_segment.srv
-  # gz_visual_line.srv
+  obstacles_array.srv
   # Service2.srv
 )
 
@@ -91,19 +91,32 @@ link_directories(${GAZEBO_LIBRARY_DIRS} ${OGRE_LIBRARY_DIRS})
 link_directories(${IGNITION-TRANSPORT_LIBRARY_DIRS})
 
 # Build the plugins
+
+add_library(${PROJECT_NAME}_utilities SHARED src/utilities/ros_timer.cpp)
+target_link_libraries(${PROJECT_NAME}_utilities ${catkin_LIBRARIES})
+
 add_library(autonomos_plugin SHARED src/autonomos_plugin.cc)
 target_link_libraries(autonomos_plugin ${GAZEBO_LIBRARIES} ${roscpp_LIBRARIES})
 
 add_library(autonomos_ideal_plugin SHARED src/autonomos_ideal_plugin.cc)
-target_link_libraries(autonomos_ideal_plugin ${GAZEBO_LIBRARIES} ${roscpp_LIBRARIES})
+target_link_libraries(autonomos_ideal_plugin ${GAZEBO_LIBRARIES} ${roscpp_LIBRARIES} ${catkin_LIBRARIES} ${PROJECT_NAME}_utilities)
 # add_executable(marker src/marker.cc)
 # target_link_libraries(marker ${GAZEBO_LIBRARIES} ${IGNITION-TRANSPORT_LIBRARIES})
+
+add_library(obstacles_plugin SHARED src/obstacles.cc)
+target_link_libraries(autonomos_ideal_plugin ${GAZEBO_LIBRARIES} ${roscpp_LIBRARIES} ${catkin_LIBRARIES} ${PROJECT_NAME}_utilities)
+
 
 add_library(plot_tree_plugin SHARED src/plot_tree.cc)
 target_link_libraries(plot_tree_plugin ${GAZEBO_LIBRARIES} ${roscpp_LIBRARIES} ${IGNITION-TRANSPORT_LIBRARIES}) 
 
 add_library(parking_lot SHARED src/parking_lot.cc)
 target_link_libraries(parking_lot  ${GAZEBO_LIBRARIES})
+
+add_dependencies(autonomos_plugin ${catkin_EXPORTED_TARGETS})
+add_dependencies(autonomos_ideal_plugin ${catkin_EXPORTED_TARGETS})
+add_dependencies(plot_tree_plugin ${catkin_EXPORTED_TARGETS})
+add_dependencies(parking_lot ${catkin_EXPORTED_TARGETS})
 
 # Install libraries
 # message("Path: ${PATH}")
