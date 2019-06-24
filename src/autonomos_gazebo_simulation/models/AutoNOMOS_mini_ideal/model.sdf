@@ -1,6 +1,6 @@
 <sdf version='1.3'>
   <model name='AutoNOMOS_mini_ideal'>
-   
+    <static>true</static>
     <link name='base_link'>
     </link>
 

@@ -1,11 +1,29 @@
 <?xml version="1.0" ?>
-<sdf version="1.5">
+<sdf version="1.6">
   <world name="default">
+    <plugin name="obstacles_plugin" filename="libobstacles_plugin.so"/>
 
-    <include>
-      <uri>model://ground_plane</uri>
-      <pose> 0 0 -.0001 0 0 0 </pose>
-    </include>
+    <model name="ground">
+      <link name="body">
+        <collision name="geom">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+      </link>
+      <static>true</static>
+    </model>
+
 
     <include>
       <uri>model://sun</uri>
@@ -14,164 +32,1821 @@
     
     
     <include>
-      <uri>model://AutoNOMOS_mini</uri>
-      <!-- <pose>.75 3.48 0.16 0 0 1.5707 </pose> -->
-      <pose>.75 0 0.16 0 0 1.5707 </pose>
+      <uri>model://AutoNOMOS_mini_ideal</uri>
+      <pose> -7.75 5.5 0 0 0 -1.5707 </pose>
     </include>
+
+    <road name="road_1">
+      <width>1.0</width>
+      <point> -7.5  6.5 -.025</point>
+      <point> -7.5 -6.5 -.025</point>
+      <point> -7.451056516 -6.809016994 -.025 </point>
+      <point> -7.309016994 -7.087785252 -.025 </point>
+      <point> -7.087785252 -7.309016994 -.025 </point>
+      <point> -6.809016994 -7.451056516 -.025 </point>
+      <point> -6.5 -7.5 -.025 </point>
+      <point>  6.5 -7.5 -.025 </point>
+      <point>  6.809016994 -7.451056516 -.025 </point>
+      <point>  7.087785252 -7.309016994 -.025 </point>
+      <point>  7.309016994 -7.087785252 -.025 </point>
+      <point>  7.451056516 -6.809016994 -.025 </point>
+      <point>  7.5 -6.5 -.025 </point>
+      <point>  7.5 -2.5 -.025 </point>
+      <point>  7.451056516 -2.190983006 -.025 </point>
+      <point>  7.309016994 -1.912214748 -.025 </point>
+      <point>  7.087785252 -1.690983006 -.025 </point>
+      <point>  6.809016994 -1.548943484 -.025 </point>
+      <point>  6.5 -1.5 -.025 </point>
+      <point> -3.5 -1.5 -.025 </point>
+      <point> -3.809016994 -1.548943484 -.025 </point>
+      <point> -4.087785252 -1.690983006 -.025 </point>
+      <point> -4.309016994 -1.912214748 -.025 </point>
+      <point> -4.451056516 -2.190983006 -.025 </point>
+      <point> -4.5 -2.5 -.025 </point>
+      <point> -4.5 -4.5 -.025 </point>
+      <point> -4.451056516 -4.809016994 -.025 </point>
+      <point> -4.309016994 -5.087785252 -.025 </point>
+      <point> -4.087785252 -5.309016994 -.025 </point>
+      <point> -3.809016994 -5.451056516 -.025 </point>
+      <point> -3.5 -5.5 -.025 </point>
+      <point>  3.5 -5.5 -.025 </point>
+      <point>  3.809016994 -5.451056516 -.025 </point>
+      <point>  4.087785252 -5.309016994 -.025 </point>
+      <point>  4.309016994 -5.087785252 -.025 </point>
+      <point>  4.451056516 -4.809016994 -.025 </point>
+      <point>  4.5 -4.5 -.025 </point>
+      <point>  4.5  4.5 -.025 </point>
+      <point>  4.451056516 4.809016994 -.025 </point>
+      <point>  4.309016994 5.087785252 -.025 </point>
+      <point>  4.087785252 5.309016994 -.025 </point>
+      <point>  3.809016994 5.451056516 -.025 </point>
+      <point>  3.5  5.5 -.025 </point>
+      <point> -3.5  5.5 -.025 </point>
+      <point> -3.809016994 5.451056516 -.025 </point>
+      <point> -4.087785252 5.309016994 -.025 </point>
+      <point> -4.309016994 5.087785252 -.025 </point>
+      <point> -4.451056516 4.809016994 -.025 </point>
+      <point> -4.5  4.5 -.025 </point>
+      <point> -4.5  2.5 -.025 </point>
+      <point> -4.451056516  2.190983006 -.025 </point>
+      <point> -4.309016994  1.912214748 -.025 </point>
+      <point> -4.087785252  1.690983006 -.025 </point>
+      <point> -3.809016994  1.548943484 -.025 </point>
+      <point> -3.5  1.5 -.025 </point>
+      <point>  6.5  1.5 -.025 </point>
+      <point>  6.809016994  1.548943484 -.025 </point>
+      <point>  7.087785252  1.690983006 -.025 </point>
+      <point>  7.309016994  1.912214748 -.025 </point>
+      <point>  7.451056516  2.190983006 -.025 </point>
+      <point>  7.5  2.5 -.025 </point>
+      <point>  7.5  6.5 -.025 </point>
+      <point>  7.451056516  6.809016994 -.025 </point>
+      <point>  7.309016994  7.087785252 -.025 </point>
+      <point>  7.087785252  7.309016994 -.025 </point>
+      <point>  6.809016994  7.451056516 -.025 </point>
+      <point>  6.5  7.5 -.025 </point>
+      <point> -6.5  7.5 -.025 </point>
+      <point> -6.809016994  7.451056516 -.025 </point>
+      <point> -7.087785252  7.309016994 -.025 </point>
+      <point> -7.309016994  7.087785252 -.025 </point>
+      <point> -7.451056516  6.809016994 -.025 </point>
+      <point> -7.5  6.5 -.025 </point>
+      <point> -7.5  5.5 -.025 </point>
+    </road>
     
-    
-    
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>.5 .5 0 0 0 0 </pose>
-    </include>
+    <light name="light_1" type="directional">
+      <diffuse>255 255 255 255 </diffuse>
+      <specular>255 255 255 255 </specular>
+      <attenuation>
+        <range> 50 </range>
+        <constant> 0.01 </constant>
+        <linear> 0.01 </linear>
+        <quadratic> 0.00 </quadratic>
+      </attenuation>
+      <direction> 0 0 -1 </direction>
+      <pose> 0 0 10 </pose>
+    </light>
 
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>.5 -.5 0 0 0 0 </pose>
-    </include>
+  <model name="box_straight_0">
+    <static>true</static>
+    <pose> -6 0 .05 0 0 0 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>2 12 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>2 12 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_0_0">
+    <static>true</static>
+    <pose> -6.78 -6.78 0.05 0 0 0.785398 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_0_1">
+    <static>true</static>
+    <pose> -6.95 -6.3 0.05 0 0 0 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_corner_0_2">
+    <static>true</static>
+    <pose> -6.3 -6.95 0.05 0 0 1.570796 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_straight_1">
+    <static>true</static>
+    <pose> 0 -6.5 0.05 0 0 0 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>12 1 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>12 1 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_1_0">
+    <static>true</static>
+    <pose> 6.78 -6.78 0.05 0 0 2.35619 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_1_1">
+    <static>true</static>
+    <pose> 6.95 -6.3 0.05 0 0 0 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_corner_1_2">
+    <static>true</static>
+    <pose> 6.3 -6.95 0.05 0 0 1.570796 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_straight_2">
+    <static>true</static>
+    <pose> 6 -4.5 0.05 0 0 0 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>2 3 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>2 3 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_0_0">
+    <static>true</static>
+    <pose> -4.2 -5.84 0.05 0 0 1.098683 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_0_1">
+    <static>true</static>
+    <pose> -4.57 -5.57 0.05 0 0 0.768573653 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_0_2">
+    <static>true</static>
+    <pose> -4.85 -5.19 0.05 0 0 0.472112653 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_1_0">
+    <static>true</static>
+    <pose> 4.2 -5.84 0.05 0 0 2.03965265 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_1_1">
+    <static>true</static>
+    <pose> 4.57 -5.57 0.05 0 0 2.357678 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_1_2">
+    <static>true</static>
+    <pose> 4.85 -5.19 0.05 0 0 2.667178 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_straight_3">
+    <static>true</static>
+    <pose> 5.5 -2.5 0.05 0 0 0 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>1 1 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>1 1 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_2_0">
+    <static>true</static>
+    <pose> 6.78 -2.22 0.05 0 0 0.785398163 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_2_1">
+    <static>true</static>
+    <pose> 6.95 -2.7 0.05 0 0 0 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_corner_2_2">
+    <static>true</static>
+    <pose> 6.3 -2.05 0.05 0 0 1.570796 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_straight_4">
+    <static>true</static>
+    <pose> 0.5 -3 0.05 0 0 0 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>7 2 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>7 2 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_straight_5">
+    <static>true</static>
+    <pose> 0 -4.5 0.05 0 0 0 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>6 1 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>6 1 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_straight_6">
+    <static>true</static>
+    <pose> -3.5 -3.5 0.05 0 0 0 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>1 1 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>1 1 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_3_0">
+    <static>true</static>
+    <pose> 3.78 -4.78 0.05 0 0 2.35619 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_3_1">
+    <static>true</static>
+    <pose> 3.95 -4.3 0.05 0 0 0 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_corner_3_2">
+    <static>true</static>
+    <pose> 3.3 -4.95 0.05 0 0 1.570796 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_corner_4_0">
+    <static>true</static>
+    <pose> -3.78 -4.78 0.05 0 0 0.785398 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_4_1">
+    <static>true</static>
+    <pose> -3.95 -4.3 0.05 0 0 0 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_corner_4_2">
+    <static>true</static>
+    <pose> -3.3 -4.95 0.05 0 0 1.570796 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_corner_5_0">
+    <static>true</static>
+    <pose> -3.78 -2.22 0.05 0 0 2.35619 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_5_1">
+    <static>true</static>
+    <pose> -3.95 -2.7 0.05 0 0 0 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_corner_5_2">
+    <static>true</static>
+    <pose> -3.3 -2.05 0.05 0 0 1.570796 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_straight_7">
+    <static>true</static>
+    <pose> 0.5 3 0.05 0 0 0 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>7 2 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>7 2 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_straight_8">
+    <static>true</static>
+    <pose> 0 4.5 0.05 0 0 0 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>6 1 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>6 1 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_straight_9">
+    <static>true</static>
+    <pose> -3.5 3.5 0.05 0 0 0 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>1 1 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>1 1 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_6_0">
+    <static>true</static>
+    <pose> 3.78 4.78 0.05 0 0 0.785398 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_6_1">
+    <static>true</static>
+    <pose> 3.95 4.3 0.05 0 0 0 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_corner_6_2">
+    <static>true</static>
+    <pose> 3.3 4.95 0.05 0 0 1.570796 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_corner_7_0">
+    <static>true</static>
+    <pose> -3.78 4.78 0.05 0 0 2.35619 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_7_1">
+    <static>true</static>
+    <pose> -3.95 4.3 0.05 0 0 0 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_corner_7_2">
+    <static>true</static>
+    <pose> -3.3 4.95 0.05 0 0 1.570796 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_corner_8_0">
+    <static>true</static>
+    <pose> -3.78 2.22 0.05 0 0 0.785398 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_8_1">
+    <static>true</static>
+    <pose> -3.95 2.7 0.05 0 0 0 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_corner_8_2">
+    <static>true</static>
+    <pose> -3.3 2.05 0.05 0 0 1.570796 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_straight_10">
+    <static>true</static>
+    <pose> -.5 0 0.05 0 0 0 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>9 2 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>9 2 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_2_0">
+    <static>true</static>
+    <pose> -4.191091 1.16 0.05 0 0 1.098683 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_2_1">
+    <static>true</static>
+    <pose> -4.57 1.43 0.05 0 0 0.768573653 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_2_2">
+    <static>true</static>
+    <pose> -4.83 1.80 0.05 0 0 0.472112653 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_3_0">
+    <static>true</static>
+    <pose> -4.18 -1.15 0.05 0 0 2.045365654 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_3_1">
+    <static>true</static>
+    <pose> -4.57 -1.43 0.05 0 0 2.354404654 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_3_2">
+    <static>true</static>
+    <pose> -4.84 -1.80 0.05 0 0 2.673821654 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_straight_11">
+    <static>true</static>
+    <pose> 6.5 0 0.05 0 0 0 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>3 2 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>3 2 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_straight_12">
+    <static>true</static>
+    <pose> 9 0 0.05 0 0 0 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>2 20 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>2 20 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
 
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>.5 1.5 0 0 0 0 </pose>
-    </include>
-
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>.5 -1.5 0 0 0 0 </pose>
-    </include>
-
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>.5 -2.5 0 0 0 0 </pose>
-    </include>
-
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>.5 2.5 0 0 0 0 </pose>
-    </include>
-
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>.5 -3.5 0 0 0 0 </pose>
-    </include>
-
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>.5 3.5 0 0 0 0 </pose>
-    </include>
-
-    <include>
-      <uri>model://curved_road</uri>
-      <pose> 1 5 0 0 0 0 </pose>
-  	</include>
-
-
-  	<include>
-      <uri>model://straight_road</uri>
-      <pose> 2.5 5.5 0 0 0 -1.570796327 </pose>
-    </include>
-
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>3.5 5.5 0 0 0 -1.570796327 </pose>
-    </include>
-
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>4.5 5.5 0 0 0 -1.570796327 </pose>
-    </include>
-
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>5.5 5.5 0 0 0 -1.570796327 </pose>
-    </include>
-
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>6.5 5.5 0 0 0 -1.570796327 </pose>
-    </include>
-
-    <include>
-      <uri>model://curved_road</uri>
-      <pose> 8 5 0 0 0 -1.570796327 </pose>
-  	</include>
-
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>2.5 -5.5 0 0 0 1.570796327 </pose>
-    </include>
-
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>3.5 -5.5 0 0 0 1.570796327 </pose>
-    </include>
-
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>4.5 -5.5 0 0 0 1.570796327 </pose>
-    </include>
-
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>5.5 -5.5 0 0 0 1.570796327 </pose>
-    </include>
-
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>6.5 -5.5 0 0 0 1.570796327 </pose>
-    </include>
-
-    <include>
-      <uri>model://curved_road</uri>
-      <pose> 8 -5 0 0 0 3.141592654 </pose>
-  	</include>
-
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>8.5 .5 0 0 0 3.141592654 </pose>
-    </include>
-
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>8.5 1.5 0 0 0 3.141592654 </pose>
-    </include>
-
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>8.5 2.5 0 0 0 3.141592654 </pose>
-    </include>
-
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>8.5 3.5 0 0 0 3.141592654 </pose>
-    </include>
-
-  
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>8.5 -.5 0 0 0 3.141592654 </pose>
-    </include>
-
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>8.5 -1.5 0 0 0 3.141592654 </pose>
-    </include>
-
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>8.5 -2.5 0 0 0 3.141592654 </pose>
-    </include>
-
-    <include>
-      <uri>model://straight_road</uri>
-      <pose>8.5 -3.5 0 0 0 3.141592654 </pose>
-    </include>
-
-      <include>
-      <uri>model://curved_road</uri>
-      <pose> 1 -5 0 0 0 1.570796327 </pose>
-  	</include>
-
+  <model name="box_straight_13">
+    <static>true</static>
+    <pose> 0 6.5 0.05 0 0 0 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>12 1 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>12 1 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_9_0">
+    <static>true</static>
+    <pose> 6.78 6.78 0.05 0 0 0.785398163 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_9_1">
+    <static>true</static>
+    <pose> 6.95 6.3 0.05 0 0 0 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_corner_9_2">
+    <static>true</static>
+    <pose> 6.3 6.95 0.05 0 0 1.570796 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_straight_14">
+    <static>true</static>
+    <pose> 6 4.5 0.05 0 0 0 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>2 3 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>2 3 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_4_0">
+    <static>true</static>
+    <pose> -4.2 5.84 0.05 0 0 2.057117 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_4_1">
+    <static>true</static>
+    <pose> -4.57 5.57 0.05 0 0 2.363034 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_4_2">
+    <static>true</static>
+    <pose> -4.85 5.19 0.05 0 0 2.662849654 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_5_0">
+    <static>true</static>
+    <pose> 4.2 5.84 0.05 0 0 1.095379 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_5_1">
+    <static>true</static>
+    <pose> 4.57 5.57 0.05 0 0 0.788156 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_5_2">
+    <static>true</static>
+    <pose> 4.85 5.19 0.05 0 0 0.469321653 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_straight_15">
+    <static>true</static>
+    <pose> 5.5 2.5 0.05 0 0 0 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>1 1 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>1 1 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_10_0">
+    <static>true</static>
+    <pose> 6.78 2.22 0.05 0 0 2.35619 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_10_1">
+    <static>true</static>
+    <pose> 6.95 2.7 0.05 0 0 0 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_corner_10_2">
+    <static>true</static>
+    <pose> 6.3 2.05 0.05 0 0 1.570796 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_corner_11_0">
+    <static>true</static>
+    <pose> -6.78 6.78 0.05 0 0 2.35619 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.1 .4 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_11_1">
+    <static>true</static>
+    <pose> -6.95 6.3 0.05 0 0 0 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_corner_11_2">
+    <static>true</static>
+    <pose> -6.3 6.95 0.05 0 0 1.570796 </pose>
+    <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box>
+          <size>.1 .6 .1</size>
+        </box>
+      </geometry>
+    </collision>
+    </link>
+  </model>
+  <model name="box_straight_16">
+    <static>true</static>
+    <pose> -9 0 0.05 0 0 0 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>2 20 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>2 20 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_straight_17">
+    <static>true</static>
+    <pose> 0 9 0.05 0 0 0 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>16 2 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>16 2 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_straight_18">
+    <static>true</static>
+    <pose> 0 -9 0.05 0 0 0 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>16 2 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>16 2 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_6_0">
+    <static>true</static>
+    <pose> 7.2 7.84 0.05 0 0 1.095379 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_6_1">
+    <static>true</static>
+    <pose> 7.57 7.57 0.05 0 0 0.788156 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_6_2">
+    <static>true</static>
+    <pose> 7.85 7.19 0.05 0 0 0.469321653 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_7_0">
+    <static>true</static>
+    <pose> -7.2 7.84 0.05 0 0 2.057117 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_7_1">
+    <static>true</static>
+    <pose> -7.57 7.57 0.05 0 0 2.363034 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_7_2">
+    <static>true</static>
+    <pose> -7.85 7.19 0.05 0 0 2.662849654 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_8_0">
+    <static>true</static>
+    <pose> -7.2 -7.84 0.05 0 0 1.098683 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_8_1">
+    <static>true</static>
+    <pose> -7.57 -7.57 0.05 0 0 0.768573653 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_8_2">
+    <static>true</static>
+    <pose> -7.85 -7.19 0.05 0 0 0.472112653 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_9_0">
+    <static>true</static>
+    <pose> 7.2 -7.84 0.05 0 0 2.03965265 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_9_1">
+    <static>true</static>
+    <pose> 7.57 -7.57 0.05 0 0 2.357678 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="box_corner_outside_9_2">
+    <static>true</static>
+    <pose> 7.85 -7.19 0.05 0 0 2.667178 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>.05 .45 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  <model name="stop_box">
+    <static>true</static>
+    <pose> -7.5 6 0.05 0 0 0 </pose>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>1 .4 .1</size>
+          </box>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>1 .4 .1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+  </model> 
   </world>
 </sdf>
