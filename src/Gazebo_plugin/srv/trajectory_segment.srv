@@ -1,6 +1,6 @@
-int64 seq
+std_msgs/Empty req
 ---
-bool is_valid
+int64 seq
 float64 speed
 float64 steering
 float64 duration
