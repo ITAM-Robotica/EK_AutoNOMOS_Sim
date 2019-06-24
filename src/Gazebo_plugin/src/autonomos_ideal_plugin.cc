@@ -63,7 +63,7 @@ void autonomos_ideal_plugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf
   ros::NodeHandle nh("autonomos_ideal_plugin"); 
   this->rosNode.reset(&nh);
   
-  trj_seg_msg.request.seq = 0;
+  // trj_seg_msg.request.seq = 0;
 
   this -> ros_service_client = nh.serviceClient<gazebo_plugin::trajectory_segment>("/navigation/get_next_control");
 
@@ -74,6 +74,17 @@ void autonomos_ideal_plugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf
       boost::bind( &autonomos_ideal_plugin::autonomos_ideal_plugin_pose_connect,this),
       boost::bind( &autonomos_ideal_plugin::autonomos_ideal_plugin_pose_disconnect,this),
       ros::VoidPtr(), NULL);
+
+  string sub_obj_topic_name = "/" + this -> model -> GetName() + "/next_state";
+  // ros::SubscribeOptions so_next_state =
+  //   ros::SubscribeOptions::create<geometry_msgs::Pose2D>(
+  //     sub_obj_topic_name, 1,
+  //     boost::bind(&autonomos_ideal_plugin::update_next_state, this, _1),
+  //     ros::VoidPtr(), NULL);
+
+  // this -> sub_next_state = this -> rosNode -> subscribe(so_next_state);
+  this -> sub_next_state = nh.subscribe(sub_obj_topic_name, 1, 
+    &autonomos_ideal_plugin::update_next_state, this);
 
   this -> pub_pose = this->rosNode->advertise(pose_ao);
   // this -> pub_pose = nh.advertise<geometry_msgs::Pose2D>(pub_pose_topic_name, 1);
@@ -89,6 +100,8 @@ void autonomos_ideal_plugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf
   this -> velocity_target = 0;
 
   gzdbg << "autonomos_ideal_plugin: plugin loaded" << endl;
+  this -> traj_duration = 0;
+  timer.reset();
 
 }
 
@@ -103,6 +116,36 @@ void autonomos_ideal_plugin::autonomos_ideal_plugin_pose_disconnect()
 
 }
 
+void autonomos_ideal_plugin::update_next_state(const geometry_msgs::Pose2DConstPtr &_msg)
+{
+  gzdbg << "Updating next state marker" << endl;
+  ignition::transport::Node node;
+  ignition::msgs::Marker markerMsg;
+
+  markerMsg.set_ns(this -> model -> GetName() + "/next_state");
+  ignition::msgs::Material *matMsg = markerMsg.mutable_material();
+  markerMsg.set_action(ignition::msgs::Marker::ADD_MODIFY);
+  // markerMsg.set_type(ignition::msgs::Marker::TRIANGLE_LIST);
+  markerMsg.set_type(ignition::msgs::Marker::TRIANGLE_STRIP);
+  matMsg->mutable_script()->set_name("Gazebo/Red");
+
+  markerMsg.clear_point();
+
+  ignition::msgs::Set(markerMsg.mutable_pose(), 
+    ignition::math::Pose3d(_msg -> x, _msg -> y, 0, 0, 0, _msg -> theta));
+
+  ignition::msgs::Set(markerMsg.add_point(),
+      ignition::math::Vector3d(-.5, 0.25, 0));
+  ignition::msgs::Set(markerMsg.add_point(),
+      ignition::math::Vector3d(-0.25, 0, 0));
+  ignition::msgs::Set(markerMsg.add_point(),
+      ignition::math::Vector3d(0.5, 0, 0));
+  ignition::msgs::Set(markerMsg.add_point(),
+      ignition::math::Vector3d(-0.5, -0.25, 0));
+
+  node.Request("/marker", markerMsg);
+
+} 
 
 void autonomos_ideal_plugin::next_pose()
 {
@@ -111,7 +154,8 @@ void autonomos_ideal_plugin::next_pose()
   double t_step;
   geometry_msgs::Pose2D pose;
 
-  t_step = this -> step_time.Double();
+  // t_step = this -> step_time.Double();
+  t_step = this -> step_time.toSec();
   steering = this -> steering_pos_traget;
   x_vel_rob = this -> velocity_target;
   
@@ -165,90 +209,54 @@ void autonomos_ideal_plugin::autonomos_disconnect()
 
 void autonomos_ideal_plugin::OnUpdate(const common::UpdateInfo &)
 {    
-  this -> prevUpdateTime = this -> current_time;
-  #if GAZEBO_VERSION_MAJOR >= 8
-    this -> current_time = this -> model -> GetWorld() -> SimTime();
-  #else
-    this -> current_time = this -> model -> GetWorld() -> GetSimTime();
-  #endif
-  this -> step_time = this -> current_time - this->prevUpdateTime;
-  // cout << "plugin OnUpdate" << endl;
-  common::Time diff_time;
-  if (!waiting_valid_traj)
-  {
-    diff_time = seg_fin_time - this -> world -> SimTime();
-
-    // cout << "\t Initial: " << seg_init_time.sec << "." << seg_init_time.nsec << endl;
-    // cout << "\t   Final: " << seg_fin_time.sec << "." << seg_fin_time.nsec << endl;
-    // cout << "\tSteering: " << trj_seg_msg.response.steering << endl;
-    // cout << "\tVel_desi: " << this -> velocity_target << endl;
-
-    if (diff_time <= 0.0 && this -> ros_service_client.call(this -> trj_seg_msg))
+  prevUpdateTime = current_time;
+  // #if GAZEBO_VERSION_MAJOR >= 8
+  //   this -> current_time = this -> model -> GetWorld() -> SimTime();
+  // #else
+  //   this -> current_time = this -> model -> GetWorld() -> GetSimTime();
+  // #endif
+  current_time = ros::Time::now();
+  step_time = current_time - prevUpdateTime;
+  // // cout << "plugin OnUpdate" << endl;
+  // common::Time diff_time;
+  // ros::Duration diff_time;
+  // if (!waiting_valid_traj)
+  // {
+  // diff_time = seg_fin_time - this -> world -> SimTime();
+  // ROS_WARN_STREAM("traj_duration: " << traj_duration);
+  // if (timer.measure() >= this -> traj_duration)
+  // if ( diff_time <= ros::Duration(0.0) )
+  if ( traj_duration <= current_time.toSec() )
+  { 
+    if (this -> ros_service_client.call(this -> trj_seg_msg))
     {
-      if (trj_seg_msg.response.is_valid)
-      {
-        gzdbg << "New segment: " << trj_seg_msg.request.seq << endl;
-        // cout << "Segment: "    << trj_seg_msg.request.seq - 1 << "\tStep: " << this->step_time.Double() << endl;
-        // cout << "\tDuration: " << trj_seg_msg.response.duration << endl;
-        // cout << "\tVel_real: " << this -> model -> RelativeLinearVel().X() << endl; 
+      ROS_DEBUG("Now: %.4f\tdur: %.4f,gz_clock: %.4f", 
+        current_time.toSec(), trj_seg_msg.response.duration, this -> world -> SimTime().Double());
 
-        seg_init_time = this -> world -> SimTime();
-        seg_fin_time.Set(trj_seg_msg.response.duration);
-        seg_fin_time += seg_init_time;
-        
-        this -> velocity_target = trj_seg_msg.response.speed;
-        this -> steering_pos_traget = trj_seg_msg.response.steering;
+      gzdbg << "New segment: " << trj_seg_msg.response.seq << endl;
+      gzdbg << "\tSpeed: " << trj_seg_msg.response.speed << endl;
+      gzdbg << "\tSteering: " << trj_seg_msg.response.steering << endl;
+      gzdbg << "\tDuration: " << trj_seg_msg.response.duration << endl;
 
-        trj_seg_msg.request.seq++;
-
-      }
-      else
-      {
-        gzdbg << "NO new segment: " << endl;
-        this -> velocity_target = 0;
-        this -> steering_pos_traget = 0;
-        // seg_fin_time = this -> world -> SimTime();
-        waiting_valid_traj = true;
-      }
-    }
-  }
-  else if(waiting_valid_traj && this -> ros_service_client.call(trj_seg_msg))
-  {
-
-    if(trj_seg_msg.response.is_valid)
-    {
-      // cout << "valid message" << endl;
-      seg_init_time =  this -> world -> SimTime();
-      seg_fin_time.Set(trj_seg_msg.response.duration);
-      seg_fin_time += seg_init_time;
-      
-      // this -> linear_vel.Set(trj_seg_msg.response.speed, 0, 0);
-      // this -> model -> SetLinearVel(this -> linear_vel);
+      // seg_init_time = this -> world -> SimTime();
+      // seg_fin_time.Set(trj_seg_msg.response.duration);
+      // seg_fin_time += seg_init_time;
+      // seg_init_time = ros::Time::Now();
+      this -> traj_duration  = current_time.toSec() + trj_seg_msg.response.duration;
+      // ROS_WARN("traj_duration UPDATED!!!!");
+      // seg_fin_time += seg_init_time;
+      // timer.reset();
+      // this -> traj_duration = trj_seg_msg.response.duration;
       this -> velocity_target = trj_seg_msg.response.speed;
       this -> steering_pos_traget = trj_seg_msg.response.steering;
-      
-      trj_seg_msg.request.seq++;
-      waiting_valid_traj = false;
-      
-      cout << "Segment: " << trj_seg_msg.request.seq - 1 << endl;
-      cout << "\t Initial: " << seg_init_time.sec << "." << seg_init_time.nsec << endl;
-      cout << "\t   Final: " << seg_fin_time.sec << "." << seg_fin_time.nsec << endl;
-      cout << "\tSteering: " << trj_seg_msg.response.steering << endl;
-      cout << "\tVelocity: " << trj_seg_msg.response.speed << endl;
-      cout << "\tDuration: " << trj_seg_msg.response.duration << endl;
 
-      // cout << "\tDiff: " << diff_time.sec << "." << diff_time.nsec << endl;
     }
     else
     {
-      // cout << "NOT a valid message" << endl;
+      this -> velocity_target     = 0;
+      this -> steering_pos_traget = 0;
     }
   }
-  
-  // gzdbg << "Seq: "    << trj_seg_msg.request.seq - 1 << "\tvalid: " << trj_seg_msg.response.is_valid 
-  //   << "\ttime: " << trj_seg_msg.response.duration << "\tt_left: " << diff_time.Double()
-  //   << "\tvel: "  << this -> velocity_target << "\tste: " << this -> steering_pos_traget
-  //   << endl;
 
   next_pose();
 }

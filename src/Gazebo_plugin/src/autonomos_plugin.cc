@@ -111,28 +111,26 @@ namespace gazebo
       ros::VoidPtr(), &this->rosQueue);
     this->rosSub_vel = this->rosNode->subscribe(so_vel);
 
-
-
     // Spin up the queue helper thread.
     this->rosQueueThread =
-    std::thread(std::bind(&autonomos_plugin::QueueThread, this));
+      std::thread(std::bind(&autonomos_plugin::QueueThread, this));
 
     // Listen to the update event. This event is broadcast every
     // simulation iteration.
     this->updateConnection = event::Events::ConnectWorldUpdateBegin(
       boost::bind(&autonomos_plugin::OnUpdate, this, _1));
 
-     ros::AdvertiseOptions ao =
+    ros::AdvertiseOptions ao =
       ros::AdvertiseOptions::create<geometry_msgs::Pose2D>(
       "/" + this->model->GetName() + "/real_pose_from_gazebo", 1,
       boost::bind(&autonomos_plugin::autonomos_connect, this),
       boost::bind(&autonomos_plugin::autonomos_disconnect, this),
       ros::VoidPtr(), NULL);
 
-      this->pub_ = this->rosNode->advertise(ao);
+    this->pub_ = this->rosNode->advertise(ao);
 
       
-      this->pub_queue_ = this->pmq.addPub<geometry_msgs::Pose2D>();
+    this->pub_queue_ = this->pmq.addPub<geometry_msgs::Pose2D>();
   }
 
   /// \brief Set the velocity of the Velodyne

@@ -23,6 +23,9 @@
 // ign
 #include <ignition/math.hh>
 
+// own
+#include "utilities/ros_timer.hpp"
+
 #define WHEEL_PERIMETER M_PI * 0.03 * 2 // PI * DIAM = PI * RADIUS * 2
 #define REAR_FRONT_DISTANCE 0.25
 
@@ -66,14 +69,28 @@ class autonomos_ideal_plugin : public ModelPlugin
 
     void next_pose();
 
+    void autonomos_ideal_plugin_pose_disconnect();
+
+    void autonomos_ideal_plugin_pose_connect();
+
+    void update_next_state(const geometry_msgs::Pose2DConstPtr &_msg);
+
+
     ///////////////
     // VARIABLES //
     ///////////////
 
     // ignition::math::Pose3d new_pose;
 
-    common::Time seg_init_time;
-    common::Time seg_fin_time;
+    sys_ros_timer_t timer;
+
+    double traj_duration;
+
+    // common::Time seg_init_time;
+    // common::Time seg_fin_time;
+
+    ros::Time seg_init_time;
+    ros::Time seg_fin_time;
 
     bool waiting_valid_traj;
 
@@ -103,25 +120,26 @@ class autonomos_ideal_plugin : public ModelPlugin
     physics::JointPtr joint_left_wheel;
     physics::JointPtr joint_right_wheel;
 
-    physics::JointControllerPtr joint_controller;
-
-
-    /// \brief A PID controller for the joint.
-    common::PID pid_steering;
     common::PID pid_vel_left;
     common::PID pid_vel_right;
-    common::PID pid_vel_model;
+
+    physics::JointControllerPtr joint_controller;
+
+    ros::Publisher pub_pose;
+
+    int autonomos_pose_connection;
 
     /// \brief A node use for ROS transport
     std::unique_ptr<ros::NodeHandle> rosNode;
 
-    common::Time prevUpdateTime;
-    common::Time current_time;
-    common::Time step_time;
+    ros::Time prevUpdateTime;
+    ros::Time current_time;
+    ros::Duration step_time;
+    // double t_step;
     /// \brief A ROS subscriber
     ros::Subscriber rosSub;
     
-    ros::Subscriber rosSub_vel;
+    ros::Subscriber sub_next_state;
 
     ros::ServiceClient ros_service_client;
     ros::NodeHandle _nh;
