@@ -5,7 +5,7 @@
 #include <mutex>
 #include <memory>
 #include <thread>
-
+#include <queue>
 // gazebo
 #include <gazebo/msgs/msgs.hh>
 #include <gazebo/common/Time.hh>
@@ -25,7 +25,7 @@
 #include <ros/subscribe_options.h>
 
 // gazebo_plugin
-#include "gazebo_plugin/gz_visual_line.h"
+// #include "gazebo_plugin/gz_visual_line.h"
 #include "gazebo_plugin/Line_Segment.h"
 
 

@@ -92,31 +92,30 @@ void plot_tree_plugin::get_next_line_segment(const gazebo_plugin::Line_SegmentCo
 /////////////////////////////////////////////////
 void plot_tree_plugin::OnUpdate(const common::UpdateInfo & /*_info*/)
 {
-
-  std::hash<string> ptr_hash;
-  ignition::transport::Node node;
-  ignition::msgs::Marker markerMsg;
-  markerMsg.set_ns(this -> model -> GetName());
-
-  gazebo_plugin::Line_Segment msg;// = this -> lines_queue.front();
-  ignition::msgs::Material *matMsg = markerMsg.mutable_material();
-  // while(! this -> lines_queue.empty())
+  // gzdbg << __PRETTY_FUNCTION__ << endl;
   if(! this -> lines_queue.empty())
   {
+    std::hash<string> ptr_hash;
+    ignition::transport::Node node;
+    ignition::msgs::Marker markerMsg;
+    markerMsg.set_ns(this -> model -> GetName());
+
+    gazebo_plugin::Line_Segment msg;// = this -> lines_queue.front();
+    ignition::msgs::Material *matMsg = markerMsg.mutable_material();
 
     msg = this -> lines_queue.front();
     this -> lines_queue.pop();
     markerMsg.set_id(ptr_hash(msg.header.frame_id));
     // TODO: separate ids and use msg add_modify
     markerMsg.set_action(ignition::msgs::Marker::ADD_MODIFY);
-    
+
     if (msg.line_list)
     {
-      markerMsg.set_type(ignition::msgs::Marker::LINE_LIST);
+      markerMsg.set_type(ignition::msgs::Marker::LINE_STRIP);
     }
     else
     {
-      markerMsg.set_type(ignition::msgs::Marker::LINE_STRIP);
+      markerMsg.set_type(ignition::msgs::Marker::LINE_LIST);
     }
 
     matMsg->mutable_script()->set_name(msg.color);
