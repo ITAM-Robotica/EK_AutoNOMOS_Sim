@@ -1,0 +1,147 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <include>
+      <uri>model://AutoNOMOS_mini_ideal</uri>
+      <pose> 0 0 0 0 0 .785398 </pose>
+    </include>
+
+    <population name="obstacles_1">
+      <!-- <model_count> 10 </model_count> -->
+      <distribution>
+        <type> grid </type>
+        <rows> 5 </rows>
+        <cols> 20 </cols>
+        <step> 0.2 0.2 0 </step>
+      </distribution>
+      <box>
+        <size> 5 1 .1 </size>
+      </box>
+      <pose> -4.5 -3.5 0 </pose>
+      <model name="cube_obstacles_1">
+        <include>
+          <uri> model://obstacle_cube </uri>
+        </include>
+      </model>
+    </population>
+
+    <population name="obstacles_2">
+      <distribution>
+        <type> grid </type>
+        <rows> 5 </rows>
+        <cols> 5 </cols>
+        <step> 0.2 0.2 0 </step>
+      </distribution>
+      <box>
+        <size> 1 1 .1 </size>
+      </box>
+      <pose> -5.5 -5.5 0 </pose>
+      <model name="cube_obstacle_2">
+        <include>
+          <uri> model://obstacle_cube </uri>
+        </include>
+      </model>
+    </population>
+
+    <population name="obstacles_3">
+      <distribution>
+        <type> grid </type>
+        <rows> 5 </rows>
+        <cols> 5 </cols>
+        <step> 0.2 0.2 0 </step>
+      </distribution>
+      <box>
+        <size> 1 1 .1 </size>
+      </box>
+      <pose> -6.5 -8.5 0 </pose>
+      <model name="cube_obstacle_3">
+        <include>
+          <uri> model://obstacle_cube </uri>
+        </include>
+      </model>
+    </population>
+
+    <population name="obstacles_4">
+      <distribution>
+        <type> grid </type>
+        <rows> 5 </rows>
+        <cols> 5 </cols>
+        <step> 0.2 0.2 0 </step>
+      </distribution>
+      <box>
+        <size> 1 1 .1 </size>
+      </box>
+      <pose> -4.5 -9.5 0 </pose>
+      <model name="cube_obstacle_4">
+        <include>
+          <uri> model://obstacle_cube </uri>
+        </include>
+      </model>
+    </population>
+
+    <population name="obstacles_5">
+      <distribution>
+        <type> grid </type>
+        <rows> 5 </rows>
+        <cols> 5 </cols>
+        <step> 0.2 0.2 0 </step>
+      </distribution>
+      <box>
+        <size> 1 1 .1 </size>
+      </box>
+      <pose> -3.5 -7.5 0 </pose>
+      <model name="cube_obstacle_5">
+        <include>
+          <uri> model://obstacle_cube </uri>
+        </include>
+      </model>
+    </population>
+
+    <population name="obstacles_6">
+      <distribution>
+        <type> grid </type>
+        <rows> 5 </rows>
+        <cols> 5 </cols>
+        <step> 0.2 0.2 0 </step>
+      </distribution>
+      <box>
+        <size> 1 1 .1 </size>
+      </box>
+      <pose> -1.5 -5.5 0 </pose>
+      <model name="cube_obstacle_6">
+        <include>
+          <uri> model://obstacle_cube </uri>
+        </include>
+      </model>
+    </population>
+
+    <population name="obstacles_7">
+      <model_count> 20 </model_count>
+      <distribution>
+        <type> random </type>
+        <!-- <rows> 5 </rows> -->
+        <!-- <cols> 5 </cols> -->
+        <!-- <step> 0.2 0.2 0 </step> -->
+      </distribution>
+      <box>
+        <size> 2 2 .1 </size>
+      </box>
+      <pose> -3 -9 0 </pose>
+      <model name="cube_obstacle_7">
+        <include>
+          <uri> model://obstacle_cube </uri>
+        </include>
+      </model>
+    </population>
+
+  </world>
+</sdf>
