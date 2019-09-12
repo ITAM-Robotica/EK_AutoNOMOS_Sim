@@ -17,12 +17,13 @@
     </include>
 
     <population name="obstacles_1">
-      <!-- <model_count> 10 </model_count> -->
+      <model_count> 50 </model_count>
       <distribution>
-        <type> grid </type>
-        <rows> 5 </rows>
-        <cols> 20 </cols>
-        <step> 0.2 0.2 0 </step>
+        <type> random </type>
+        <!-- <type> grid </type> -->
+        <!-- <rows> 5 </rows> -->
+        <!-- <cols> 20 </cols> -->
+        <!-- <step> 0.2 0.2 0 </step> -->
       </distribution>
       <box>
         <size> 5 1 .1 </size>
@@ -36,11 +37,13 @@
     </population>
 
     <population name="obstacles_2">
+      <model_count> 5 </model_count>
       <distribution>
-        <type> grid </type>
-        <rows> 5 </rows>
-        <cols> 5 </cols>
-        <step> 0.2 0.2 0 </step>
+        <type> random </type>
+        <!-- <type> grid </type> -->
+        <!-- <rows> 5 </rows> -->
+        <!-- <cols> 5 </cols> -->
+        <!-- <step> 0.2 0.2 0 </step> -->
       </distribution>
       <box>
         <size> 1 1 .1 </size>
@@ -54,11 +57,13 @@
     </population>
 
     <population name="obstacles_3">
+      <model_count> 7 </model_count>
       <distribution>
-        <type> grid </type>
-        <rows> 5 </rows>
-        <cols> 5 </cols>
-        <step> 0.2 0.2 0 </step>
+        <type> random </type>
+        <!-- <type> grid </type> -->
+        <!-- <rows> 5 </rows> -->
+        <!-- <cols> 5 </cols> -->
+        <!-- <step> 0.2 0.2 0 </step> -->
       </distribution>
       <box>
         <size> 1 1 .1 </size>
@@ -72,11 +77,13 @@
     </population>
 
     <population name="obstacles_4">
+      <model_count> 8 </model_count>
       <distribution>
-        <type> grid </type>
-        <rows> 5 </rows>
-        <cols> 5 </cols>
-        <step> 0.2 0.2 0 </step>
+        <type> random </type>
+        <!-- <type> grid </type> -->
+        <!-- <rows> 5 </rows> -->
+        <!-- <cols> 5 </cols> -->
+        <!-- <step> 0.2 0.2 0 </step> -->
       </distribution>
       <box>
         <size> 1 1 .1 </size>
@@ -90,11 +97,13 @@
     </population>
 
     <population name="obstacles_5">
+      <model_count> 10 </model_count>
       <distribution>
-        <type> grid </type>
-        <rows> 5 </rows>
-        <cols> 5 </cols>
-        <step> 0.2 0.2 0 </step>
+        <type> random </type>
+        <!-- <type> grid </type> -->
+        <!-- <rows> 5 </rows> -->
+        <!-- <cols> 5 </cols> -->
+        <!-- <step> 0.2 0.2 0 </step> -->
       </distribution>
       <box>
         <size> 1 1 .1 </size>
@@ -108,11 +117,13 @@
     </population>
 
     <population name="obstacles_6">
+      <model_count> 5 </model_count>
       <distribution>
-        <type> grid </type>
-        <rows> 5 </rows>
-        <cols> 5 </cols>
-        <step> 0.2 0.2 0 </step>
+        <type> random </type>
+        <!-- <type> grid </type> -->
+        <!-- <rows> 5 </rows> -->
+        <!-- <cols> 5 </cols> -->
+        <!-- <step> 0.2 0.2 0 </step> -->
       </distribution>
       <box>
         <size> 1 1 .1 </size>
@@ -126,7 +137,7 @@
     </population>
 
     <population name="obstacles_7">
-      <model_count> 20 </model_count>
+      <model_count> 10 </model_count>
       <distribution>
         <type> random </type>
         <!-- <rows> 5 </rows> -->
