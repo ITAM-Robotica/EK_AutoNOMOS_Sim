@@ -1,0 +1,16 @@
+material EK/percent_50
+{
+	receive_shadows off
+
+	technique 
+	{
+		pass
+		{
+			ambient  0.5 0 0.5 1
+			diffuse  0.5 0 0.5 1
+			specular 0.5 0 0.5 1
+			emissive 0.5 0 0.5 1
+		}
+	}
+
+}

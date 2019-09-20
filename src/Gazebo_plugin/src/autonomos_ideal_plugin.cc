@@ -149,6 +149,7 @@ void autonomos_ideal_plugin::update_next_state(const geometry_msgs::Pose2DConstP
 
 void autonomos_ideal_plugin::next_pose()
 {
+  // gzdbg << __PRETTY_FUNCTION__ << endl;
   double steering, x_vel_rob, x_vel, y_vel, theta_vel;
   double x_past, y_past, theta_past;
   double t_step;
@@ -228,10 +229,11 @@ void autonomos_ideal_plugin::OnUpdate(const common::UpdateInfo &)
   // if ( diff_time <= ros::Duration(0.0) )
   if ( traj_duration <= current_time.toSec() )
   { 
+    // gzdbg << "duration: " << traj_duration << endl;
     if (this -> ros_service_client.call(this -> trj_seg_msg))
     {
-      ROS_DEBUG("Now: %.4f\tdur: %.4f,gz_clock: %.4f", 
-        current_time.toSec(), trj_seg_msg.response.duration, this -> world -> SimTime().Double());
+      // ROS_DEBUG("Now: %.4f\tdur: %.4f,gz_clock: %.4f", 
+      //   current_time.toSec(), trj_seg_msg.response.duration, this -> world -> SimTime().Double());
 
       gzdbg << "New segment: " << trj_seg_msg.response.seq << endl;
       gzdbg << "\tSpeed: " << trj_seg_msg.response.speed << endl;

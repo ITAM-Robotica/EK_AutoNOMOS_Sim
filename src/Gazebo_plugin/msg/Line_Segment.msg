@@ -17,6 +17,7 @@ Header header
 bool line_list 
 geometry_msgs/Point32[] points
 string color
+float32[] risk
 uint8 action
 uint8 ACTION_ADD_MODIFY=0
 uint8 ACTION_REMOVE=1

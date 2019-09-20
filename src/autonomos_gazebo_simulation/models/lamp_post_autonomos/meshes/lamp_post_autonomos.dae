@@ -247,11 +247,13 @@
             </mesh>
         </geometry>
     </library_geometries>
+    <!--
     <library_materials>
         <material id="ID6" name="__auto_">
             <instance_effect url="#ID7" />
         </material>
-    </library_materials>
+	    </library_materials>
+    -->
     <library_effects>
         <effect id="ID7">
             <profile_COMMON>

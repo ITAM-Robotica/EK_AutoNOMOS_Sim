@@ -98,9 +98,13 @@ class plot_tree_plugin : public ModelPlugin
     // std::unique_ptr<rendering::DynamicLines> dynamicRenderable;
     rendering::DynamicLines *dynamicRenderable;
 
-  rendering::VisualPtr world_visual_ptr;
+    rendering::VisualPtr world_visual_ptr;
 
-  public: bool loaded = false;
+    bool loaded = false;
+
+  private: std::vector<ignition::msgs::Marker>  v_markers_msg;
+    ignition::transport::Node node;
+    // int index;
   // private: MarkerVisualPrivate *dPtr;
 
 

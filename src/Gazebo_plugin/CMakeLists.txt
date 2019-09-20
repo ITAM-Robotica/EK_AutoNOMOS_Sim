@@ -117,6 +117,7 @@ add_dependencies(autonomos_plugin ${catkin_EXPORTED_TARGETS})
 add_dependencies(autonomos_ideal_plugin ${catkin_EXPORTED_TARGETS})
 add_dependencies(plot_tree_plugin ${catkin_EXPORTED_TARGETS})
 add_dependencies(parking_lot ${catkin_EXPORTED_TARGETS})
+add_dependencies(obstacles_plugin ${catkin_EXPORTED_TARGETS})
 
 # Install libraries
 # message("Path: ${PATH}")

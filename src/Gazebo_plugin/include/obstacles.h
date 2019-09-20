@@ -76,6 +76,8 @@ class obstacles_plugin : public WorldPlugin
     void update_next_state(const geometry_msgs::Pose2DConstPtr &_msg);
 
     bool get_obstacles(gazebo_plugin::obstacles_array::Request  &req, gazebo_plugin::obstacles_array::Response &res);
+    
+    bool get_obstacles_dynamic(gazebo_plugin::obstacles_array::Request  &req, gazebo_plugin::obstacles_array::Response &res);
 
     geometry_msgs::Pose pose_ign_to_ros(ignition::math::Pose3d pose);
 
@@ -152,6 +154,7 @@ class obstacles_plugin : public WorldPlugin
     ros::Subscriber sub_next_state;
 
     ros::ServiceServer ros_serv;
+    ros::ServiceServer ros_serv_obs_dyn;
     ros::NodeHandle _nh;
         
     /// \brief A ROS callbackqueue that helps process messages

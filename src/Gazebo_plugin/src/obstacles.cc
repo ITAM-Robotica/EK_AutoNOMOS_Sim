@@ -60,7 +60,10 @@ void obstacles_plugin::Load(physics::WorldPtr _parent, sdf::ElementPtr _sdf)
   
   // trj_seg_msg.request.seq = 0;
 
-  this -> ros_serv = nh.advertiseService("/simulation/get_obstacles/static", &obstacles_plugin::get_obstacles, this);
+  this -> ros_serv = nh.advertiseService(
+    "/simulation/get_obstacles", &obstacles_plugin::get_obstacles, this);
+  // this -> ros_serv_obs_dyn = nh.advertiseService(
+  //   "/simulation/get_obstacles/dynamic", &obstacles_plugin::get_obstacles_dynamic, this);
 
   // string sub_obj_topic_name = "/" + this -> model -> GetName() + "/next_state";
 
@@ -109,9 +112,11 @@ bool obstacles_plugin::get_obstacles(gazebo_plugin::obstacles_array::Request  &r
 
   for(auto m : models)
   {
-    if (m -> GetName() != "ground")
+    //if (m -> GetName() != "ground" || m -> GetName() != "ground_plane")
+    //gzdbg << "Model name: " << m -> GetName() << "\tGround found: " << m -> GetName().find("ground") << endl;
+    if (m -> GetName().find("ground"))
     {
-      gzdbg << "Model name: " << m -> GetName() << endl;
+      // gzdbg << "Model name: " << m -> GetName() << endl;
       res.names.push_back(m -> GetName());
       res.bounding_boxes.push_back(get_box_vertices(m -> CollisionBoundingBox()));
       res.bounding_boxes_dimensions.push_back(box_dimensions(m -> CollisionBoundingBox()));

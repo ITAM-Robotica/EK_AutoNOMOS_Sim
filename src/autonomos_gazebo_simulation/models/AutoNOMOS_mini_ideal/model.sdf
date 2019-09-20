@@ -34,14 +34,14 @@
 	      <update_rate>50</update_rate>
 	      <visualize>true</visualize>
 	      <topic>__default_topic__</topic>
-	      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
-	        <topicName>imu</topicName>
-	        <updateRateHZ>10.0</updateRateHZ>
-	        <gaussianNoise>0.0</gaussianNoise>
-	        <xyzOffset>0 0 0</xyzOffset>
-	        <rpyOffset>0 0 0</rpyOffset>
-	        <frameName>imu_link</frameName>
-	      </plugin>
+	      <!-- <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin"> -->
+	      <!--   <topicName>imu</topicName> -->
+	      <!--   <updateRateHZ>10.0</updateRateHZ> -->
+	      <!--   <gaussianNoise>0.0</gaussianNoise> -->
+	      <!--   <xyzOffset>0 0 0</xyzOffset> -->
+	      <!--   <rpyOffset>0 0 0</rpyOffset> -->
+	      <!--   <frameName>imu_link</frameName> -->
+	      <!-- </plugin> -->
 	      <pose>0 0 0 0 0 0</pose>
 	    </sensor>
     </link>
@@ -514,11 +514,11 @@
 	            <resolution>0.01</resolution>
 	          </range>
 	        </ray>
-	        <plugin name="laser" filename="libgazebo_ros_laser.so"> 
-	          <robotNamespace></robotNamespace>
-	          <topicName>/scan</topicName> 
-	          <frameName>map</frameName> 
-	        </plugin>
+	        <!-- <plugin name="laser" filename="libgazebo_ros_laser.so">  -->
+	        <!--   <robotNamespace></robotNamespace> -->
+	        <!--   <topicName>/scan</topicName>  -->
+	        <!--   <frameName>map</frameName>  -->
+	        <!-- </plugin> -->
 	        <always_on>1</always_on>
 	        <update_rate>30</update_rate>
 	        <visualize>false</visualize>
@@ -583,25 +583,25 @@
 	          </depth_camera>
 	    	</camera>
 
-	    	<plugin name="${link_name}_controller" filename="libgazebo_ros_openni_kinect.so">
-		        <baseline>0.2</baseline>
-		        <alwaysOn>true</alwaysOn>
-		        <updateRate>30</updateRate>
-		        <cameraName>app</cameraName>
-		        <imageTopicName>camera/rgb/image_raw</imageTopicName>
-		        <cameraInfoTopicName>camera/rgb/camera_info</cameraInfoTopicName>
-		        <depthImageTopicName>camera/depth/image_raw</depthImageTopicName>
-		        <depthImageCameraInfoTopicName>camera/depth/camera_info</depthImageCameraInfoTopicName>
-		        <pointCloudTopicName>camera/points</pointCloudTopicName>
-		        <frameName>map</frameName>
-		        <pointCloudCutoffMax>0.5</pointCloudCutoffMax>
-		        <pointCloudCutoff>0.5</pointCloudCutoff>
-		        <CxPrime>0</CxPrime>
-		        <Cx>0</Cx>
-		        <Cy>0</Cy>
-		        <focalLength>0</focalLength>
-		        <hackBaseline>0</hackBaseline>
-		    </plugin>
+	    	<!-- <plugin name="${link_name}_controller" filename="libgazebo_ros_openni_kinect.so"> -->
+		    <!--     <baseline>0.2</baseline> -->
+		    <!--     <alwaysOn>true</alwaysOn> -->
+		    <!--     <updateRate>30</updateRate> -->
+		    <!--     <cameraName>app</cameraName> -->
+		    <!--     <imageTopicName>camera/rgb/image_raw</imageTopicName> -->
+		    <!--     <cameraInfoTopicName>camera/rgb/camera_info</cameraInfoTopicName> -->
+		    <!--     <depthImageTopicName>camera/depth/image_raw</depthImageTopicName> -->
+		    <!--     <depthImageCameraInfoTopicName>camera/depth/camera_info</depthImageCameraInfoTopicName> -->
+		    <!--     <pointCloudTopicName>camera/points</pointCloudTopicName> -->
+		    <!--     <frameName>map</frameName> -->
+		    <!--     <pointCloudCutoffMax>0.5</pointCloudCutoffMax> -->
+		    <!--     <pointCloudCutoff>0.5</pointCloudCutoff> -->
+		    <!--     <CxPrime>0</CxPrime> -->
+		    <!--     <Cx>0</Cx> -->
+		    <!--     <Cy>0</Cy> -->
+		    <!--     <focalLength>0</focalLength> -->
+		    <!--     <hackBaseline>0</hackBaseline> -->
+		    <!-- </plugin> -->
 	    </sensor>
   	</link>
 
@@ -613,9 +613,9 @@
 	    </axis>
 	</joint>
 
-    <plugin name="test_control" filename="libautonomos_ideal_plugin.so">
-      <debug>True</debug>
-    </plugin>
+    <plugin name="test_control" filename="libautonomos_ideal_plugin.so"> 
+      <debug>True</debug> 
+    </plugin> 
     <plugin name="model_plotting_plugin" filename="libplot_tree_plugin.so"/>
 
   </model>

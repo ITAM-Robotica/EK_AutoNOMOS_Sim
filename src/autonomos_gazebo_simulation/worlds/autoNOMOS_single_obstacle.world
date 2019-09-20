@@ -13,19 +13,19 @@
       <pose> 0 0 -0.05 0 0 0 </pose>
     </include>
 
-	<!--   
-	  <include> 
-       <uri>model://AutoNOMOS_mini</uri> 
+   
+    <include> 
+       <uri>model://AutoNOMOS_mini_static</uri> 
        <pose> -2 -5.8 0 0 0 0 </pose> 
-	    </include> 
+    </include> 
 	
-	-->
+
     <include>
       <uri>model://AutoNOMOS_mini_ideal</uri>
       <pose> -5 -7.5 0 0 0 0 </pose>
 		</include>
 	
-	 <plugin name="parking_lot" filename="libparking_lot.so"/> 
+	<!-- <plugin name="parking_lot" filename="libparking_lot.so"/> -->
 
   </world>
 </sdf>
